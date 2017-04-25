@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Topic 1 - Practices</title>
+	<script type="text/javascript">
+	
+	
+	function multiplyNumbers() {
+		var number1 = parseFloat(document.getElementById('number1Box').value);
+		var number2 = parseFloat(document.getElementById('number2Box').value);
+		var result = multiply(number1, number2);
+		document.getElementById('resultBox').value = result;
+	}
+	
+	function divideNumbers() {
+		var number1 = parseFloat(document.getElementById('number1Box').value);
+		var number2 = parseFloat(document.getElementById('number2Box').value);
+		var result = division(number1, number2);
+		document.getElementById('resultBox').value = result;
+	}
+	
+	function division(n1, n2) {
+		result = n1 / n2;
+		return result;
+	}
+	
+	function multiply(n1, n2) {
+		result = n1 * n2;
+		return result;
+	}
+	</script>
+</head>
+<body>
+	<h1>Topic 1 - Functions and Operators</h1>
+	<h2>JavaScript Excersises</h2>
+	<p>Insert two numbers and choose between multiply the number or divide them.</p>
+	Number 1 <input type="text" id="number1Box"><br>
+	Number 2 <input type="text" id="number2Box"><br>
+	<button type="button" onclick="multiplyNumbers()">Multiply</button>
+	<button type="button" onclick="divideNumbers()">Divide</button><br>
+	Result <input type="text" id="resultBox">
+	<p>&#169 2017 - Fernando Hernandez - CIT 261 Mobile Application Development - BYU - Idaho</p>
+</body>
+</html>
