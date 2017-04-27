@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Array Creation</title>
+
+	<script type="text/JavaScript">
+	// Values in master Array for testing purposes.
+	var master = [];
+	var currentArray = -1;
+	function test() {
+	document.getElementById('test').innerHTML = master.length;
+	}
+	//Add new values to Master. (Values are added at the end of the array)
+	function addArray() {
+		var temp =  master;
+		var value = document.getElementById('valueArray').value;
+		if (value == "") {
+			document.getElementById('alert').innerHTML = "You cannot add an empty value.";
+		}
+		else {
+		temp.push(value);
+		document.getElementById('valueArray').value = "";
+		document.getElementById('alert').innerHTML = "";
+		document.getElementById('values').innerHTML = "Your current Array contains " + master.length + " values";
+		//Transfer value from Local Variable to Global Variable.
+		return master = temp;
+		return currentArray = 0;
+		}
+	}
+	
+	//Show Edit Array Value Input Area.
+	function editValue() {
+		if (master.length != 0) {
+			document.getElementById('editValueBox').style.display = 'inline-block';
+			document.getElementById('editButton').style.display = 'none';
+			document.getElementById('saveButton').style.display = 'inline-block';
+			document.getElementById('cancelButton').style.display = 'inline-block';
+			document.getElementById('deleteButton').style.display = 'none';
+		}
+	}
+	
+	//Navigate through the values in the Array.
+	function prev() {
+		var temp = currentArray;
+		if (master.length != 0) {
+			document.getElementById('arrayNumber').style.color = 'black';
+			if (currentArray > 0) {
+			temp -= 1;
+			document.getElementById('arrayNumber').innerHTML = "Value Storaged in Array # " + temp;
+			document.getElementById('currentValue').value = master[temp];
+			}
+			else {
+			temp = master.length - 1;
+			document.getElementById('arrayNumber').innerHTML = "Value Storaged in Array # " + temp;
+			document.getElementById('currentValue').value = master[temp];
+			}
+			//Transfer value from Local Variable to Global Variable.
+			return currentArray = temp;
+		}
+	}
+	
+	function next() {
+		
+		if (master.length != 0) {
+			var temp = 0;
+			document.getElementById('arrayNumber').style.color = 'black';
+			if (currentArray == master.length - 1) {
+			document.getElementById('arrayNumber').innerHTML = "Value Storaged in Array # 0";
+			document.getElementById('currentValue').value = master[0];
+			}
+			else {
+				temp = currentArray + 1;
+				document.getElementById('arrayNumber').innerHTML = "Value Storaged in Array # " + temp;
+				document.getElementById('currentValue').value = master[temp];
+			}
+			//Transfer value from Local Variable to Global Variable.
+			return currentArray = temp;
+		}
+	}
+	
+	function saveValue() {
+		var temp = master;
+		var value = document.getElementById('editValueBox').value;
+		temp[currentArray] = value;
+		document.getElementById('editValueBox').value = "";
+		document.getElementById('editValueBox').style.display = 'none';
+		document.getElementById('editButton').style.display = 'inline-block';
+		document.getElementById('saveButton').style.display = 'none';
+		document.getElementById('cancelButton').style.display = 'none';
+		document.getElementById('deleteButton').style.display = 'inline-block';
+		document.getElementById('currentValue').value = value;
+		
+		//Transfer value from Local Variable to Global Variable.
+		return master = temp;
+	}
+	//Hide Edit Array Value Bar.
+	function cancel() {
+		document.getElementById('editValueBox').value = "";
+		document.getElementById('editValueBox').style.display = 'none';
+		document.getElementById('editButton').style.display = 'inline-block';
+		document.getElementById('saveButton').style.display = 'none';
+		document.getElementById('cancelButton').style.display = 'none';
+		document.getElementById('deleteButton').style.display = 'inline-block';
+	}
+	
+	function deleteArray() {
+		var temp = master;
+		var temp2 = currentArray;
+		//Compare if the array is not index 0.
+		if (master.length != 0) {
+			temp.splice(temp2, 1);
+			temp2 -= 1;
+			if (master.length != 0 && temp2 != -1) {
+				document.getElementById('arrayNumber').innerHTML = "Value Storaged in Array # " + temp2;
+				document.getElementById('currentValue').value = temp[temp2];
+				}
+				else if (temp2 == -1) {
+					temp2 = 0;
+					document.getElementById('arrayNumber').innerHTML = "Value Storaged in Array # " + temp2;
+					document.getElementById('currentValue').value = temp[temp2];
+				}
+				else {
+				document.getElementById('arrayNumber').innerHTML = "No values Found. Please add values to the array.";
+				document.getElementById('arrayNumber').style.color = 'red';
+			document.getElementById('currentValue').value = "";
+				}
+				document.getElementById('values').innerHTML = "Your current Array contains " + master.length + " values";
+			return master = temp;
+			return currentArray = temp2;
+		}
+	}
+	
+	function search() {
+		if (master.length != 0) {
+			var key = document.getElementById('searchBox').value;
+			var match = false;
+			var number = 0;
+			var i = 0;
+			while (i < master.length) {
+				if (master[i] == key) {
+					match = true;
+					number = i;
+				}
+				i++
+			}
+			if (match == true) {
+				document.getElementById('searchResult').innerHTML = "This value is storage in Master[" + number +"]";
+				document.getElementById('searchResult').style.color = 'black';
+				}
+			else {
+				document.getElementById('searchResult').innerHTML = "Value not found on Master";
+				document.getElementById('searchResult').style.color = 'red';
+			}
+		}
+	}
+	
+	</script>
+</head>
+<body>
+	<h1>Arrays</h1>
+	<p>This JavaScript code is to add, edit, search, or delete values in an array.</p>
+	<p id="values">Your current Array contains 0 values.</p>
+	
+	<section id="adding">
+		<h2>Adding Values to the Array</h2>
+		<p><strong>Note:</strong> The value will be storage as String in the LAST index of the Array.</p>
+		Insert the value you want to storage in the Array <input type="text" id="valueArray">
+		<button type="button" onclick="addArray()">Add Value</button>
+		<p id="alert" style="color:red"></p>
+	</section>
+	
+	<section id="look">
+		<h2>Current Arrays</h2>
+		<p><strong>Note:</strong> This section will not work if you have not adding any value to the array.</p>
+		<p id="arrayNumber">Value Storaged on Array # </p>
+		<button type="button" onclick="prev()"><< Prev</button>
+		<input type="text" id="currentValue">
+		<button type="button" onclick="next()">Next >></button><br>
+		<button type="button" onclick="editValue()" id="editButton">Edit Value</button>
+		<input type="text" id="editValueBox" style="display: none">
+		<button type="button" onclick="saveValue()" id="saveButton" style="display:none">Save</button>
+		<button type="button" onclick="cancel()" id="cancelButton" style="display:none">Cancel</button>
+		<button type="button" onclick="deleteArray()" id="deleteButton">Delete</button>
+	</section>
+	
+	<section id="search">
+		<h2>Search Value</h2>
+		<p><strong>Note:</strong> This section will not work if you have not adding any value to the array.</p>
+		Insert the value to search <input type="text" id="searchBox">
+		<button type="button" onclick="search()">Search</button>
+		<p id="searchResult"></p>
+	</section>
+</body>
+</html>
