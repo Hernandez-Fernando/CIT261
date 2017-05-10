@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Objects in JavaScript</title>
+<script type="text/JavaScript">
+
+
+function Cylinder(radius, height) {
+	this.radius = radius;
+	this.height = height;
+}
+
+Cylinder.prototype.volume = 3 * 2 }; /*function() {
+	return this.height * Math.PI * this.radius * this.radius; */
+
+function calculate() {
+var c1 = new Cylinder(7, 5);
+var c2 = new Cylinder(10, 14);
+var c3 = new Cylinder(8, 16);
+document.getElementById('test').innerHTML = c1.volume;
+document.getElementById('test2').innerHTML = c2.volume;
+document.getElementById('test3').innerHTML = c3.volume;
+}
+</script>
+</head>
+<body>
+<h1>Volume of a cylinder</h1>
+<h2>Cilinder #1</h2>
+Insert the Radius <input type="text" id="rBox">
+Insert the Height <input type="text" id="hBox">
+<button type="button" onclick="calculate()">Calculate</button>
+<div id="test"></div>
+
+<h2>Cylinder #2</h2>
+Insert the Radius <input type="text" id="rBox">
+Insert the Height <input type="text" id="hBox">
+<button type="button" onclick="calculate()">Calculate</button>
+<div id="test2"></div>
+<h2>Cylinder #3</h2>
+Insert the Radius <input type="text" id="rBox">
+Insert the Height <input type="text" id="hBox">
+<button type="button" onclick="calculate()">Calculate</button>
+<div id="test3"></div>
+</body>
+</html>
