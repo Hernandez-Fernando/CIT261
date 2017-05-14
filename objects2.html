@@ -55,27 +55,7 @@ document.getElementById('test2').innerHTML = group1.members[0];
 document.getElementById('test3').innerHTML = members.Fernando.email;
 }
 
-function searchName() {
-	var key = document.getElementById('searchNameBox').value;
-	var found = false;
-	var i = 0;
-	
-	while (found == false && i < members.length) {
-		if (Object.keys(i) == key) {
-			found = true;
-			var text = key + '<br>' + "Phone Number: " + members[key].phone + '<br>' + "Email: " + members[key].email + '<br>' + "State: " + members[key].state;
-			document.getElementById('searchResult').innerHTML = text;
-		}
-		
-		else {
-			i++;
-		}
-	}
-	
-	if (found == false) {
-		document.getElementById('searchResult').innerHTML = "No record found";
-	}
-}
+
 
 </script>
 </head>

@@ -2,25 +2,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSON & HttpRequest</title>
+<title>JSON - HttpRequest</title>
 
 <script type="text/JavaScript">
-var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
 var request = new XMLHttpRequest();
-request.responseType = 'JSON';
-request.open('GET', requestURL);
+var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+
+request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var text = JSON.parse(this.responseText);
+		test(text);
+    }
+};
+
+request.open('GET', requestURL, true);
 request.send();
 
-var text = request.response;
-var myObj = JSON.parse(text);
-
-function test() {
+function test(obj) {
+	var myObj = obj;
 	document.getElementById('test').innerHTML = myObj.squadName;
+	var key = "Madame Uppercut";
+	if (myObj.members[1].name == key) {
+		document.getElementById('test2').innerHTML = key;
+	}
+	else {
+		document.getElementById('test2').innerHTML = "No Name Found"
+	}
+
+}
+
+var myJSON = {"area":"CIT", "code":"261", "room":"03", "active":"true"};
+
+function sendJSON() {
+	var jsonFile = JSON.stringify(myJSON);
+	document.getElementById('test3').innerHTML = jsonFile;
 }
 </script> 
 </head>
 <body>
-<button type="button" onclick="test()">Test</button>
-<div id="test"></div>
+	<h1>JSON & HttpRequest</h1>
+	<p>Click the Following button to display the variable that was converted to JSON string by the method JSON.stringify()</p>
+	<button type="button" onclick="sendJSON()">Send</button>
+	<div id="test3"></div>
+	<p>Some auto values from the server will appear in here:</p>
+	<div id="test"></div>
+	<div id="test2"></div>
 </body>
 </html>
