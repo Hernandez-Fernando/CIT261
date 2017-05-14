@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON & HttpRequest</title>
+
+<script type="text/JavaScript">
+var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+var request = new XMLHttpRequest();
+request.responseType = 'JSON';
+request.open('GET', requestURL);
+request.send();
+
+var text = request.response;
+var myObj = JSON.parse(text);
+
+function test() {
+	document.getElementById('test').innerHTML = myObj.squadName;
+}
+</script> 
+</head>
+<body>
+<button type="button" onclick="test()">Test</button>
+<div id="test"></div>
+</body>
+</html>

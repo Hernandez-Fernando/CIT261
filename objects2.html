@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Looking in Objects</title>
+
+<script type="text/JavaScript">
+var myClass = {
+	area:"CIT", 
+	code:"261", 
+	room:"03", 
+	active:true
+};
+
+var group1 = {
+	members: [
+	'Blake', 
+	'Fermin', 
+	'Fernando', 
+	'Mitchell'
+	]
+};
+
+var members = {
+	Blake:{
+		phone:"1234567890", 
+		email:"blake@example.com", 
+		state:"Idaho"
+	}, 
+	
+	Fermin:{
+		phone:"0987654321", 
+		email:"fermin@example.com", 
+		state:"Florida"
+	}, 
+		
+	Fernando:{
+		phone:"3214567890", 
+		email:"fernando@example.com", 
+		state:"Arizona"
+	}, 
+	
+	Mitchell:{
+		phone:"8907654321", 
+		email:"mitchell@example.com", 
+		state:"Utah"
+	}
+	
+};
+
+function test() {
+document.getElementById('test').innerHTML = myClass.area + myClass.code + " - " + myClass.room;
+document.getElementById('test2').innerHTML = group1.members[0];
+document.getElementById('test3').innerHTML = members.Fernando.email;
+}
+
+function searchName() {
+	var key = document.getElementById('searchNameBox').value;
+	var found = false;
+	var i = 0;
+	
+	while (found == false && i < members.length) {
+		if (Object.keys(i) == key) {
+			found = true;
+			var text = key + '<br>' + "Phone Number: " + members[key].phone + '<br>' + "Email: " + members[key].email + '<br>' + "State: " + members[key].state;
+			document.getElementById('searchResult').innerHTML = text;
+		}
+		
+		else {
+			i++;
+		}
+	}
+	
+	if (found == false) {
+		document.getElementById('searchResult').innerHTML = "No record found";
+	}
+}
+
+</script>
+</head>
+
+<body>
+<h1>Look for Member information</h1>
+Insert a member name to Search: <input type="text" id="memberNameBox">
+<button type="button" onlcik="searchName()">Search</button>
+<div id="searchResult"></div>
+<p><strong>Note:</strong> This is just a test button to see if the program reads the values storaged in the Objects.</p>
+<button type="button" onclick="test()">Test</button>
+<div id="test"></div>
+<div id="test2"></div>
+<div id="test3"></div>
+</body>
+</html>
