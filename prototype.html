@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Prototype</title>
+
+<script type="text/JavaScript">
+function Shape(width, height, depth) {
+	this.width = width;
+	this.height = height;
+	this.depth = depth;
+}
+
+Shape.prototype.area = function() {
+	return this.width * this.height;
+};
+
+Shape.prototype.volume = function() {
+	return this.area() * this.depth;
+};
+
+var cube = new Shape(10, 10, 10);
+var rectangle = new Shape(10, 10, 20);
+
+</script>
+
+</head>
+
+<body>
+	<h1>This is a prototype HTML</h1>
+<div id="demo"></div>
+<div id="demo2"></div>
+<div id="test"></div>
+<script>
+document.getElementById('demo').innerHTML = "Cube Area: " + cube.area() + ". Cube Volume: " + cube.volume();
+document.getElementById('demo2').innerHTML = "Rectangle Area: " + rectangle.area() + ". Rectangle Volume: " + rectangle.volume();
+document.getElementById('test').innerHTML = "Works";
+</script>
+</body>
+</html>

@@ -11,16 +11,17 @@ function Cylinder(radius, height) {
 	this.height = height;
 }
 
-Cylinder.prototype.volume = 3 * 2 }; /*function() {
-	return this.height * Math.PI * this.radius * this.radius; */
+Cylinder.prototype.volume = function() {
+	return this.height * Math.PI * this.radius * this.radius;
+};
 
 function calculate() {
 var c1 = new Cylinder(7, 5);
 var c2 = new Cylinder(10, 14);
 var c3 = new Cylinder(8, 16);
-document.getElementById('test').innerHTML = c1.volume;
-document.getElementById('test2').innerHTML = c2.volume;
-document.getElementById('test3').innerHTML = c3.volume;
+document.getElementById('test').innerHTML = c1.volume();
+document.getElementById('test2').innerHTML = c2.volume();
+document.getElementById('test3').innerHTML = c3.volume();
 }
 </script>
 </head>

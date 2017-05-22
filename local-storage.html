@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Local Storage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+footer {
+	background-color: blue;
+	color: white;
+	height: 50px;
+	float: left;
+	width: 100%;
+}
+
+form {
+	float: left;
+	width: 35%;
+}
+ #currentUser {
+	 width: 65%;
+	 float: left;
+ }
+ 
+ section {
+	 width: 100%;
+	 float: left;
+ }
+
+</style>
+
+
+</head>
+
+<body>
+<header>
+	<h1>FH Portal</h1>
+</header>
+<main>
+<h2>Welcome!</h2>
+<p>You are in your FH Portal, please use your User Name and Password to login. (You can use any values)</p>
+
+<form id="userLogin">
+Username <input type="text" id="userBox"> <br>
+Password <input type="password" id="passBox"> <input type="checkbox" onchange="document.getElementById('passBox').type = this.checked ? 'text' : 'password'"> Show password <br>
+<input type="checkbox" id="rememberCheck" name="RemeberMe"> Remember Me <br>
+<button type="button" onclick="login()">Login</button>
+<p id="testResult"></p>
+</form>
+
+<div id="currentUser">
+<h3 id="user"></h3>
+<button id="out" type="button" onclick="logout()">Log Out</button>
+</div>
+
+<section>
+<p>Press the button to show the current username and password values (if any) storaged in localStorage. "undefine" means there is not a real value"</p>
+<button type="button" onclick="test()">Show Values</button>
+<p id="currentValues"></p>
+</section>
+</main>
+
+<footer>
+	<p id="visits"></p>
+	<button type="button" onclick="clearAll()">Clear localStorage</button>
+</footer>
+
+<script type="text/JavaScript">
+//The program will evalueate if any user, pass, or visit count is previous storage in localStorage
+if(typeof(Storage) !== "undefined") {
+        if (localStorage.userName) {
+			//If a username is storage, return welcome back if not, return Welcome guest.
+            document.getElementById('user').innerHTML = "Welcome back, " + localStorage.userName;
+        } else {
+             document.getElementById('user').innerHTML = "Welcome, Guest "; 
+        }
+		if (localStorage.visitscount) {
+			//Return the number of visits (if previous), if not set the session as the first visit.
+            localStorage.visitscount = Number(localStorage.visitscount)+1;
+			document.getElementById('visits').innerHTML = "You have visit this site " + localStorage.visitscount + " time(s)";
+        } else {
+            localStorage.visitscount = 1;
+			document.getElementById('visits').innerHTML = "This is your first time visiting this site";
+        }
+    }
+
+function login() {
+	var name = document.getElementById('userBox').value;
+	var pass = document.getElementById('passBox').value;
+	if (document.getElementById('rememberCheck').checked) {
+		localStorage.setItem('userName', name);
+		localStorage.setItem('password', pass);
+		document.getElementById('userLogin').reset();
+		document.getElementById('user').innerHTML = "Welcome, " + localStorage.userName;
+		document.getElementById('out').style.display = 'block';
+	}
+	
+	else {
+		sessionStorage.userName = pass;
+		document.getElementById('user').innerHTML = "Welcome, " + sessionStorage.userName;
+		document.getElementById('out').style.display = 'block';
+		document.getElementById('userLogin').reset();
+		
+	//Clear localStorage in case the user relogin without checking the Rememeber Me box.
+	localStorage.removeItem('userName');
+	localStorage.removeItem('password');
+	}
+}
+
+function logout() {
+	//Clear localStorage avoiding the remember me box.
+	localStorage.removeItem('userName');
+	localStorage.removeItem('password');
+	document.getElementById('user').innerHTML = "You have successfully logout.";
+	document.getElementById('out').style.display = 'none';
+}
+
+function test() {
+	document.getElementById('testResult').innerHTML = "Username: " + localStorage.userName + '<br>' + "Password: " + localStorage.password + '<br>' + "Visits Count: " + localStorage.visitscount;
+}
+
+function clearAll() {
+	localStorage.clear();
+	test();
+	document.getElementById('visits').innerHTML = "You have not visited this site before";
+}
+</script>
+
+</body>
+</html>
