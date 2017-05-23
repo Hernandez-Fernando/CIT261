@@ -40,8 +40,9 @@ header img {
     float: right;
 }
 
-footer {
+#copy {
     font-size: .9em;
+    font-weight: normal;
 	}
 	
 main > ul {
