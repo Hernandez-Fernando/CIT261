@@ -3,14 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>DOM Manipulation</title>
-
+<style>
+#indexBox {
+	display: none;
+}
+</style>
 </head>
 
 <body>
 <h1>DOM Manipulation</h1>
 <h2>Change text in elements</h2>
-<p>Select the element you want to edit</p>
-
+Insert a text <input type="text" id="insertTexBox">
+<h4>Select paragraph by:</h4>
+<input type="radio" name="option" value="id" onclick="document.getElementById('indexBox').style.display = 'none'"> by Id
+<input type="radio" name="option" value="class" onclick="document.getElementById('indexBox').style.display = 'none'"> by Class
+<input type="radio" name="option" value="tag" onclick="document.getElementById('indexBox').style.display = 'block'"> by Tag Name
+<input type="text" id="indexBox" title="Index Number (1-4)">
+<button type="button" onclick="change()">Change Text</button>
+<h3>This paragraph has an id:</h3>
+<p id="output">This text will be remplaced with your input</p>
+<h3>These paragraphs has the same class:</h3>
+<p id="getClass">We have the same Class</p>
+<p id="getClass">We have the same Class</p>
+<p id="getClass">We have the same Class</p>
+<h3>This paragraph doesn't have a class or id:</h3>
+<p id="output">This text will be remplaced with your input</p>
 <section>
 
 <h2>Create new elements</h2>
@@ -22,9 +39,20 @@ Insert a value <input type="text" id="elementValueBox">
 <div id="creationStation"></div>
 </section>
 
-<p id="test"></P>
-<script type="text/JavaScript">
+<section>
+	<h2>Adding elements</h2>
+	
+</section>
 
+<section>
+	<h2>Deleting elements</h2>
+	
+</section>
+<script type="text/JavaScript">
+function change() {
+	var text = document.getElementById('inserTextBox').value;
+	document.getElementById('output').innerHTML = text;
+}
 
 function elementCreation() {
 	//Get the name tag to create
