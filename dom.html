@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM Manipulation</title>
+
+</head>
+
+<body>
+<h1>DOM Manipulation</h1>
+<h2>Change text in elements</h2>
+<p>Select the element you want to edit</p>
+
+<section>
+
+<h2>Create new elements</h2>
+<p>Select the element you want to create, the value, and press create.</p>
+Insert a tag name <input type="text" id="tagNameBox">
+Insert a value <input type="text" id="elementValueBox">
+<button type="button" onclick="elementCreation()">Create</button>
+
+<div id="creationStation"></div>
+</section>
+
+<p id="test"></P>
+<script type="text/JavaScript">
+
+
+function elementCreation() {
+	//Get the name tag to create
+var element = document.createElement(document.getElementById('tagNameBox').value);
+//Get the node for the new element.
+var elementValue = document.createTextNode(document.getElementById('elementValueBox').value);
+
+//Asign the node to the new element.
+element.appendChild(elementValue);
+
+//Add the element to the document & display to the user.
+var creation = document.getElementById('creationStation');
+creation.appendChild(element);
+}
+
+
+</script>
+</body>
+</html>
