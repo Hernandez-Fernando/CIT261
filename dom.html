@@ -8,26 +8,82 @@
 	display: none;
 }
 </style>
+
+<script type="text/JavaScript">
+
+function elementChanging() {
+	var text = document.getElementById('insertTextBox').value;
+	var options = document.getElementsByName('option');
+	var checked = 4;
+	for(var i = 0; i < options.length; i++){
+    if(options[i].checked) {
+        checked = i;
+    }
+}
+
+
+switch (checked) {
+	case 0:
+		document.getElementById('output').innerHTML = text;
+		break;
+	case 1:
+		var x = document.getElementsByClassName('getClass');
+		for (i = 0; i < x.length; i++) {
+		x[i].innerHTML = text;
+	}
+		break;
+	case 2:
+		var x = document.getElementsByTagName('p');
+		var index = parseInt(document.getElementById('indexBox').value);
+		x[index].innerHTML = text;
+		break;
+}
+}
+function elementCreation() {
+	//Get the name tag to create
+var element = document.createElement(document.getElementById('tagNameBox').value);
+//Get the node for the new element.
+var elementValue = document.createTextNode(document.getElementById('elementValueBox').value);
+
+//Asign the node to the new element.
+element.appendChild(elementValue);
+
+//Add the element to the document & display to the user.
+var creation = document.getElementById('creationStation');
+creation.appendChild(element);
+}
+</script>
+
 </head>
 
 <body>
 <h1>DOM Manipulation</h1>
+<section>
+	
 <h2>Change text in elements</h2>
-Insert a text <input type="text" id="insertTexBox">
+<form>
+Insert a text <input type="text" id="insertTextBox">
 <h4>Select paragraph by:</h4>
-<input type="radio" name="option" value="id" onclick="document.getElementById('indexBox').style.display = 'none'"> by Id
-<input type="radio" name="option" value="class" onclick="document.getElementById('indexBox').style.display = 'none'"> by Class
-<input type="radio" name="option" value="tag" onclick="document.getElementById('indexBox').style.display = 'block'"> by Tag Name
-<input type="text" id="indexBox" title="Index Number (1-4)">
-<button type="button" onclick="change()">Change Text</button>
+	<input type="radio" name="option" value="0" onclick="document.getElementById('indexBox').style.display = 'none'"> by Id
+<input type="radio" name="option" value="1" onclick="document.getElementById('indexBox').style.display = 'none'"> by Class
+<input type="radio" name="option" value="2" onclick="document.getElementById('indexBox').style.display = 'block'"> by Tag Name
+<input type="text" id="indexBox" placeholder="Index Number (0-4)">
+<button type="button" onclick="elementChanging()">Change Text</button>
+</form>
+
+<div id="changingStation">
 <h3>This paragraph has an id:</h3>
 <p id="output">This text will be remplaced with your input</p>
 <h3>These paragraphs has the same class:</h3>
-<p id="getClass">We have the same Class</p>
-<p id="getClass">We have the same Class</p>
-<p id="getClass">We have the same Class</p>
+<p class="getClass">We have the same Class</p>
+<p class="getClass">We have the same Class</p>
+<p class="getClass">We have the same Class</p>
 <h3>This paragraph doesn't have a class or id:</h3>
-<p id="output">This text will be remplaced with your input</p>
+<p>This text will be remplaced with your input</p>
+</div>
+
+</section>
+
 <section>
 
 <h2>Create new elements</h2>
@@ -48,27 +104,7 @@ Insert a value <input type="text" id="elementValueBox">
 	<h2>Deleting elements</h2>
 	
 </section>
-<script type="text/JavaScript">
-function change() {
-	var text = document.getElementById('inserTextBox').value;
-	document.getElementById('output').innerHTML = text;
-}
-
-function elementCreation() {
-	//Get the name tag to create
-var element = document.createElement(document.getElementById('tagNameBox').value);
-//Get the node for the new element.
-var elementValue = document.createTextNode(document.getElementById('elementValueBox').value);
-
-//Asign the node to the new element.
-element.appendChild(elementValue);
-
-//Add the element to the document & display to the user.
-var creation = document.getElementById('creationStation');
-creation.appendChild(element);
-}
 
 
-</script>
 </body>
 </html>
