@@ -7,6 +7,36 @@
 #indexBox {
 	display: none;
 }
+
+#change {
+	background-color: #33ccff;
+	padding: 10px;
+	margin: 0;
+}
+
+#new {
+	background-color: #666699;
+	color: white;
+	padding: 10px;
+	margin: 0;
+	
+}
+
+#add {
+	background-color: #ffa64d;
+	color: white;
+	padding: 10px;
+	margin: 0;
+	
+}
+
+#del {
+	background-color: #ff3333;
+	color: white;
+	padding: 10px;
+	margin: 0;
+	
+}
 </style>
 
 <script type="text/JavaScript">
@@ -14,7 +44,7 @@
 function elementChanging() {
 	var text = document.getElementById('insertTextBox').value;
 	var options = document.getElementsByName('option');
-	var checked = 4;
+	var checked = 3;
 	for(var i = 0; i < options.length; i++){
     if(options[i].checked) {
         checked = i;
@@ -25,18 +55,24 @@ function elementChanging() {
 switch (checked) {
 	case 0:
 		document.getElementById('output').innerHTML = text;
+		document.getElementById('errorBox').innerHTML = "";
 		break;
 	case 1:
 		var x = document.getElementsByClassName('getClass');
 		for (i = 0; i < x.length; i++) {
 		x[i].innerHTML = text;
 	}
+	document.getElementById('errorBox').innerHTML = "";
 		break;
 	case 2:
 		var x = document.getElementsByTagName('p');
 		var index = parseInt(document.getElementById('indexBox').value);
 		x[index].innerHTML = text;
+		document.getElementById('errorBox').innerHTML = "";
 		break;
+	case 3:
+		document.getElementById('errorBox').innerHTML = "Please select an option from below";
+		document.getElementById('errorBox').style.color = 'red';
 }
 }
 function elementCreation() {
@@ -58,12 +94,12 @@ creation.appendChild(element);
 
 <body>
 <h1>DOM Manipulation</h1>
-<section>
+<section id="change">
 	
 <h2>Change text in elements</h2>
 <form>
 Insert a text <input type="text" id="insertTextBox">
-<h4>Select paragraph by:</h4>
+<h4>Select paragraph by:</h4><p id="errorBox"></p>
 	<input type="radio" name="option" value="0" onclick="document.getElementById('indexBox').style.display = 'none'"> by Id
 <input type="radio" name="option" value="1" onclick="document.getElementById('indexBox').style.display = 'none'"> by Class
 <input type="radio" name="option" value="2" onclick="document.getElementById('indexBox').style.display = 'block'"> by Tag Name
@@ -73,18 +109,18 @@ Insert a text <input type="text" id="insertTextBox">
 
 <div id="changingStation">
 <h3>This paragraph has an id:</h3>
-<p id="output">This text will be remplaced with your input</p>
-<h3>These paragraphs has the same class:</h3>
+<p id="output">You can change my text using the 'id' option, or Tag Name - index 0</p>
+<h3>These paragraphs have the same class:</h3>
 <p class="getClass">We have the same Class</p>
 <p class="getClass">We have the same Class</p>
 <p class="getClass">We have the same Class</p>
-<h3>This paragraph doesn't have a class or id:</h3>
-<p>This text will be remplaced with your input</p>
+<h3>Next paragraph doesn't have a class or id:</h3>
+<p>You can change my text using the Tag Name option - index 4</p>
 </div>
 
 </section>
 
-<section>
+<section id="new">
 
 <h2>Create new elements</h2>
 <p>Select the element you want to create, the value, and press create.</p>
@@ -95,12 +131,17 @@ Insert a value <input type="text" id="elementValueBox">
 <div id="creationStation"></div>
 </section>
 
-<section>
+<section id="add">
 	<h2>Adding elements</h2>
-	
+	<ul id="list">
+		<li>First Item (Index 0)</li>
+		<li>Second Item (Index 1)</li>
+		<li>Third Item (Index 2)</li>
+		<li>Forth Item (Index 3)</li>
+	</ul>
 </section>
 
-<section>
+<section id="del">
 	<h2>Deleting elements</h2>
 	
 </section>

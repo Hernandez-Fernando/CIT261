@@ -3,9 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <title>Transitions with JS</title>
+<style>
+#container {
+	position: relative;
+	background: blue;
+	width: 410px;
+	height: 210px;
+}
 
+#animation1 {
+	position: absolute;
+	background: red;
+	width: 10px;
+	height: 10px;
+	top: 0;
+}
+
+</style>
 </head>
 <body>
+<div id="container">
+	<div id="animation1"></div>
+</div>
 
+
+<button type="button" onclick="animation()">Start</button>
+<button type="button" onclick="pause()">Pause</button>
+<script>
+
+
+function animation() {
+	var a1 = document.getElementById('animation1');
+var xy = 0;
+
+var timer = setInterval(frame, 10);
+
+function frame() {
+	if (xy == 400) {
+		clearInterval(timer);
+	} else {
+		xy++;
+		a1.style.left = xy + 'px';
+	}
+}
+}
+
+function pause() {
+	timer = setTimeout(functionReference, milliseconds)
+}
+</script>
 </body>
 </html>
