@@ -40,7 +40,7 @@
 </style>
 
 <script type="text/JavaScript">
-
+//Changing Elements text.
 function elementChanging() {
 	var text = document.getElementById('insertTextBox').value;
 	var options = document.getElementsByName('option');
@@ -75,6 +75,8 @@ switch (checked) {
 		document.getElementById('errorBox').style.color = 'red';
 }
 }
+
+//Creating New Elements
 function elementCreation() {
 	//Get the name tag to create
 var element = document.createElement(document.getElementById('tagNameBox').value);
@@ -88,6 +90,17 @@ element.appendChild(elementValue);
 var creation = document.getElementById('creationStation');
 creation.appendChild(element);
 }
+
+//Adding Elements
+function addinging() {
+	var item = document.createElement('li');
+	var text = document.createTextNode(document.getElementById('addingTextBox').value);
+	item.appendChild(text);
+	
+}
+
+
+//Deleting Elements
 </script>
 
 </head>
@@ -132,18 +145,13 @@ Insert a value <input type="text" id="elementValueBox">
 </section>
 
 <section id="add">
-	<h2>Adding elements</h2>
+	<h2>Adding elements & Deleting Elements</h2>
 	<ul id="list">
 		<li>First Item (Index 0)</li>
 		<li>Second Item (Index 1)</li>
 		<li>Third Item (Index 2)</li>
 		<li>Forth Item (Index 3)</li>
 	</ul>
-</section>
-
-<section id="del">
-	<h2>Deleting elements</h2>
-	
 </section>
 
 

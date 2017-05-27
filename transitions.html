@@ -4,95 +4,43 @@
 <meta charset="UTF-8">
 <title>Transitions with JS</title>
 <style>
-#container {
-	position: relative;
-	background: blue;
-	width: 400px;
-	height: 400px;
-}
-
-#animation1 {
-	position: absolute;
-	background: red;
-	width: 50px;
-	height: 50px;
-	top: 0;
-}
-
+	img {
+		width: 100px;
+		margin: 10px;
+		transition: width 3s;
+		
+	}
+	
 </style>
+
+
 </head>
 <body>
-<div id="container">
-	<div id="animation1"></div>
-</div>
-
-
-<button type="button" onclick="moveLeft()">Left</button>
-<button type="button" onclick="moveUp()">Up</button>
-<button type="button" onclick="moveDown()">Down</button>
-<button type="button" onclick="moveRight()">Right</button>
+<section>
+	<p>Click on the images to see them grow!</p>
+	<img id="im1" src="https://pbs.twimg.com/profile_images/640692317029027840/WyGUnfO9.jpg" alt="Landscape 1">
+	<img src="https://pbs.twimg.com/profile_images/629569022296616960/YKNeqWJk.jpg" alt="Landscape 2">
+	<img src="https://pbs.twimg.com/profile_images/640687635946565632/5pRp2WLy.jpg" alt="Landscape 3">
+	<img src="https://pbs.twimg.com/profile_images/699978214840598528/gRfl-b1X.jpg" alt="Landscape 4">
+</section>
 <script>
+var im = document.getElementsByTagName('img');
 
-var a1 = document.getElementById('animation1');
-var x = 0;
-var y = 0;
-
-
-
-
-function moveUp() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (y == 0) {
-			clearInterval(timer);
-			return y;
-		} else {
-			y--;
-			a1.style.top = y + 'px';
-		}
+im[0].onclick = function() {
+		this.style.width = '250px';
 	}
-}
-
-function moveRight() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (x == 350) {
-			clearInterval(timer);
-			return x;
-		} else {
-			x++;
-			a1.style.left = x + 'px';
-		}
+	
+im[1].onclick = function() {
+		this.style.width = '212.5px';
 	}
-}
-
-function moveDown() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (y == 350) {
-			clearInterval(timer);
-			return y;
-		} else {
-			y++;
-			a1.style.top = y + 'px';
-		}
+	
+im[2].onclick = function() {
+		this.style.width = '175px';
 	}
-}
-
-function moveLeft() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (x == 0) {
-			clearInterval(timer);
-			return x;
-		} else {
-			x--;
-			a1.style.left = x + 'px';
-		}
+	
+im[3].onclick = function() {
+		this.style.width = '137.5px';
 	}
-}
-
-
-</script>
+	</script>
 </body>
 </html>
