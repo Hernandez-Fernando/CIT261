@@ -15,11 +15,34 @@
 	padding: 5px;
 }
 
-input { display: block;}
+.default {
+	font-family: 'Arial', 'Helvetica', sans-serif;
+	font-size: 16px;
+}
+
+.class1 {
+	font-family: 'Arial', 'Helvetica', sans-serif;
+	font-size: 16px;
+	color: white;
+	background-color: black;
+}
+
+.class2 {
+	font-family: 'Arial', 'Helvetica', sans-serif;
+	font-size: 16px;
+	color: blue;
+}
+
+.class3 {
+	font-family: 'Arial', 'Helvetica', sans-serif;
+	font-size: 16px;
+	color: red;
+}
+
 </style>
 
 <script>
-
+//Imagen section
 function value(width, margin, padding) {
 	this.width = width;
 	this.margin = margin;
@@ -38,6 +61,23 @@ function saveChanges() {
 	}
 }
 
+//Changing Classes section
+function switchClass(selection) {
+	switch (selection) {
+		case 0:
+			document.getElementById('text').className = 'default';
+			break;
+		case 1:
+			document.getElementById('text').className = 'class1';
+			break;
+		case 2:
+			document.getElementById('text').className = 'class2';
+			break;
+		case 3:
+			document.getElementById('text').className = 'class3';
+			break;
+	}
+}
 </script>
 
 </head>
@@ -69,6 +109,27 @@ function saveChanges() {
 	
 </section>
 
+<section>
+	<h1>The following paragraph are assigned to the default class, choose one of the different classes to see the change.</h1>
+<pre id="text" class="default"> Lorem ipsum dolor sit amet, in solet labore aperiam cum, 
+quo id utinam phaedrum. Ea cum simul melius diceret, adhuc imperdiet sed te. 
+Veri feugiat id cum, sea everti invenire honestatis in, sit ut omnes putent. 
+Ne tritani eruditi ancillae his, mel debitis deterruisset et. 
+Populo eirmod eum ne, mea audire accusam ex.
 
+Sea decore graece postulant ad, no putant nonumes expetenda his. 
+Noster officiis ne vel, homero dolores salutandi his te. His odio regione constituam ei. 
+Est elit lucilius detraxit ei, ex eam assum zril appetere. 
+Audire dolores est an, in eum habeo quaerendum temporibus. 
+Eu mea sanctus salutatus, eum no errem forensibus. </pre>
+<form>
+	<group>
+		<label>Classes Selector</label>
+		<input type="radio" name="classesSelector" onclick="switchClass(0)" checked> Default 
+		<input type="radio" name="classesSelector" onclick="switchClass(1)"> Class 1 
+		<input type="radio" name="classesSelector" onclick="switchClass(2)"> Class 2 
+		<input type="radio" name="classesSelector" onclick="switchClass(3)"> Class 3
+</group>
+	</section>
 </body>
 </html>
