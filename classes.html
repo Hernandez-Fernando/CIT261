@@ -4,8 +4,71 @@
 <meta charset="UTF-8">
 <title>Manipulating Class with JS</title>
 
+<style>
+
+
+.image {
+	width: 100px;
+	margin: 10px;
+	border: 3px solid;
+	border-color: red;
+	padding: 5px;
+}
+
+input { display: block;}
+</style>
+
+<script>
+
+function value(width, margin, padding) {
+	this.width = width;
+	this.margin = margin;
+	this.padding = padding;
+}
+
+function saveChanges() {
+	var elements = document.getElementsByClassName('image');
+	var inputs = document.getElementsByClassName('changes');
+	var values = new value(inputs[0].value, inputs[1].value, inputs[2].value);
+	
+	for (var i = 0; i < elements.length; i++) {
+		elements[i].style.width = values.width;
+		elements[i].style.margin = values.margin;
+		elements[i].style.padding = values.padding;
+	}
+}
+
+</script>
+
 </head>
 <body>
+<h1>Manipulating Classes with JS</h1>
+
+<div id="s1"></div>
+<section>
+<p>These four images has the same class, change the properties in the fields and click save.</p>
+	<img class="image" src="https://pbs.twimg.com/profile_images/640692317029027840/WyGUnfO9.jpg" alt="Landscape 1">
+	<img class="image" src="https://pbs.twimg.com/profile_images/629569022296616960/YKNeqWJk.jpg" alt="Landscape 2">
+	<img class="image" src="https://pbs.twimg.com/profile_images/640687635946565632/5pRp2WLy.jpg" alt="Landscape 3">
+	<img class="image" src="https://pbs.twimg.com/profile_images/699978214840598528/gRfl-b1X.jpg" alt="Landscape 4">
+<p>Default Values:</p>
+<code>
+	.image {
+	width: 100px;
+	margin: 10px;
+	border-color: red;
+}
+</code>
+<br><br>
+	Width: <input type="text" class="changes">
+	Margin: <input type="text" class="changes">
+	Border Color: <input type="text" class="changes">
+	
+	<button type="button" onclick="saveChanges()">Save Changes</button>
+	
+	
+</section>
+
 
 </body>
 </html>

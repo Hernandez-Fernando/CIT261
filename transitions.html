@@ -17,8 +17,8 @@
 </head>
 <body>
 <section>
-	<p>Click on the images to see them grow!</p>
-	<img id="im1" src="https://pbs.twimg.com/profile_images/640692317029027840/WyGUnfO9.jpg" alt="Landscape 1">
+	<p>Click on the images to see them grow or shrink!</p>
+	<img src="https://pbs.twimg.com/profile_images/640692317029027840/WyGUnfO9.jpg" alt="Landscape 1">
 	<img src="https://pbs.twimg.com/profile_images/629569022296616960/YKNeqWJk.jpg" alt="Landscape 2">
 	<img src="https://pbs.twimg.com/profile_images/640687635946565632/5pRp2WLy.jpg" alt="Landscape 3">
 	<img src="https://pbs.twimg.com/profile_images/699978214840598528/gRfl-b1X.jpg" alt="Landscape 4">
@@ -27,20 +27,36 @@
 var im = document.getElementsByTagName('img');
 
 im[0].onclick = function() {
+	if (im[0].style.width == '250px') {
+		this.style.width = '100px';
+	} else {
 		this.style.width = '250px';
 	}
+}
 	
 im[1].onclick = function() {
+	if (im[1].style.width == '212.5px') {
+		this.style.width = '100px';
+	} else {
 		this.style.width = '212.5px';
 	}
+}
 	
 im[2].onclick = function() {
+	if (im[2].style.width == '175px') {
+		this.style.width = '100px';
+	} else {
 		this.style.width = '175px';
 	}
-	
+}
+
 im[3].onclick = function() {
+	if (im[3].style.width == '137.5px') {
+		this.style.width = '100px';
+	} else {
 		this.style.width = '137.5px';
 	}
-	</script>
+}
+</script>
 </body>
 </html>

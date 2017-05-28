@@ -92,15 +92,21 @@ creation.appendChild(element);
 }
 
 //Adding Elements
-function addinging() {
+function adding() {
 	var item = document.createElement('li');
 	var text = document.createTextNode(document.getElementById('addingTextBox').value);
 	item.appendChild(text);
 	
+	var list = document.getElementById('list');
+	var addIndex = parseInt(document.getElementById('addIndexBox'));
+	list.insertBefore(item, list.childNodes[addIndex]);
 }
 
 
 //Deleting Elements
+function deleting() {
+	
+}
 </script>
 
 </head>
@@ -145,7 +151,10 @@ Insert a value <input type="text" id="elementValueBox">
 </section>
 
 <section id="add">
-	<h2>Adding elements & Deleting Elements</h2>
+	<h2>Adding elements or Deleting Elements</h2>
+	Insert text to add to the list <input type="text" id="addingTextBox">
+	Index <input type="text" id="addIndexBox">
+	<button type="button" onclick="adding()">Add</button>
 	<ul id="list">
 		<li>First Item (Index 0)</li>
 		<li>Second Item (Index 1)</li>
