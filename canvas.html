@@ -9,7 +9,7 @@ canvas {
 }
 
 img {
-	width: 100px;
+	width: 80px;
 }
 
 </style>
@@ -38,6 +38,7 @@ img {
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
 	<img src="images/html5.png" alt="HTML5 Logo" id="logo">
+	<button id="save" onclick="greyScale()">Convert</button>
 	
 
 <script>
@@ -104,6 +105,25 @@ function drawImage() {
 	var canvas = document.getElementById('canvas5');
 	var context = canvas.getContext('2d');
 	var image = document.getElementById('logo');
+	context.drawImage(image, 10, 10);
+	
+	var imageData = context.getImageData(0, 0, 300, 300);
+	
+	//converting hte image to black and white.
+	var r, g, b, g;
+	for (var i = 0; i < imageData.length; i += 4) {
+		r = imageData.data[i];
+		g = imageData.data[i + 1];
+		b = imageData.data[i + 2];
+		g = r * .3 + g * .59 + b * .11;
+		
+		//Assign the proper grayscale to each pixel.
+		imageData.data[i] = g;
+		imageData.data[i + 1] = g;
+		imageData.data[i + 2] = g;
+	}
+	context.putImageData(imageData, 0, 0);
+
 }
 </script>
 </body>
