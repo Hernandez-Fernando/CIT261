@@ -98,7 +98,7 @@ function adding() {
 	item.appendChild(text);
 	
 	var list = document.getElementById('list');
-	var addIndex = parseInt(document.getElementById('addIndexBox'));
+	var addIndex = parseInt(document.getElementById('addIndexBox').value);
 	list.insertBefore(item, list.childNodes[addIndex]);
 }
 
@@ -106,9 +106,8 @@ function adding() {
 //Deleting Elements
 function deleting() {
 	var list = document.getElementById('list');
-	var index = parseInt(document.getElementById('addIndexBox').value);
 	
-	list.removeChild(list.childNodes[0]);
+	list.removeChild(list.lastChild);
 }
 </script>
 
@@ -156,14 +155,14 @@ Insert a value <input type="text" id="elementValueBox">
 <section id="add">
 	<h2>Adding elements or Deleting Elements</h2>
 	Insert text to add to the list <input type="text" id="addingTextBox">
-	Index <input type="text" id="addIndexBox">
+	Insert Before Index <input type="text" id="addIndexBox">
 	<button type="button" onclick="adding()">Add</button>
-		<button type="button" onclick="deleting()">Delete</button>
+		<button type="button" onclick="deleting()">Delete Last</button>
 	<ul id="list">
-		<li>First Item (Index 0)</li>
-		<li>Second Item (Index 1)</li>
-		<li>Third Item (Index 2)</li>
-		<li>Forth Item (Index 3)</li>
+		<li>First Item (Index 1)</li>
+		<li>Second Item (Index 2)</li>
+		<li>Third Item (Index 3)</li>
+		<li>Forth Item (Index 4)</li>
 	</ul>
 </section>
 
