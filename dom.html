@@ -105,7 +105,10 @@ function adding() {
 
 //Deleting Elements
 function deleting() {
+	var list = document.getElementById('list');
+	var index = parseInt(document.getElementById('addIndexBox').value);
 	
+	list.removeChild(list.childNodes[0]);
 }
 </script>
 
@@ -155,6 +158,7 @@ Insert a value <input type="text" id="elementValueBox">
 	Insert text to add to the list <input type="text" id="addingTextBox">
 	Index <input type="text" id="addIndexBox">
 	<button type="button" onclick="adding()">Add</button>
+		<button type="button" onclick="deleting()">Delete</button>
 	<ul id="list">
 		<li>First Item (Index 0)</li>
 		<li>Second Item (Index 1)</li>
