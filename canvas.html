@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+<style>
+canvas {
+	border: dotted 2px black;
+}
+
+img {
+	width: 100px;
+}
+
+</style>
+</head>
+
+<body>
+	<h1>Drawing with JavaScript & Canvas</h1>
+	<canvas id="myFirstCanvas" width="300" height="300">
+		“Sorry! Your browser doesn’t support Canvas.”
+	</canvas>
+	
+	<canvas id="canvas2" width="300" height="300">
+		“Sorry! Your browser doesn’t support Canvas.”
+	</canvas>
+	
+	<canvas id="canvas3" width="300" height="300">
+		“Sorry! Your browser doesn’t support Canvas.”
+	</canvas>
+	
+	<canvas id="canvas4" width="300" height="300">
+		“Sorry! Your browser doesn’t support Canvas.”
+	</canvas>
+	<button id="save" onclick="saving()">Save Drawing</button>
+	<h2>Drawing Images</h2>
+		<canvas id="canvas5" width="300" height="300">
+		“Sorry! Your browser doesn’t support Canvas.”
+	</canvas>
+	<img src="images/html5.png" alt="HTML5 Logo" id="logo">
+	
+
+<script>
+var canvas = document.getElementById('myFirstCanvas');
+var context = canvas.getContext("2d");
+context.strokeStyle = "blue";
+context.fillStyle = "red";
+context.fillRect(10, 10, 100, 100);
+context.strokeRect(10, 10, 100, 100);
+
+document.onload = pattern();
+document.onload = gradient();
+document.onload = circle();
+
+function pattern() {
+	var canvas = document.getElementById('canvas2');
+	var context = canvas.getContext("2d");
+	var imagen = new Image();
+	imagen.src = "favicon.ico";
+	imagen.onload = function() {
+		var pattern = context.createPattern(imagen, "repeat");
+		context.fillStyle = pattern;
+		context.fillRect(10, 10, 100, 100);
+		context.strokeRect(10, 10, 100, 100);
+	}
+}
+
+function gradient() {
+	var canvas = document.getElementById('canvas3');
+	var context = canvas.getContext("2d");
+		context.strokeStyle = "red";
+	var gradient = context.createLinearGradient(0, 0, 0, 200);
+		gradient.addColorStop(0, "blue");
+		gradient.addColorStop(0.6, "orange")
+		gradient.addColorStop(1, "white");
+		
+		context.fillStyle = gradient;
+		context.fillRect(10, 10, 100, 100);
+		context.strokeRect(10, 10, 100, 100);
+}
+
+function circle() {
+	var canvas = document.getElementById('canvas4');
+	var context = canvas.getContext("2d");
+	context.beginPath();
+	context.arc(50, 50, 30, 0, Math.PI * 2, false);
+	context.closePath();
+	context.strokeStyle = "red";
+	context.fillStyle = "blue";
+	context.lineWidth = 3;
+	context.fill();
+	context.stroke();
+}
+
+function saving() { 
+	var canvas = document.getElementById('canvas4');
+	window.open(canvas.toDataURL("image/png"));
+	
+}
+
+window.addEventListener("load", drawImage, false);
+
+function drawImage() {
+	var canvas = document.getElementById('canvas5');
+	var context = canvas.getContext('2d');
+	var image = document.getElementById('logo');
+}
+</script>
+</body>
+</html>
