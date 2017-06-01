@@ -4,79 +4,103 @@
 
 <meta charset="UTF-8">
 <title>Prototype</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
+<style>
+#radiusBox, #heightBox, #deepBox, #radiusLabel, #heightLabel, #deepLabel {
+	display: none;
+}
 
+
+</style>
+</head>
+
+<body>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 2  &gt;</li>
+				<li>File 3  &gt;</li>
+				<li>prototype.html</li>
+			</ul>
+		</nav>
+	<main>
+	<h2>This use Prototype HTML</h2>
+	<h3>Calculate Area and Volume</h3>
+	<p>Select the shape you want to calculate</p>
+	<input type="radio" name="shapeName" checked> Cube
+	<input type="radio" name="shapeName"> Rectangle
+	<input type="radio" name="shapeName"> Cylinder
+<br>
+	<label>Width: </label> <input type="text" id="widthBox">
+	<label id="radiusLabel">Radius: </label> <input type="text" id="radiusBox">	
+	<label id="heightLabel">Height: </label> <input type="text" id="heightBox"> 
+	<label id="deepLabel">Deep: </label> <input type="text" id="deepBox"> 
+	<button type="button" onclick="calculate()">Calculate</button>
+<h3>Output Values</h3>
+	<div id="result"></div>
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+</footer>
 <script type="text/JavaScript">
 //Cube or Rectangle
 function Shape(width, height, depth) {
 	this.width = width;
 	this.height = height;
 	this.depth = depth;
+	this.area = this.width * this.height;
 }
 
-Shape.prototype.area = function() {
-	return this.width * this.height;
-};
-
 Shape.prototype.volume = function() {
-	return this.area() * this.depth;
+	return this.area * this.depth;
 };
 
 //Cylinder
 function cylinder(radius, height) {
 	this.radius = radius;
 	this.height = height;
+	this.area = this.radius * this.radius * Math.PI;
 }
-
-cylinder.prototype.area = function() {
-	
-	
-};
 
 cylinder.prototype.volume = function() {
-	
-}
+	return this.area * this.height;
+};
+
 function calculate() {
 var shape = "";
 var options = document.getElementsByName('shapeName');
-var checked = 3;
+var checked = 0;
+
 	for(var i = 0; i < options.length; i++){
-    if(options[i].checked) {
-        checked = i;
-    }
-}
+	    if(options[i].checked) {
+	        checked = i;
+	    }
+	}
 	switch (checked) {
 		case 0:
+			var width = parseFloat(document.getElementById('widthBox').value);
 			shape = new Shape(width, width, width);
 			break;
 		case 1:
+			var width = parseFloat(document.getElementById('widthBox').value);
+			var height = parseFloat(document.getElementById('heightBox').value);
+			var deep = parseFloat(document.getElementById('deepBox').value);
 			shape = new Shape(width, height, deep);
 			break;
 		case 2:
+			var radius = parseFloat(document.getElementById('radiusBox').value);
+			var height = parseFloat(document.getElementById('heightBox').value);
 			shape = new cylinder(radius, height);
 			break;
 	}
+document.getElementById('result').innerHTML = "Area: " + shape.area + "<br>" + "Volume: " + shape.volume();
 }
-</script>
-
-</head>
-
-<body>
-	<h1>This is a prototype HTML</h1>
-	<input type="radio" name="shapeName" value="0" checked> Cube
-	<input type="radio" name="shapeName" value="1"> Rectangle
-	<input type="radio" name="shapeName" value="2"> Cylinder
-<br>
-	Insert Width: <input type="text" id="widthBox">
-	Insert Radious: <input type="text" id="widthBox">	
-	Insert Height: <input type="text" id="heightBox"> 
-	Insert Deep: <input type="text" id="widthBox"> 
-	<button type="button" id="calculate()">Calculate</button>
-<div id="result"></div>
-
-<script>
-document.getElementById('demo').innerHTML = "Cube Area: " + cube.area() + ". Cube Volume: " + cube.volume();
-document.getElementById('demo2').innerHTML = "Rectangle Area: " + rectangle.area() + ". Rectangle Volume: " + rectangle.volume();
-document.getElementById('test').innerHTML = "Works";
 </script>
 </body>
 </html>
