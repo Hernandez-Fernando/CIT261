@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Functions Parameters and Associative Arrays</title>
+<style>
+table {
+	border: 1px solid black;
+}
+
+tr td {
+	border: 1px solid black;
+	
+}
+
+button {
+	font-size: 1em;
+	padding: 5px;
+	background-color: blue;
+	color: white;
+}
+
+#receipt {
+	background-color: lightgrey;
+	padding: 5px;
+	width: 350px;
+	margin: 10px;
+	border-radius: 15px;
+}
+</style>
+<script>
+var product = [];
+var unit, price, subtotal, total = 0;
+
+function addProduct() {
+	product = document.getElementById('product').value;
+	unit = Math.round(parseFloat(document.getElementById('quantity').value) * 100) / 100;
+	price = Math.round(parseFloat(document.getElementById('price').value) * 100) / 100;
+	subtotal = calculate(unit, price);
+	total += subtotal;
+	document.getElementById('station').reset();
+	createReceipt(product, unit, price, subtotal);
+	document.getElementById('totalBox').value = "$ " + total;
+}
+
+function calculate(quantity, price) {
+	var result = quantity * price;
+	result = Math.round(result * 100) / 100;
+	return result;
+}
+
+function createReceipt(product, unit, price, subtotal) {
+	var tr = document.createElement('tr');
+	var list = document.getElementById('list');
+	list.appendChild(tr);
+	
+	for (var i = 0; i < 4; i++) {
+	var last = document.getElementById('list').lastChild;
+		var td = document.createElement('td');
+		var textNode = "";
+		switch (i) {
+			case 0:
+				textNode = document.createTextNode(product);
+				break;
+			case 1:
+				textNode = document.createTextNode(unit);
+				break;
+			case 2:
+				textNode = document.createTextNode(price);
+				break;
+			case 3:
+				textNode = document.createTextNode(subtotal);
+				break;
+			}
+		td.appendChild(textNode);
+		last.appendChild(td);
+			
+		};
+	
+}
+
+</script>
+</head>
+
+<body>
+	<h1>Functions with Parameters</h1>
+	<h2>Sale Point</h2>
+	<form id="station">
+	<table>
+		<tr>
+			<td>Product</td>
+			<td>Quantity</td>
+			<td>Unit Price</td>
+		</tr>
+		<tr>
+			
+	<td><input type="text" id="product"></td>
+	<td><input type="text" id="quantity"></td>
+	<td><input type="text" id="price"></td>
+</tr>
+</table>
+
+	<button type="button" onclick="addProduct()">Add Product</button>
+	</form>
+	
+	<section id="receipt">
+		<h3>User Receipt</h3>
+		<h4>Fernando Hernandez</h4>
+		<p>CIT 261 - Mobile Application Develpment</p>
+		<div id="productList">
+			<table>
+				<thead>
+					<tr>
+						<td>Product</td>
+						<td>Quantity</td>
+						<td>Price</td>
+						<td>Subtotal</td>
+				</thead>
+				<tbody id="list">
+					
+				</tbody>
+			</table>
+			Total <input type="text" id="totalBox" readonly="true">
+		</div>
+		
+		
+		
+	</section>
+
+</body>
+</html>
