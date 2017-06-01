@@ -22,53 +22,77 @@ var group1 = {
 	]
 };
 
-var members = {
-	Blake:{
+var members = [
+	{
+		name: "Blake",
+		lastName: "Turley",
 		phone:"1234567890", 
 		email:"blake@example.com", 
 		state:"Idaho"
 	}, 
 	
-	Fermin:{
+	{
+		name: "Fermin",
+		lastName: "Acevo",
 		phone:"0987654321", 
 		email:"fermin@example.com", 
 		state:"Florida"
 	}, 
 		
-	Fernando:{
+	{
+		name: "Fernando", 
+		lastName: "Hernandez",
 		phone:"3214567890", 
 		email:"fernando@example.com", 
 		state:"Arizona"
 	}, 
 	
-	Mitchell:{
+	{
+		name: "Mitchell", 
+		lastName: "Schwartz",
 		phone:"8907654321", 
 		email:"mitchell@example.com", 
 		state:"Utah"
 	}
 	
-};
+];
 
 function test() {
 document.getElementById('test').innerHTML = myClass.area + myClass.code + " - " + myClass.room;
 document.getElementById('test2').innerHTML = group1.members[0];
-document.getElementById('test3').innerHTML = members.Fernando.email;
+document.getElementById('test3').innerHTML = members[0].email;
 }
 
+function nameSearch() {
+	var key = document.getElementById('nameBox').value;
+	var index = 5;
+	for (var i = 0; i < members.length; i++) {
+		if (members[i].name == key) {
+		index = i;
+		}
+	}
+ if (index != 5) {
+document.getElementById('test4').innerHTML = "Full Name: " + members[index].name + " " + members[index].lastName + "<br>" + "Phone Number: " + members[index].phone + "<br>" + "Email: " + members[index].email + "<br>" + "Location: " + members[index].state;
+} else {
+	document.getElementById('test4').innerHTML = "Record no found";
+}
 
+}
 
 </script>
 </head>
 
 <body>
 <h1>Look for Member information</h1>
-Insert a member name to Search: <input type="text" id="memberNameBox">
-<button type="button" onlcik="searchName()">Search</button>
+Insert a member name to Search: <input type="text" id="nameBox">
+<button type="button" onclick="nameSearch()">Search</button>
 <div id="searchResult"></div>
 <p><strong>Note:</strong> This is just a test button to see if the program reads the values storaged in the Objects.</p>
 <button type="button" onclick="test()">Test</button>
 <div id="test"></div>
 <div id="test2"></div>
 <div id="test3"></div>
+<h2>Member Information</h2>
+<div id="test4"></div>
 </body>
 </html>
