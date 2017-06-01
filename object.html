@@ -15,14 +15,26 @@ Cylinder.prototype.volume = function() {
 	return this.height * Math.PI * this.radius * this.radius;
 };
 
-function calculate() {
-var c1 = new Cylinder(7, 5);
-var c2 = new Cylinder(10, 14);
-var c3 = new Cylinder(8, 16);
-document.getElementById('test').innerHTML = c1.volume();
-document.getElementById('test2').innerHTML = c2.volume();
-document.getElementById('test3').innerHTML = c3.volume();
+function calculateOne() {
+	var radius = parseFloat(document.getElementById('rBox').value);
+	var height = parseFloat(document.getElementById('hBox').value);
+	var cylinder = new Cylinder(radius, height);
+	document.getElementById('test').innerHTML = cylinder.volume();
 }
+function calculateTwo() {
+	var radius = parseFloat(document.getElementById('rBox2').value);
+	var height = parseFloat(document.getElementById('hBox2').value);
+	var cylinder = new Cylinder(radius, height);
+	document.getElementById('test2').innerHTML = cylinder.volume();
+}
+
+function calculateThree() {
+	var radius = parseFloat(document.getElementById('rBox3').value);
+	var height = parseFloat(document.getElementById('hBox3').value);
+	var cylinder = new Cylinder(radius, height);
+	document.getElementById('test3').innerHTML = cylinder.volume();
+}
+
 </script>
 </head>
 <body>
@@ -30,18 +42,18 @@ document.getElementById('test3').innerHTML = c3.volume();
 <h2>Cilinder #1</h2>
 Insert the Radius <input type="text" id="rBox">
 Insert the Height <input type="text" id="hBox">
-<button type="button" onclick="calculate()">Calculate</button>
+<button type="button" onclick="calculateOne()">Calculate</button>
 <div id="test"></div>
 
 <h2>Cylinder #2</h2>
-Insert the Radius <input type="text" id="rBox">
-Insert the Height <input type="text" id="hBox">
-<button type="button" onclick="calculate()">Calculate</button>
+Insert the Radius <input type="text" id="rBox2">
+Insert the Height <input type="text" id="hBox2">
+<button type="button" onclick="calculateTwo()">Calculate</button>
 <div id="test2"></div>
 <h2>Cylinder #3</h2>
-Insert the Radius <input type="text" id="rBox">
-Insert the Height <input type="text" id="hBox">
-<button type="button" onclick="calculate()">Calculate</button>
+Insert the Radius <input type="text" id="rBox3">
+Insert the Height <input type="text" id="hBox3">
+<button type="button" onclick="calculateThree()">Calculate</button>
 <div id="test3"></div>
 </body>
 </html>

@@ -6,6 +6,7 @@
 <title>Prototype</title>
 
 <script type="text/JavaScript">
+//Cube or Rectangle
 function Shape(width, height, depth) {
 	this.width = width;
 	this.height = height;
@@ -20,18 +21,58 @@ Shape.prototype.volume = function() {
 	return this.area() * this.depth;
 };
 
-var cube = new Shape(10, 10, 10);
-var rectangle = new Shape(10, 10, 20);
+//Cylinder
+function cylinder(radius, height) {
+	this.radius = radius;
+	this.height = height;
+}
 
+cylinder.prototype.area = function() {
+	
+	
+};
+
+cylinder.prototype.volume = function() {
+	
+}
+function calculate() {
+var shape = "";
+var options = document.getElementsByName('shapeName');
+var checked = 3;
+	for(var i = 0; i < options.length; i++){
+    if(options[i].checked) {
+        checked = i;
+    }
+}
+	switch (checked) {
+		case 0:
+			shape = new Shape(width, width, width);
+			break;
+		case 1:
+			shape = new Shape(width, height, deep);
+			break;
+		case 2:
+			shape = new cylinder(radius, height);
+			break;
+	}
+}
 </script>
 
 </head>
 
 <body>
 	<h1>This is a prototype HTML</h1>
-<div id="demo"></div>
-<div id="demo2"></div>
-<div id="test"></div>
+	<input type="radio" name="shapeName" value="0" checked> Cube
+	<input type="radio" name="shapeName" value="1"> Rectangle
+	<input type="radio" name="shapeName" value="2"> Cylinder
+<br>
+	Insert Width: <input type="text" id="widthBox">
+	Insert Radious: <input type="text" id="widthBox">	
+	Insert Height: <input type="text" id="heightBox"> 
+	Insert Deep: <input type="text" id="widthBox"> 
+	<button type="button" id="calculate()">Calculate</button>
+<div id="result"></div>
+
 <script>
 document.getElementById('demo').innerHTML = "Cube Area: " + cube.area() + ". Cube Volume: " + cube.volume();
 document.getElementById('demo2').innerHTML = "Rectangle Area: " + rectangle.area() + ". Rectangle Volume: " + rectangle.volume();
