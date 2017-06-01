@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Sorting Arrays</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <script type="text/javascript">
 	var names = ["Fernando", "Paloma", "Jacqueline", "Francisco", "Kj", "Federico", "Angel", "Natalie", "Caitie"];
 	var numbers = [26, 15, 89, 77, 55, 50, 2, 13, 64, 92, 102, 18, 44, 76, 38, 9]; 
@@ -26,22 +29,38 @@
 	</script>
 </head>
 <body>
-	<h1>Sorting Arrays</h1>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 1  &gt;</li>
+				<li>File 2  &gt;</li>
+				<li>sort.html</li>
+			</ul>
+		</nav>
+		<main>
+	<h2>Sorting Arrays</h2>
 	
 	<section id="string">
-	<h2>String Arrays</h2>
+	<h3>String Arrays</h3>
 	<p>You can see the current values in the array. Click the "Sort" button to order the values desending order.</p>
 	<p id="displayNames"></p>
 	<button type="button" onclick="sortString()">Sort</button>
 	</section>
 	
 	<section id="number">
-	<h2>Number Arrays</h2>
+	<h3>Number Arrays</h3>
 	<p>You can see the current values in the array. Click the "Sort" button to order the values desending order.</p>
 	<p id="numbersDisplay"></p>
 	<button type="button" onclick="sortNumbers()">Sort</button>
 	</section>
-
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 </body>
 <script type="text/javascript">
 	window.onload = currentValues();

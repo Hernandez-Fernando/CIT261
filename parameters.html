@@ -3,26 +3,46 @@
 <head>
 <meta charset="utf-8">
 <title>Functions Parameters and Associative Arrays</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <style>
 
-tr td {
+#receipt table tr td {
 	border: 1px solid black;
-	
+	width: 200px;
+}
+th {
+	width: 200px;
+}
+table {
+	text-align: center;
+}
+
+#receipt table {
+	margin: 5px auto;
 }
 
 button {
 	font-size: 1em;
 	padding: 5px;
-	background-color: blue;
+	background-color: #AB0D0D;
 	color: white;
+	float: right;
+	
+}
+form {
+	width: 50%;
+	height: 150px;
 }
 
 #receipt {
 	background-color: lightgrey;
 	padding: 5px;
 	width: 350px;
-	margin: 10px;
+	margin: 10px auto;
 	border-radius: 15px;
+	text-align: center;
 }
 </style>
 <script>
@@ -80,8 +100,21 @@ function createReceipt(product, unit, price, subtotal) {
 </head>
 
 <body>
-	<h1>Functions with Parameters</h1>
-	<h2>Sale Point</h2>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 1  &gt;</li>
+				<li>File 3  &gt;</li>
+				<li>parameters.html</li>
+			</ul>
+		</nav>
+		<main>
+	<h2>Functions with Parameters</h2>
+	<h3>Sale Point</h3>
 	<form id="station">
 	<table>
 		<tr>
@@ -108,10 +141,10 @@ function createReceipt(product, unit, price, subtotal) {
 			<table>
 				<thead>
 					<tr>
-						<td>Product</td>
-						<td>Quantity</td>
-						<td>Price</td>
-						<td>Subtotal</td>
+						<th>Product</th>
+						<th>Quantity</th>
+						<th>Price</th>
+						<th>Subtotal</th>
 				</thead>
 				<tbody id="list">
 					
@@ -123,6 +156,9 @@ function createReceipt(product, unit, price, subtotal) {
 		
 		
 	</section>
-
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 </body>
 </html>

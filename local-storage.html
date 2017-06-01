@@ -4,29 +4,27 @@
 
 <meta charset="UTF-8">
 <title>Local Storage</title>
+<title>Prototype</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <style>
-footer {
-	background-color: blue;
+#visitSection {
+	background-color: grey;
 	color: white;
-	height: 50px;
-	float: left;
-	width: 100%;
 }
 
 form {
 	float: left;
-	width: 35%;
+	width: 45%;
 }
  #currentUser {
-	 width: 65%;
+	 width: 55%;
+	 height: 150px;
 	 float: left;
  }
  
- section {
-	 width: 100%;
-	 float: left;
- }
+
 
 </style>
 
@@ -35,9 +33,18 @@ form {
 
 <body>
 <header>
-	<h1>FH Portal</h1>
-</header>
-<main>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 5  &gt;</li>
+				<li>File 1  &gt;</li>
+				<li>local-storage.html</li>
+			</ul>
+		</nav>
+		<main>
 <h2>Welcome!</h2>
 <p>You are in your FH Portal, please use your User Name and Password to login. (You can use any values)</p>
 
@@ -59,13 +66,15 @@ Password <input type="password" id="passBox"> <input type="checkbox" onchange="d
 <button type="button" onclick="test()">Show Values</button>
 <p id="currentValues"></p>
 </section>
-</main>
 
-<footer>
+<section id="visitSection">
 	<p id="visits"></p>
 	<button type="button" onclick="clearAll()">Clear localStorage</button>
-</footer>
-
+</section>
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 <script type="text/JavaScript">
 //The program will evalueate if any user, pass, or visit count is previous storage in localStorage
 if(typeof(Storage) !== "undefined") {
@@ -97,7 +106,7 @@ function login() {
 	}
 	
 	else {
-		sessionStorage.userName = pass;
+		sessionStorage.userName = name;
 		document.getElementById('user').innerHTML = "Welcome, " + sessionStorage.userName;
 		document.getElementById('out').style.display = 'block';
 		document.getElementById('userLogin').reset();

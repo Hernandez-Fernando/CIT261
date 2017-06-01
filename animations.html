@@ -3,12 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Animations with JS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <style>
 #container {
 	position: relative;
 	background: blue;
 	width: 400px;
 	height: 400px;
+	margin: 10px;
 }
 
 #animation1 {
@@ -44,6 +48,20 @@ button:hover {
 </style>
 </head>
 <body>
+		<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 8  &gt;</li>
+				<li>File 2  &gt;</li>
+				<li>animations.html</li>
+			</ul>
+		</nav>
+<main>
+	<h2>Animations</h2>
 <div id="container">
 	<div id="animation1"></div>
 </div>
@@ -53,6 +71,10 @@ button:hover {
 <button type="button" onclick="moveUp()">Up</button>
 <button type="button" onclick="moveDown()">Down</button>
 <button type="button" onclick="moveRight()">Right</button>
+</main>
+<footer>
+<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 <script>
 
 var a1 = document.getElementById('animation1');

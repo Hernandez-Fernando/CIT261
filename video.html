@@ -3,15 +3,22 @@
 <head>
 <meta charset="utf-8">
 <title>Audio and Video</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <style>
 
-img {
+div img {
 	width: 200px;
 	position: relative;
 	bottom: 0;
 	padding: 0;
 }
-
+video {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
 audio {
 	display: block;
 	position: relative;
@@ -22,10 +29,23 @@ audio {
 </head>
 
 <body>
-	<h1>HTML Video</h1>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 10  &gt;</li>
+				<li>File 1  &gt;</li>
+				<li>video.html</li>
+			</ul>
+		</nav>
+		<main>
+	<h2>HTML Video & Audio</h2>
 	<p>These videos were recorded by classmates from my CIT 230 class at BYU-Idaho.</p>
 	<video src="media/HTML5Video.mp4" width="800" height="400" controls></video>
-	
+	<br>
 	<p>This video has autoplay but muted by default (You can change the volume using the video controls)</p>
 	<video src="media/svg.mp4" width="800" height="400" controls autoplay muted poster="images/tribute.jpg"></video>
 	<h1>HTML Audio</h1>
@@ -37,5 +57,9 @@ audio {
 
 </div>
 </section>
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 </body>
 </html>

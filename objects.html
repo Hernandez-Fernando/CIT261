@@ -4,7 +4,9 @@
 
 <meta charset="UTF-8">
 <title>Looking in Objects</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <script type="text/JavaScript">
 var myClass = {
 	area:"CIT", 
@@ -83,7 +85,20 @@ document.getElementById('test4').innerHTML = "Full Name: " + members[index].name
 </head>
 
 <body>
-<h1>Look for Group 1 Memeber</h1>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 2  &gt;</li>
+				<li>File 2  &gt;</li>
+				<li>objects.html</li>
+			</ul>
+		</nav>
+		<main>
+<h2>Look for Group 1 Memeber</h2>
 <p>This objects includes the members "Blake", "Fermin", "Fernando", and "Mitchell".</p>
 Insert a member name to Search: <input type="text" id="nameBox">
 <button type="button" onclick="nameSearch()">Search</button>
@@ -95,5 +110,9 @@ Insert a member name to Search: <input type="text" id="nameBox">
 <div id="test3"></div>
 <h2>Member Information</h2>
 <div id="test4"></div>
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 </body>
 </html>

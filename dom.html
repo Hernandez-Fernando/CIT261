@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>DOM Manipulation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <style>
 #indexBox {
 	display: none;
@@ -11,7 +14,7 @@
 #change {
 	background-color: #33ccff;
 	padding: 10px;
-	margin: 0;
+	margin-top: 10px;
 }
 
 #new {
@@ -114,10 +117,23 @@ function deleting() {
 </head>
 
 <body>
-<h1>DOM Manipulation</h1>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 6  &gt;</li>
+				<li>File 1  &gt;</li>
+				<li>dom.html</li>
+			</ul>
+		</nav>
+		<main>
+<h2>DOM Manipulation</h2>
 <section id="change">
 	
-<h2>Change text in elements</h2>
+<h3>Change text in elements</h3>
 <form>
 Insert a text <input type="text" id="insertTextBox">
 <h4>Select paragraph by:</h4><p id="errorBox"></p>
@@ -129,13 +145,13 @@ Insert a text <input type="text" id="insertTextBox">
 </form>
 
 <div id="changingStation">
-<h3>This paragraph has an id:</h3>
+<h4>This paragraph has an id:</h4>
 <p id="output">You can change my text using the 'id' option, or Tag Name - index 0</p>
-<h3>These paragraphs have the same class:</h3>
+<h4>These paragraphs have the same class:</h4>
 <p class="getClass">We have the same Class</p>
 <p class="getClass">We have the same Class</p>
 <p class="getClass">We have the same Class</p>
-<h3>Next paragraph doesn't have a class or id:</h3>
+<h4>Next paragraph doesn't have a class or id:</h4>
 <p>You can change my text using the Tag Name option - index 4</p>
 </div>
 
@@ -143,7 +159,7 @@ Insert a text <input type="text" id="insertTextBox">
 
 <section id="new">
 
-<h2>Create new elements</h2>
+<h3>Create new elements</h3>
 <p>Select the element you want to create, the value, and press create.</p>
 Insert a tag name <input type="text" id="tagNameBox">
 Insert a value <input type="text" id="elementValueBox">
@@ -153,7 +169,7 @@ Insert a value <input type="text" id="elementValueBox">
 </section>
 
 <section id="add">
-	<h2>Adding elements or Deleting Elements</h2>
+	<h3>Adding elements or Deleting Elements</h3>
 	Insert text to add to the list <input type="text" id="addingTextBox">
 	Insert Before Index <input type="text" id="addIndexBox">
 	<button type="button" onclick="adding()">Add</button>
@@ -165,7 +181,9 @@ Insert a value <input type="text" id="elementValueBox">
 		<li>Forth Item (Index 4)</li>
 	</ul>
 </section>
-
-
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 </body>
 </html>

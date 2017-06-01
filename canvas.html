@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>Canvas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <style>
 canvas {
 	border: dotted 2px black;
+	margin-top: 10px;
 }
 
 img {
@@ -16,7 +20,20 @@ img {
 </head>
 
 <body>
-	<h1>Drawing with JavaScript & Canvas</h1>
+		<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 10  &gt;</li>
+				<li>File 2  &gt;</li>
+				<li>canvas.html</li>
+			</ul>
+		</nav>
+		<main>
+	<h2>Drawing with JavaScript & Canvas</h2>
 	<canvas id="myFirstCanvas" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
@@ -33,14 +50,17 @@ img {
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
 	<button id="save" onclick="saving()">Save Drawing</button>
-	<h2>Drawing Images</h2>
+	<h3>Drawing Images</h3>
 		<canvas id="canvas5" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
 	<img src="images/html5.png" alt="HTML5 Logo" id="logo">
 	<button id="save" onclick="greyScale()">Convert</button>
 	
-
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 <script>
 var canvas = document.getElementById('myFirstCanvas');
 var context = canvas.getContext("2d");

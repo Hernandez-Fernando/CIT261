@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Objects in JavaScript</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
 <script type="text/JavaScript">
 
 
@@ -19,41 +22,58 @@ function calculateOne() {
 	var radius = parseFloat(document.getElementById('rBox').value);
 	var height = parseFloat(document.getElementById('hBox').value);
 	var cylinder = new Cylinder(radius, height);
-	document.getElementById('test').innerHTML = cylinder.volume();
+	document.getElementById('test').innerHTML = "Volume: " + cylinder.volume();
 }
 function calculateTwo() {
 	var radius = parseFloat(document.getElementById('rBox2').value);
 	var height = parseFloat(document.getElementById('hBox2').value);
 	var cylinder = new Cylinder(radius, height);
-	document.getElementById('test2').innerHTML = cylinder.volume();
+	document.getElementById('test2').innerHTML = "Volume: " + cylinder.volume();
 }
 
 function calculateThree() {
 	var radius = parseFloat(document.getElementById('rBox3').value);
 	var height = parseFloat(document.getElementById('hBox3').value);
 	var cylinder = new Cylinder(radius, height);
-	document.getElementById('test3').innerHTML = cylinder.volume();
+	document.getElementById('test3').innerHTML = "Volume: " + cylinder.volume();
 }
 
 </script>
 </head>
 <body>
-<h1>Volume of a cylinder</h1>
-<h2>Cilinder #1</h2>
+		<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 2  &gt;</li>
+				<li>File 1  &gt;</li>
+				<li>object.html</li>
+			</ul>
+		</nav>
+		<main>
+<h2>Volume of a cylinder</h2>
+<h3>Cilinder #1</h3>
 Insert the Radius <input type="text" id="rBox">
 Insert the Height <input type="text" id="hBox">
 <button type="button" onclick="calculateOne()">Calculate</button>
 <div id="test"></div>
 
-<h2>Cylinder #2</h2>
+<h3>Cylinder #2</h3>
 Insert the Radius <input type="text" id="rBox2">
 Insert the Height <input type="text" id="hBox2">
 <button type="button" onclick="calculateTwo()">Calculate</button>
 <div id="test2"></div>
-<h2>Cylinder #3</h2>
+<h3>Cylinder #3</h3>
 Insert the Radius <input type="text" id="rBox3">
 Insert the Height <input type="text" id="hBox3">
 <button type="button" onclick="calculateThree()">Calculate</button>
 <div id="test3"></div>
+</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
 </body>
 </html>
