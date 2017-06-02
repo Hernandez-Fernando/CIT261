@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Associative Arrays</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
+<style>
+p {
+	display: inline-block;
+}
+
+section img {
+	width: 150px;
+	float: left;
+	margin-right: 15px;
+}
+
+#success {
+	display: block;
+	text-align: center;
+}
+.show {
+	display: inline-block;
+}
+
+.hide {
+	display: none;
+}
+</style>
+
+
+</head>
+
+<body>
+<header>
+	<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 1  &gt;</li>
+				<li>File 4  &gt;</li>
+				<li>asarrays.html</li>
+			</ul>
+		</nav>
+		<main>
+	<h2>Associative Arrays</h2>
+	<h3>Student Profile</h3>
+	<section id="student">
+		<img src="images/student.jpg" alt="Student Photo Profile">
+		<p><strong>First Name: </strong></p><p id="studentName" class="show"></p><input type="text" id="firstName" class="hide"><br>
+		<p><strong>Last Name: </strong></p><p id="studentLast" class="show"></p><input type="text" id="lastName" class="hide"><br>
+		<p><strong>Email: </strong></p> <p id="studentEmail" class="show"></p><input type="text" id="email" class="hide"><br>
+		<p><strong>Phone Number: </strong></p><p id="studentPhone" class="show"></p><input type="text" id="phoneNumber" class="hide"><br>
+		<p><strong>Student Class: </strong></p><p id="studentClass" class="show"></p><input type="text" id="class" class="hide"><br>
+		<button type="button" onclick="editInfo()" class="show">Edit</button>
+		<button type="button" onclick="saveChanges()" class="hide">Save Changes</button>
+		<button type="button" onclick="cancel()" class="hide">Cancel</button>
+		<p id="success">Test</p>
+	</section>
+</main>
+<footer>
+	<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+</footer>
+<script>
+var student = [];
+student["firstName"] = "Katherine";
+student["lastName"] = "Judd";
+student["email"] = "katherin@example.com";
+student["phone"] = "(389) 281-3222";
+student["class"] = "CIT 261";
+window.onload = loadInfo();
+
+function loadInfo() {
+	document.getElementById('studentName').innerHTML = student["firstName"];
+	document.getElementById('studentLast').innerHTML = student["lastName"];
+	document.getElementById('studentEmail').innerHTML = student["email"];
+	document.getElementById('studentPhone').innerHTML = student["phone"];
+	document.getElementById('studentClass').innerHTML = student["class"];
+	//Assign values to input fields
+	document.getElementById('firstName').value = student["firstName"];
+	document.getElementById('lastName').value = student["lastName"];
+	document.getElementById('email').value = student["email"];
+	document.getElementById('phoneNumber').value = student["phone"];
+	document.getElementById('class').value = student["class"];
+}
+
+function editInfo() {
+	var temp1 = document.getElementsByClassName('show');
+	var temp2 = document.getElementsByClassName('hide');
+	for (var i = 0; i < temp1.length; i++) {
+		temp1[i].className = 'hide';
+		temp2[i].className = 'show';
+		
+	}
+}
+
+function saveChanges() {
+	student["firstName"] = document.getElementById('firstName').value;
+	student["lastName"] = document.getElementById('lastName').value;
+	student["email"] = document.getElementById('email').value;
+	student["phone"] = document.getElementById('phoneNumber').value;
+	student["class"] = document.getElementById('class').value;
+	edit();
+	loadInfo();
+}
+
+</script>
+</body>
+</html>
