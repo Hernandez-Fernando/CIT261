@@ -21,11 +21,15 @@ section img {
 	display: block;
 	text-align: center;
 }
-.show {
+.showed {
 	display: inline-block;
 }
 
-.hide {
+.swap {
+	display: none;
+}
+
+.hidden {
 	display: none;
 }
 </style>
@@ -51,21 +55,21 @@ section img {
 	<h3>Student Profile</h3>
 	<section id="student">
 		<img src="images/student.jpg" alt="Student Photo Profile">
-		<p><strong>First Name: </strong></p><p id="studentName" class="show"></p><input type="text" id="firstName" class="hide"><br>
-		<p><strong>Last Name: </strong></p><p id="studentLast" class="show"></p><input type="text" id="lastName" class="hide"><br>
-		<p><strong>Email: </strong></p> <p id="studentEmail" class="show"></p><input type="text" id="email" class="hide"><br>
-		<p><strong>Phone Number: </strong></p><p id="studentPhone" class="show"></p><input type="text" id="phoneNumber" class="hide"><br>
-		<p><strong>Student Class: </strong></p><p id="studentClass" class="show"></p><input type="text" id="class" class="hide"><br>
-		<button type="button" onclick="editInfo()" class="show">Edit</button>
-		<button type="button" onclick="saveChanges()" class="hide">Save Changes</button>
-		<button type="button" onclick="cancel()" class="hide">Cancel</button>
-		<p id="success">Test</p>
+		<p><strong>First Name: </strong></p><p id="studentName" class="showed"></p><input type="text" id="firstName" class="hidden"><br>
+		<p><strong>Last Name: </strong></p><p id="studentLast" class="showed"></p><input type="text" id="lastName" class="hidden"><br>
+		<p><strong>Email: </strong></p> <p id="studentEmail" class="showed"></p><input type="text" id="email" class="hidden"><br>
+		<p><strong>Phone Number: </strong></p><p id="studentPhone" class="showed"></p><input type="text" id="phoneNumber" class="hidden"><br>
+		<p><strong>Student Class: </strong></p><p id="studentClass" class="showed"></p><input type="text" id="class" class="hidden"><br>
+		<button type="button" onclick="info()" class="showed">Edit</button>
+		<button type="button" onclick="saveChanges()" class="hidden">Save Changes</button>
+		<button type="button" onclick="cancelChanges()" class="hidden">Cancel</button>
+		<p id="success"></p>
 	</section>
 </main>
 <footer>
 	<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
 </footer>
-<script>
+<script type="text/JavaScript">
 var student = [];
 student["firstName"] = "Katherine";
 student["lastName"] = "Judd";
@@ -88,14 +92,23 @@ function loadInfo() {
 	document.getElementById('class').value = student["class"];
 }
 
-function editInfo() {
-	var temp1 = document.getElementsByClassName('show');
-	var temp2 = document.getElementsByClassName('hide');
-	for (var i = 0; i < temp1.length; i++) {
-		temp1[i].className = 'hide';
-		temp2[i].className = 'show';
-		
+function info() {
+	var show = document.getElementsByClassName('showed');	
+	for (var i = 0; i < show.length; i++) {
+		show[i].className = "swap";
+		i -= 1;
 	}
+	var hide = document.getElementsByClassName('hidden');
+	for (var i = 0; i < hide.length; i++) {
+		hide[i].className = "showed";
+		i -= 1;
+	}
+	var swap = document.getElementsByClassName('swap');
+	for (var i = 0; i < swap.length; i++) {
+		swap[i].className = "hidden";
+		i -=1;
+	}
+	document.getElementById('success').innerHTML = "";
 }
 
 function saveChanges() {
@@ -104,10 +117,15 @@ function saveChanges() {
 	student["email"] = document.getElementById('email').value;
 	student["phone"] = document.getElementById('phoneNumber').value;
 	student["class"] = document.getElementById('class').value;
-	edit();
+	info();
 	loadInfo();
+	document.getElementById('success').innerHTML = "Changes saved successfuly";
 }
 
+function cancelChanges() {
+	info();
+	loadInfo();
+}
 </script>
 </body>
 </html>
