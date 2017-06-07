@@ -8,9 +8,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="styles/main.css">
 <style>
-#radiusBox, #heightBox, #deepBox, #radiusLabel, #heightLabel, #deepLabel {
+.default {
 	display: none;
 }
+
+
 
 
 </style>
@@ -33,14 +35,14 @@
 	<h2>This use Prototype HTML</h2>
 	<h3>Calculate Area and Volume</h3>
 	<p>Select the shape you want to calculate</p>
-	<input type="radio" name="shapeName" checked> Cube
-	<input type="radio" name="shapeName"> Rectangle
-	<input type="radio" name="shapeName"> Cylinder
+	<input type="radio" name="shapeName" onclick="hideAndShow(0)" checked> Cube
+	<input type="radio" name="shapeName" onclick="hideAndShow(1)"> Rectangle
+	<input type="radio" name="shapeName" onclick="hideAndShow(2)"> Cylinder
 <br>
-	<label>Width: </label> <input type="text" id="widthBox">
-	<label id="radiusLabel">Radius: </label> <input type="text" id="radiusBox">	
-	<label id="heightLabel">Height: </label> <input type="text" id="heightBox"> 
-	<label id="deepLabel">Deep: </label> <input type="text" id="deepBox"> 
+	<label id="widthLabel">Width: </label> <input type="text" id="widthBox">
+	<label id="radiusLabel" class="default">Radius: </label> <input type="text" id="radiusBox" class="default">	
+	<label id="heightLabel" class="default">Height: </label> <input type="text" id="heightBox" class="default"> 
+	<label id="deepLabel" class="default">Deep: </label> <input type="text" id="deepBox" class="default"> 
 	<button type="button" onclick="calculate()">Calculate</button>
 <h3>Output Values</h3>
 	<div id="result"></div>
@@ -101,6 +103,46 @@ var checked = 0;
 	}
 document.getElementById('result').innerHTML = "Area: " + shape.area + "<br>" + "Volume: " + shape.volume();
 }
+function cube() {
+	document.getElementById('').innerHTML
+}
+
+function hideAndShow(number) {
+	switch (number) {
+		case 0:
+		document.getElementById('widthLabel').style.display = 'inline-block';
+		document.getElementById('widthBox').style.display = 'inline-block';
+		document.getElementById('heightLabel').style.display = 'none';
+		document.getElementById('heightBox').style.display = 'none';
+		document.getElementById('deepLabel').style.display = 'none';
+		document.getElementById('deepBox').style.display = 'none';
+		document.getElementById('radiusLabel').style.display = 'none';
+		document.getElementById('radiusBox').style.display = 'none';
+		break;
+		
+		case 1:
+		document.getElementById('widthLabel').style.display = 'inline-block';
+		document.getElementById('widthBox').style.display = 'inline-block';
+		document.getElementById('heightLabel').style.display = 'inline-block';
+		document.getElementById('heightBox').style.display = 'inline-block';
+		document.getElementById('deepLabel').style.display = 'inline-block';
+		document.getElementById('deepBox').style.display = 'inline-block';
+		document.getElementById('radiusLabel').style.display = 'none';
+		document.getElementById('radiusBox').style.display = 'none';
+		break;
+		
+		case 2:
+		document.getElementById('widthLabel').style.display = 'none';
+		document.getElementById('widthBox').style.display = 'none';
+		document.getElementById('heightLabel').style.display = 'inline-block';
+		document.getElementById('heightBox').style.display = 'inline-block';
+		document.getElementById('deepLabel').style.display = 'none';
+		document.getElementById('deepBox').style.display = 'none';
+		document.getElementById('radiusLabel').style.display = 'inline-block';
+		document.getElementById('radiusBox').style.display = 'inline-block';
+		break;
+	}
+} 
 </script>
 </body>
 </html>
