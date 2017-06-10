@@ -7,6 +7,54 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="styles/main.css">
 
+		<script>
+var request = new XMLHttpRequest();
+var requestURL = 'http://fhteam.biz/areaCodes.json';
+
+var areaCodes;
+request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var text = this.responseText;
+		areaCodes = JSON.parse(text);
+    }
+};
+
+request.open('GET', requestURL, true);
+request.send();
+
+var index = 0;
+
+function digits() {
+	var box = document.getElementById('prefixBox').value.length;
+	if (box == 10) {
+		refreshPage();
+		}
+		else {
+			document.getElementById('locationBox').value = "";
+		}
+}
+
+
+function refreshPage() {
+var phoneNumber = document.getElementById('prefixBox').value;
+var prefix = phoneNumber.substring(0, 3);
+for (var i = 0; i < areaCodes.length; i++) {
+	if (areaCodes[i].code == prefix) {
+		document.getElementById('locationBox').value = areaCodes[i].state;
+		index = 1;
+		break;
+	}
+	else {
+		index = -1;
+	}
+}
+
+if (index == -1) {
+	document.getElementById('locationBox').value = "No Match Found.";
+}
+}
+
+</script>
 </head>
 
 <body>
@@ -18,17 +66,22 @@
 			<ul>
 				<li><a href="index.html">Home  &gt;</a></li>
 				<li>Topic 4  &gt;</li>
-				<li>File 2  &gt;</li>
+				<li>File 1  &gt;</li>
 				<li>request.html</li>
 			</ul>
 		</nav>
 		<main>
 	<h2>HTTP Request</h2>
+	<h3>Find the area code for a phone number</h3>
+	<p>Insert your 10 digits phone number.</p>
+	Phone Number <input type="text" maxlength="10" id="prefixBox" onkeyup="digits()">
 	
-	
+	Location <input type="text" readonly="true" id="locationBox">
 </main>
 <footer>
 	<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
 </footer>
 </body>
+
+
 </html>
