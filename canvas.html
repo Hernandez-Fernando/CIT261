@@ -16,6 +16,15 @@ canvas {
 	display: none;
 }
 
+main a {
+	display: inline-block;
+	padding: 5px;
+	background-color: grey;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
+
 </style>
 </head>
 
@@ -49,14 +58,18 @@ canvas {
 	<canvas id="canvas4" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
-	<button id="save" onclick="saving()">Save Drawing</button>
+	
+		<canvas id="canvasText" width="300" height="300">
+		“Sorry! Your browser doesn’t support Canvas.”
+	</canvas>
+	
 	<h3>Drawing Images</h3>
 		<canvas id="canvas5" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
-	<img src="images/cit261.png" alt="CIT 261 Logo" id="logo">
-	<button id="save" onclick="greyScale()">Convert</button>
-	
+	<img src="images/github.png" alt="GitHub Logo" id="logo">
+	<input type="radio" onclick="drawImage()" name="image" checked> Color <input type="radio" onclick="greyScale()" name="image"> Greyscale
+	<a onclick="saving(this, 'myCanvas.png')">Save Image</button>
 </main>
 <footer>
 			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
@@ -72,7 +85,8 @@ context.strokeRect(10, 10, 100, 100);
 document.onload = pattern();
 document.onload = gradient();
 document.onload = circle();
-
+document.onload = text();
+window.addEventListener("load", drawImage, false);
 function pattern() {
 	var canvas = document.getElementById('canvas2');
 	var context = canvas.getContext("2d");
@@ -113,20 +127,18 @@ function circle() {
 	context.stroke();
 }
 
-function saving() { 
-	var canvas = document.getElementById('canvas4');
-	window.open(canvas.toDataURL("image/png"));
+function saving(href, file) { 
+	href.href = document.getElementById('canvas5').toDataURL();
+	href.download = file;
+	
 	
 }
-
-window.addEventListener("load", drawImage, false);
 
 function drawImage() {
 	var canvas = document.getElementById('canvas5');
 	var context = canvas.getContext('2d');
 	var image = document.getElementById('logo');
 	context.drawImage(image, 10, 10);
-
 }
 
 function greyScale() {
@@ -139,7 +151,7 @@ function greyScale() {
 	
 	//converting image to black and white.
 	var r, g, b, d;
-	for (var i = 0; i < imageData.length; i += 4) {
+	for (var i = 0; i < imageData.data.length; i += 4) {
 		r = imageData.data[i];
 		g = imageData.data[i + 1];
 		b = imageData.data[i + 2];
@@ -152,6 +164,13 @@ function greyScale() {
 	}
 	context.putImageData(imageData, 0, 0);
 
+}
+
+function text() {
+	var canvas = document.getElementById('canvasText');
+	var context = canvas.getContext('2d');
+	context.font = "20px Helvetica";
+	context.fillText("Fernando - CIT 261", 10, 50)
 }
 </script>
 </body>
