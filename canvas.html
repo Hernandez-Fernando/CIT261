@@ -12,8 +12,8 @@ canvas {
 	margin-top: 10px;
 }
 
-img {
-	width: 80px;
+#logo {
+	display: none;
 }
 
 </style>
@@ -54,7 +54,7 @@ img {
 		<canvas id="canvas5" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
-	<img src="images/github.png" alt="GitHub Logo" id="logo">
+	<img src="images/cit261.png" alt="CIT 261 Logo" id="logo">
 	<button id="save" onclick="greyScale()">Convert</button>
 	
 </main>
@@ -126,21 +126,29 @@ function drawImage() {
 	var context = canvas.getContext('2d');
 	var image = document.getElementById('logo');
 	context.drawImage(image, 10, 10);
+
+}
+
+function greyScale() {
+	var canvas = document.getElementById('canvas5');
+	var context = canvas.getContext('2d');
+	var image = document.getElementById('logo');
+	context.drawImage(image, 10, 10);
 	
 	var imageData = context.getImageData(0, 0, 300, 300);
 	
-	//converting hte image to black and white.
-	var r, g, b, g;
+	//converting image to black and white.
+	var r, g, b, d;
 	for (var i = 0; i < imageData.length; i += 4) {
 		r = imageData.data[i];
 		g = imageData.data[i + 1];
 		b = imageData.data[i + 2];
-		g = r * .3 + g * .59 + b * .11;
+		d = r * .3 + g * .59 + b * .11;
 		
 		//Assign the proper grayscale to each pixel.
-		imageData.data[i] = g;
-		imageData.data[i + 1] = g;
-		imageData.data[i + 2] = g;
+		imageData.data[i] = d;
+		imageData.data[i + 1] = d;
+		imageData.data[i + 2] = d;
 	}
 	context.putImageData(imageData, 0, 0);
 
