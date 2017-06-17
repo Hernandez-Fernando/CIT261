@@ -16,6 +16,6 @@ function doubleClick() {
 };
 
 window.onload = document.getElementById('test').innerHTML = "The page has full loaded";
-window.onresize = function() {
-	document.getElementById('test2').innerHTML = "Now you resized the browser";
+window.scrollY = function() {
+	document.getElementById('test2').innerHTML = "Now you scroll the browser";
 }

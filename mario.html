@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mario Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel="stylesheet" href="styles/main.css">
+<style>
+#board {
+	width: 500px;
+	height: 500px;
+	position: relative;
+	background-color: green;
+}
+
+#score {
+
+}
+
+section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	text-align: center;
+}
+
+#mario {
+	position: absolute;
+	width: 60px;
+	z-index: 30;
+	top: 0;
+	left: 0;
+}
+
+#bowser {
+	position: absolute;
+	width: 80px;
+	z-index: 40;
+	right: 0;
+	top: 425px;
+}
+
+section img {
+	position: absolute;
+}
+
+
+</style>
+</head>
+
+<body>
+		<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 9  &gt;</li>
+				<li>File 2  &gt;</li>
+				<li>mario.html</li>
+			</ul>
+		</nav>
+	<main>
+			<h2>Mario Game in JavaScript</h2>
+			<p>Collect all the Mushrooms before the timeout. Don't let Bowser to get you! <em>(Use your Arrow keys to move Mario)</em></p>
+	<section id="game">
+			<div id="board">
+			<img src="images/right.png" alt="Mario" id="mario">
+			
+			<img src="images/bowser.png" alt="Bowser" id="bowser">
+			
+			<!-- Mushrooms -->
+			<img src="images/mushroom.png" alt="Mushroom" class="mushroom">
+			<img src="images/mushroom.png" alt="Mushroom" class="mushroom">
+			<img src="images/mushroom.png" alt="Mushroom" class="mushroom">
+			<img src="images/mushroom.png" alt="Mushroom" class="mushroom">
+			<img src="images/mushroom.png" alt="Mushroom" class="mushroom">
+			<img src="images/mushroom.png" alt="Mushroom" class="mushroom">
+
+			
+				
+			</div>
+			
+			<div id="score">
+				<button type="button" onclick="startGame()">Start Game</button>
+				<p>Timer</p>
+				<p>Score 0/6</p>
+				<p id="test"></p>
+				<p id="test2"></p>
+			</div>
+			<div id="test"><div>
+		</section>
+	</main>
+	<footer>
+		<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+	</footer>
+	
+	<script>
+	
+	var mario = document.getElementById('mario');
+	var bowser = document.getElementById('bowser');
+	var score = 0;
+	var time = 120;
+	var marioX = 0;
+	var marioY = 0;
+	var bowserX = 0;
+	var bowserY = 0;
+	var mush = document.getElementsByClassName('mushroom');	document.getElementById('test').innerHTML = mush.length;
+	var time = 90;
+	
+	function startGame() {
+	score = 0;
+	time = 90;
+	
+	marioX = 0;
+	marioY = 0;
+	
+	bowserX = 0;
+	bowserY= 0;
+	var rand1, rand2 = "";
+	for (var i = 0; i < mush.length; i++) {
+	rand1 = random();
+	rand2 = random();
+	mush[i].style.top = rand1;
+	mush[i].style.left = rand2;
+	
+		}
+		
+	}
+	//Distribute mushrooms
+	
+	function random() {
+	var temp = 0;
+			temp = Math.floor(Math.random() * 451 + 1) + 'px';
+			return temp;
+		}
+	
+	document.onkeydown = checkKey;
+	window.addEventListener("keydown", function(e) {
+    // arrow keys
+    if([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+	}, false);
+	
+	function checkKey(e) {
+
+	    e = e || window.event;
+	
+	    if (e.keyCode == '38') {
+	        // up arrow
+			moveUp();
+	    }
+	    else if (e.keyCode == '40') {
+	        // down arrow
+			moveDown();
+	    }
+	    else if (e.keyCode == '37') {
+	       // left arrow
+		   moveLeft();
+	    }
+	    else if (e.keyCode == '39') {
+	       // right arrow
+		   moveRight();
+	    }
+
+	}
+	
+	
+	
+	
+	//Mario Moves
+	function moveRight() {
+		mario.src = 'images/right.png';
+		if (marioX != 440) {
+			var temp = marioX + 5;
+			mario.style.left = temp + 'px';
+			return marioX = temp;
+		}
+	}
+	
+	function moveLeft() {
+		mario.src = 'images/left.png';
+		if (marioX != 0) {
+			var temp = marioX - 5;
+			mario.style.left = temp + 'px';
+			return marioX = temp;
+		}
+	}
+	
+		function moveUp() {
+		if (marioY != 0) {
+			var temp = marioY - 5;
+			mario.style.top = temp + 'px';
+			return marioY = temp;
+		}
+	}
+	
+	function moveDown() {
+		if (marioY != 430) {
+			var temp = marioY + 5;
+			mario.style.top = temp + 'px';
+			return marioY = temp;
+		}
+	}
+	
+	function timer() {
+	
+	}
+	</script>
+</body>
+</html>

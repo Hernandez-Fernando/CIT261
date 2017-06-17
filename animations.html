@@ -33,6 +33,7 @@ button {
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0px 8px 1px darkgrey;
+	opacity: 1;
 }
 
 button:hover {
@@ -43,6 +44,132 @@ button:hover {
   background-color: #3e8e41;
   box-shadow: 0 4px #666;
   transform: translateY(8px);
+  opacity: 1;
+}
+
+.square {
+	width: 350px;
+	height: 50px;
+	background-color: red;
+}
+
+.square:hover {
+	transition: 5s;
+	width: 550px;
+}
+.sAnimated {
+	transition: 3s;
+	height: 150px;
+}
+
+.round {
+	width: 75px;
+	height: 75px;
+	background-color: green;
+}
+
+.rounded {
+	transition: 3s;
+	border-radius: 50%;
+}
+
+#board {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, auto);
+	grid-gap: 15px;
+	border: 15px solid #D8D8D8;;
+	background-color: #D8D8D8;
+	position: relative;
+}
+#board div {
+	width: 100%;
+	height: 150px;
+}
+
+#scoreboard {
+	grid-column: 1 / span 4;
+	display: grid;
+	grid-template-columns: 1fr 1fr 250px;
+	aling-items: center;
+	background-color: white;
+}
+
+#game {
+	position: relative;
+}
+
+.icon {
+	display: block;
+	margin: auto;
+	padding-top: 45px;
+	width: 60px;
+	
+}
+
+.card {
+	background-color: white;
+}
+.flipBack {
+	transition: 1.2s;
+	transform: rotateY(180deg);
+}
+
+.animated {
+	transition: 1.2s;
+	transform: rotateY(180deg);
+
+}
+
+
+#win { display: none;
+	
+}
+
+
+
+.match {
+	animation: 1s;
+	animation-name: matched;
+	background-color: #D8D8D8;
+	
+}
+
+@keyframes matched{
+	0% {background-color: white;}
+	50% {background-color: yellow;}
+	75% {background-color: white;}
+	100% {background-color: #D8D8D8;}
+}
+
+.nomatch {
+	animation: 1.2s;
+	animation-name: nomatched;
+	
+}
+
+@keyframes nomatched{
+	0% {background-color: white;}
+	50% {background-color: red;}
+	100% {background-color: white;}
+}
+
+.new {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-align: center;
+	padding-top: 20%;
+	color: white;
+	background-color: black;
+	z-index: 2;
+	opacity: .5;
+}
+
+#notes {
+	color: red;
+	text-align: center;
 }
 
 </style>
@@ -61,82 +188,234 @@ button:hover {
 			</ul>
 		</nav>
 <main>
-	<h2>Animations</h2>
-<div id="container">
-	<div id="animation1"></div>
-</div>
+	<h2>Memory</h2>
 
+<section>
+		
+<section id="game">
+	<div class="new" id="upWindow">
+		<h3 id="win">You have matched all the images!</h3>
+		<h4 id="score"></h4>
+		<button id="start" type="button" onclick="newGame()">Start Game</button>
+	</div>
+	<section id="board">
+	<div id="scoreboard"><h3 id="time">Game Time: 0:00 </h3> <div id="controls"><h3 id="iMatched">Cards Matched: 0 / 8</h3><progress id="progress" value="0" max="8"></progress></div><h4 id="notes"></h4></div>
+	<div class="card" onclick="revelCard(0)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(1)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(2)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(3)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(4)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(5)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(6)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(7)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(8)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(9)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(10)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(11)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(12)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(13)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(14)"><img src="images/card.png" class="icon"></div>
+	<div class="card" onclick="revelCard(15)"><img src="images/card.png" class="icon"></div>
+</section>
+</section>
 
-<button type="button" onclick="moveLeft()">Left</button>
-<button type="button" onclick="moveUp()">Up</button>
-<button type="button" onclick="moveDown()">Down</button>
-<button type="button" onclick="moveRight()">Right</button>
 </main>
 <footer>
 <p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
 		</footer>
+
 <script>
+		
+var pick1, pick2;
+var checked = 0;
+var pick1Number, pick2Number = 18;
+var images = document.getElementsByClassName('icon');
+var cards =  document.getElementsByClassName('card');
+var score = 0;
+var progress = document.getElementById('progress');
+var stime = 0;
+var mtime = 0;
+var gameTime;
+var files = [];
 
-var a1 = document.getElementById('animation1');
-var x = 0;
-var y = 0;
+window.onload = checkLocalStorage();
 
-
-
-
-function moveUp() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (y == 0) {
-			clearInterval(timer);
-			return y;
-		} else {
-			y--;
-			a1.style.top = y + 'px';
-		}
+function checkLocalStorage() {
+	var storage = localStorage.playAgain;
+	//document.getElementById('notes').innerHTML = storage;
+	if (localStorage.playAgain == 'true') {
+		fillRandom();
+		newGame();
+		document.getElementById('notes').innerHTML = storage;
+	}
+	
+	else {
+		fillRandom();
+		
 	}
 }
 
-function moveRight() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (x == 350) {
-			clearInterval(timer);
-			return x;
-		} else {
-			x++;
-			a1.style.left = x + 'px';
-		}
-	}
+function fillRandom() {
+var fileNames = [];
+var numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+
+//fill images.
+for (var i = 0; i < 16; i++) {
+	var numbersTemp = numbers.length;
+	var temp = Math.floor(Math.random() * numbersTemp);
+	var tempText = 'images/' + numbers[temp] + '.png';
+	images[i].src = 'images/card.png';
+	fileNames.push(tempText);
+	numbers.splice(temp, 1);
 }
 
-function moveDown() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (y == 350) {
-			clearInterval(timer);
-			return y;
-		} else {
-			y++;
-			a1.style.top = y + 'px';
-		}
-	}
+return files = fileNames;
 }
 
-function moveLeft() {
-	var timer = setInterval(frame, 10);
-	function frame() {
-		if (x == 0) {
-			clearInterval(timer);
-			return x;
-		} else {
-			x--;
-			a1.style.left = x + 'px';
-		}
+function newGame() {
+	localStorage.setItem('playAgain', false);
+	for (i = 0; i < images.length; i++) {
+		images[i].src = 'images/card.png';
 	}
+	//Game Timer
+	document.getElementById('upWindow').style.display = 'none';
+	gameTime = setInterval(function() {
+		stime += 1;
+		if (stime < 10) {
+				document.getElementById('time').innerHTML = "Game Time: " + mtime + ":0" + stime;
+			}
+			else if (stime < 60) {
+			
+			document.getElementById('time').innerHTML = "Game Time: " + mtime + ":" + stime;
+			}
+				else {
+					mtime += 1;
+					stime = 0;
+					document.getElementById('time').innerHTML = "Game Time: " + mtime + ":0" + stime;
+				}
+		
+		}, 1000)
 }
 
+function revelCard(number) {
+	document.getElementById('notes').innerHTML = "";
+	//Animate flip card
+	cards[number].classList.add('animated');
+	var currentPercent = 0;
+	var showPercent = window.setInterval(function() {
+	  if(currentPercent < 50) {
+	    currentPercent += 1;
+	  }
+	  else {
+	    currentPercent = 0;
+		images[number].src = files[number];
+		clearInterval(showPercent);
+	  	}
+	  }, 6);
+	 
+	  
+	  checked += 1;
+	 
+window.setTimeout(function() { 
+var tempURL = '';
+//Evaluate Cards
+switch (checked) {
+	
+	case 1: //Store first picked card
+	  	tempURL = files[number];
+		return pick1 = tempURL, pick1Number = number;
+		break;
+	case 2:
+		tempURL = files[number];
+		//Check that the user didn't selected the same card as option 1.
+		if (number !== pick1Number) {
+		
+		//Evaluate Match
+		evaluatingAnswer(pick1, tempURL, pick1Number, number);
+	}
+	else { 
+		//Display error to the user.
+		document.getElementById('notes').innerHTML = "You aready select that. Pick another option";
+		checked -= 1;
+	}
+		break;
+		} }, 1200);
 
+
+ 
+}
+
+function hideCards(number1, number2) {
+	
+	cards[number1].classList.add('nomatch');
+	cards[number2].classList.add('nomatch');
+   	var flip = window.setTimeout(function() {
+		cards[number1].classList.add('flipBack');
+		cards[number2].classList.add('flipBack');
+		
+	var currentPercent = 0;
+	var hidePercent = window.setInterval(function() {
+	  if(currentPercent < 50) {
+		  currentPercent += 1;
+	}
+	else { 
+		  
+		currentPercent = 0;
+		images[number1].src = 'images/card.png';
+		images[number2].src = 'images/card.png';
+		clearInterval(hidePercent);
+	}
+  
+  
+  }, 6);
+ }, 1200) 
+  
+  
+}
+
+function evaluatingAnswer(firstChoice, secondChoice, firstNumber, secondNumber) {
+	if(firstChoice == secondChoice) {
+		
+		cards[firstNumber].classList.add('match');
+		cards[secondNumber].classList.add('match');
+		//Disable click event when image has been matched.
+		cards[firstNumber].removeAttribute('onclick');
+		cards[secondNumber].removeAttribute('onclick');
+		score += 1;
+		document.getElementById('iMatched').innerHTML = "Cards Matched: " + score + " / 8";
+		progress.value = score;
+		
+		if (score == 8) {
+			clearInterval(gameTime);
+			document.getElementById('win').style.display = 'block';
+			document.getElementById('score').innerHTML = "Your " + document.getElementById('time').textContent;
+			document.getElementById('upWindow').style.display = 'block';
+			document.getElementById('start').innerHTML = 'Play Again';
+			document.getElementById('start').onclick = playAgain;
+		}
+	}
+	else {
+		hideCards(firstNumber, secondNumber);
+		var defaultClasses = window.setTimeout(function() {
+			cards[firstNumber].classList.remove('animated');
+			cards[secondNumber].classList.remove('animated');	
+			cards[firstNumber].classList.remove('nomatch');
+			cards[secondNumber].classList.remove('nomatch');
+			var lastBreak = window.setTimeout(function() {
+			cards[firstNumber].classList.remove('flipBack');
+			cards[secondNumber].classList.remove('flipBack');
+			}, 1000);
+		
+  }, 1000);
+  
+		} 
+	return pick1 = "", checked = 0, score = score;
+}
+
+function playAgain() {
+	localStorage.playAgain = true;
+	location.reload(true);
+}
 </script>
 </body>
 </html>
