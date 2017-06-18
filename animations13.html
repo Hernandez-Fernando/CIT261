@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3 Animations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+       <link rel="stylesheet" href="styles/main.css">
+		
+	<style>
+	
+
+	#banner {
+		background-color: #2C3134;
+		width: 100%;
+		height: 200px;
+		color: white;
+		text-align: center;
+		
+	}
+	
+	#banner h3 {
+		font-size: 35px;
+		animation: 2s ease-in goingUp;
+
+	}
+	
+	#motto {
+		animation: 2s ease-in slideRight;
+	}
+	
+	@keyframes slideRight {
+		0% {opacity: 0; margin-left: -50px; margin-top: 100px}
+		50% {opacity: 0.5; margin-left: -25px; margin-top: 100px}
+		100% {opacity: 1; margin-left: 0px; margin-top: 100px}
+	}
+	
+	@keyframes goingUp {
+		from {margin-top: 25px;}
+		to {margin-top: 0px;}
+	}
+	
+	#navegation {
+		padding: 0;
+		width: 10%;
+		background-color: orange;
+		transition: width 3s;
+	}
+	#navegation:hover {
+		width: 30%;
+	}
+	#navegation ul li {
+		list-style: none;
+		background-color: orange;
+		color: white;
+		padding-left: 0;
+		width: 100%;
+		cursor: pointer;
+		list-style-type: none;
+		transition: all 1s cubic-bezier(0.67, -0.51, 0.42, 1.43)
+		
+	}
+	
+	
+	#navegation ul {
+		background-color: orange;
+		display: block;
+		width: 100%;
+		
+	}
+	
+	
+	#navegation ul li:hover {
+		animation: 2s linear enlarge;
+		width: 100%;
+	}
+	
+	@keyframes enlarge {
+		from {background-color: orange; }
+		to {background-color: darkblue;}
+	}
+	
+	
+	/* Emoji */
+	
+	#background {
+		background-color: yellow;
+		position: relative;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+	}
+	
+	.eyes {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: white;
+		float: left;
+		margin-top: 35px;
+		margin-left: 28px;
+		margin-right: 15px;
+	}
+	
+	#mounth {
+		width: 30px;
+		height: 45px;
+		background-color: darkred;
+		margin-right: auto;
+		margin-left: auto;
+		border-bottom-right-radius: 40%;
+		border-bottom-left-radius: 40%;
+		animation: 2s linear down infinite;
+	}
+	
+	@keyframes down {
+		0%, 100% {height: 45px;}
+		50% {height:65px;}
+
+	}
+	</style>
+</head>
+
+<body>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 13  &gt;</li>
+				<li>File 1  &gt;</li>
+				<li>animations13.html</li>
+			</ul>
+		</nav>
+		<main>
+			<h2>Animations Without Custom Libraries</h2>
+			
+			<section id="site">
+				<div id="banner">
+					<div id="breaking"><h5>Breaking News</h5><p>This is a test of a lastest News display</p></div>
+					<h3>CIT 261</h3>
+					<h4 id="motto">Mobile Application Development</h4>
+				</div>
+				<div id="navegation">
+					<ul class="iconList">
+						<li>Home</li>
+						<li>Transitions</li>
+						<li>Transforms</li>
+						<li>Animations</li>
+					</ul>
+					<ul class="namedList">
+						<li>Home</li>
+						<li>Transitions</li>
+						<li>Transforms</li>
+						<li>Animations</li>
+					</ul>
+				</div>
+				<div id="bodyPage">
+					
+				<section id="transitions"></section>
+				<section id="transforms"></section>
+				<section id="animations">
+					<h3>Animations</h3>
+					
+					<div id="emoji">
+						<div id="background"></head>
+							<div id="face">
+								<div class="eyes"></div>
+								<div class="eyes"></div>
+								<div id="mounth"></div>
+								<div id="tongue"></div>
+							</div>
+					</div>
+				</section>
+				</div>
+				<div id="foot"></div>
+			</section>
+		</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
+</body>
+</html>

@@ -174,7 +174,7 @@ section img {
 	function moveRight() {
 		mario.src = 'images/right.png';
 		if (marioX != 440) {
-			var temp = marioX + 5;
+			var temp = marioX + 10;
 			mario.style.left = temp + 'px';
 			return marioX = temp;
 		}
@@ -183,7 +183,7 @@ section img {
 	function moveLeft() {
 		mario.src = 'images/left.png';
 		if (marioX != 0) {
-			var temp = marioX - 5;
+			var temp = marioX - 10;
 			mario.style.left = temp + 'px';
 			return marioX = temp;
 		}
@@ -191,7 +191,7 @@ section img {
 	
 		function moveUp() {
 		if (marioY != 0) {
-			var temp = marioY - 5;
+			var temp = marioY - 10;
 			mario.style.top = temp + 'px';
 			return marioY = temp;
 		}
@@ -199,7 +199,7 @@ section img {
 	
 	function moveDown() {
 		if (marioY != 430) {
-			var temp = marioY + 5;
+			var temp = marioY + 10;
 			mario.style.top = temp + 'px';
 			return marioY = temp;
 		}
