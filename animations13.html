@@ -14,51 +14,95 @@
 		background-color: #2C3134;
 		width: 100%;
 		height: 200px;
-		padding: 10px;
+		padding: 0;
 		color: white;
 		text-align: center;
 		position: relative;
+		overflow: hidden;
 		
 	}
 	
 	#container {
 		margin-top: 25px;
 		height: 150px;
+
+	}
+	
+	#courtainL {
+		width: 50%;
+		height: 200px;
+		display: inline-block;
+		animation: 2s linear slideLeft;
+	}
+	
+	@keyframes slideLeft {
+		from {background-color: red;}
+		to {background-color: #2C3134}
+	}
+	
+	#courtainR {
+		width: 50%;
+		height: 200px;
+		display: inline-block;
+		animation: 2s linear slideRight;
+	}
+	
+	@keyframes slideRight {
+		from {width: 50%;}
+		to {width: 0%;}
+	}
+	
+	#banner p {
+		top: 75px;
+		left: 38%;
+		font-size: 45px;
+		position: absolute;
+		font-weight: bold;
+		color: white;
+		animation: 4s ease-out slideIn;
+		
+	}
+	@keyframes slideIn {
+		0% {transform: translateX(600px); opacity: 0;}
+		50% {transform: translateX(400px); opacity: 1;}
+		100% {transform: translateX(200px); opacity: 0;}
 	}
 	
 	#banner h3 {
 		margin-top: 50px;
-		font-size: 35px;
+		font-size: 20px;
 		opacity: 1;
-		animation: 2s ease-in goingUp;
+		animation: 2s 3s linear zoomIn;
 
+	}
+	@keyframes zoomIn {
+		from {font-size: 20px}
+		to {font-size: 46px}
 	}
 	
 	#motto {
-		opacity: 1;
+		opacity: 0;
 		color: white;
-		animation: 2s ease-in slideRight;
+		animation: 2s 3s ease-in fadeIn;
 	}
 	
-	@keyframes slideRight {
-		0% {opacity: 0; margin-left: -50px; margin-top: 80px}
-		50% {opacity: 0.5; margin-left: -25px; margin-top: 80px}
-		100% {opacity: 1; margin-left: 0px; margin-top: 80px}
+	@keyframes fadeIn {
+		0% {opacity: 0;}
+		50% {opacity: 0.5;}
+		100% {opacity: 1;}
 	}
-	
-	@keyframes goingUp {
-		from {margin-top: 85px; opacity: 0;}
-		to {margin-top: 50px; opacity: 1;}
-	}
+
 	
 	#navegation {
 		padding: 0;
-		width: 10%;
+		width: 100%;
+		height: 0%;
+		margin: 0;
 		background-color: orange;
-		transition: width 3s;
+		transition: height 2s;
 	}
 	#navegation:hover {
-		width: 30%;
+		height: auto;
 	}
 	#navegation ul li {
 		list-style: none;
@@ -67,6 +111,8 @@
 		padding-left: 0;
 		width: 100%;
 		cursor: pointer;
+		padding: 0;
+		margin: 0;
 		list-style-type: none;
 		transition: all 1s cubic-bezier(0.67, -0.51, 0.42, 1.43)
 		
@@ -76,6 +122,8 @@
 	#navegation ul {
 		background-color: orange;
 		display: block;
+		list-style-type: none;
+		padding-left: 5px;
 		width: 100%;
 		
 	}
@@ -87,13 +135,28 @@
 	}
 	
 	@keyframes enlarge {
-		from {background-color: orange; }
+		from {background-color: orange;}
 		to {background-color: darkblue;}
 	}
 	
 	/* SUN */
 	
+	#transforms img {
+		animation: 6s linear infinite spin;
+	}
 	
+	@keyframes spin {
+		from {transform: rotate(0deg)}
+		to {transform: rotate(360deg)}
+	}
+	
+	#square {
+		width: 100px;
+		height: 100px;
+		background-color: green;
+		transform: rotate(45deg);
+		margin: 20px;
+	}
 	
 	/* Emoji */
 	
@@ -151,13 +214,57 @@
 		opacity: 1;
 	}
 	
-	#transforms img {
-		animation: 6s linear infinite spin;
+	/*BREAKING */
+	#breaking {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 32px;
+		background-color: lightblue;
 	}
 	
-	@keyframes spin {
-		from {transform: rotate(0deg)}
-		to {transform: rotate(360deg)}
+	#acent {
+		display: inline-block;
+		color: white;
+		margin-left: 10px;
+		background-color: darkgrey;
+		padding: 5px;
+		z-index: 5;
+		transform: skew(-20deg);
+	}
+	
+	#breaking ul {
+		margin-left: 90px;
+		margin-top: 0px;
+		padding: 5px;
+	  	animation: breaking 6s cubic-bezier(1, 0, .5, 0) alternate infinite;
+	  	list-style: none;
+
+
+	}
+	
+	@keyframes breaking {
+  0%   {margin-top: -48px;}
+  45%  {margin-top: -80px;}
+  85% {margin-top: -112px;}
+  100% {margin-top: -112px;}
+	}
+	
+	#leftCourtain {
+	display: inline-block;
+	width: 30%;
+	height: 150px;
+	background-color: darkred;
+	
+	}
+	
+	#rightCourtain {
+	display: inline-block;
+	width: 30%;
+	height: 150px;
+	
+	background-color: darkred;
 	}
 	</style>
 </head>
@@ -180,8 +287,16 @@
 			
 			<section id="site">
 				<div id="banner">
-					<div id="container"><h3>CIT 261</h3></div>
+					<p>Transitions</p>
+					<p>Transforms</p>
+					<p>Animations</p>
+					<div id="container">
+						<div id="cover">
+							<h3>CIT 261</h3>
+						</div>
 					<h4 id="motto">Mobile Application Development</h4>
+				</div>
+				
 				</div>
 				<div id="navegation">
 					<ul class="iconList">
@@ -210,7 +325,11 @@
 				<section id="transforms">
 					<h3>Transforms</h3>
 					<img src="images/sun-small.png">
-					<div></div>
+					<div id="square"></div>
+					<div id="teather">
+					<div id="leftCourtain"></div>
+					<div id="rightCourtain"></div>
+					<div id="stage"></div>
 				</section>
 				<section id="animations">
 					<h3>Animations</h3>
@@ -227,7 +346,13 @@
 				</section>
 				</div>
 				<div id="foot">
-					<div id="breaking"><h5>Breaking News</h5><p>This is a test of a lastest News display</p></div>
+					<div id="breaking"><div id="acent"><h5>CIT 261</h5> </div>
+					<ul class="bottom">
+						<li>CSS3 Transitions</li>
+						<li>CSS3 Transforms</li>
+						<li>CSS3 Animations</li>
+					</ul>
+					</div>
 				</div>
 			</section>
 		</main>
