@@ -9,7 +9,7 @@
 
 		<script>
 var request = new XMLHttpRequest();
-var requestURL = 'https://github.com/rockoo/Us-area-codes-json/blob/master/us-phone-area-codes.json';
+var requestURL = 'https://raw.githubusercontent.com/rockoo/Us-area-codes-json/master/us-phone-area-codes.json';
 
 var areaCodes;
 request.onreadystatechange = function() {
@@ -23,6 +23,8 @@ request.open('GET', requestURL, true);
 request.send();
 
 var index = 0;
+var trigger = document.getElementById('box');
+trigger.addEventListener("keyup", digits, flase);
 
 function digits() {
 	var box = document.getElementById('prefixBox').value.length;
@@ -54,6 +56,8 @@ if (index == -1) {
 }
 }
 
+
+
 </script>
 </head>
 
@@ -74,7 +78,7 @@ if (index == -1) {
 	<h2>HTTP Request</h2>
 	<h3>Find the area code for a phone number</h3>
 	<p>Insert your 10 digits phone number.</p>
-	Phone Number <input type="text" maxlength="10" id="prefixBox" onkeyup="digits()">
+	Phone Number <input type="tel" maxlength="10" id="prefixBox" onkeyup="digits()">
 	
 	Location <input type="text" readonly="true" id="locationBox">
 </main>
