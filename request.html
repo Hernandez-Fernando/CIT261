@@ -23,8 +23,6 @@ request.open('GET', requestURL, true);
 request.send();
 
 var index = 0;
-var trigger = document.getElementById('box');
-trigger.addEventListener("keyup", digits, flase);
 
 function digits() {
 	var box = document.getElementById('prefixBox').value.length;
