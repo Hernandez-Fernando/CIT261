@@ -28,51 +28,57 @@
 
 	}
 	
-	#courtainL {
-		width: 50%;
-		height: 200px;
-		display: inline-block;
-		animation: 2s linear slideLeft;
-	}
 	
-	@keyframes slideLeft {
-		from {background-color: red;}
-		to {background-color: #2C3134}
-	}
-	
-	#courtainR {
-		width: 50%;
-		height: 200px;
-		display: inline-block;
-		animation: 2s linear slideRight;
-	}
-	
-	@keyframes slideRight {
-		from {width: 50%;}
-		to {width: 0%;}
-	}
-	
-	#banner p {
-		top: 75px;
-		left: 38%;
+	.topic1 {
+		top: 70px;
+		left: 35%;
 		font-size: 45px;
 		position: absolute;
 		font-weight: bold;
+		opacity: 0;
+		transform: translateX(100px);
 		color: white;
 		animation: 4s ease-out slideIn;
 		
 	}
 	@keyframes slideIn {
-		0% {transform: translateX(600px); opacity: 0;}
-		50% {transform: translateX(400px); opacity: 1;}
-		100% {transform: translateX(200px); opacity: 0;}
+		0% {transform: translateX(100px); opacity: 0;}
+		30% {transform: translateX(0px); opacity: 1;}
+		70% {transform: translateX(0px); opacity: 1;}
+		100% {transform: translateX(-100px); opacity: 0;}
+	}
+	
+		.topic2 {
+		top: 70px;
+		left: 35%;
+		font-size: 45px;
+		position: absolute;
+		font-weight: bold;
+		opacity: 0;
+		transform: translateX(100px);
+		color: white;
+		animation: 4s ease-out 4s slideIn;
+		
+	}
+	
+		.topic3 {
+		top: 70px;
+		left: 35%;
+		font-size: 45px;
+		position: absolute;
+		font-weight: bold;
+		opacity: 0;
+		transform: translateX(100px);
+		color: white;
+		animation: 4s ease-out 8s slideIn;
+		
 	}
 	
 	#banner h3 {
 		margin-top: 50px;
 		font-size: 20px;
-		opacity: 1;
-		animation: 2s 3s linear zoomIn;
+		opacity: 0;
+		animation: 3s 12s linear zoomIn;
 
 	}
 	@keyframes zoomIn {
@@ -83,7 +89,7 @@
 	#motto {
 		opacity: 0;
 		color: white;
-		animation: 2s 3s ease-in fadeIn;
+		animation: 2s 15s ease-in fadeIn;
 	}
 	
 	@keyframes fadeIn {
@@ -100,43 +106,15 @@
 		margin: 0;
 		background-color: orange;
 		transition: height 2s;
+		overflow: hidden;
 	}
+	
+	#navegation a {
+		transition: transform 1s linear;
+	}	
+	
 	#navegation:hover {
-		height: auto;
-	}
-	#navegation ul li {
-		list-style: none;
-		background-color: orange;
-		color: white;
-		padding-left: 0;
-		width: 100%;
-		cursor: pointer;
-		padding: 0;
-		margin: 0;
-		list-style-type: none;
-		transition: all 1s cubic-bezier(0.67, -0.51, 0.42, 1.43)
-		
-	}
-	
-	
-	#navegation ul {
-		background-color: orange;
-		display: block;
-		list-style-type: none;
-		padding-left: 5px;
-		width: 100%;
-		
-	}
-	
-	
-	#navegation ul li:hover {
-		animation: 2s linear enlarge;
-		width: 100%;
-	}
-	
-	@keyframes enlarge {
-		from {background-color: orange;}
-		to {background-color: darkblue;}
+		transform: translateY(50px);
 	}
 	
 	/* SUN */
@@ -287,9 +265,9 @@
 			
 			<section id="site">
 				<div id="banner">
-					<p>Transitions</p>
-					<p>Transforms</p>
-					<p>Animations</p>
+					<p class="topic1">Transitions</p>
+					<p class="topic2">Transforms</p>
+					<p class="topic3">Animations</p>
 					<div id="container">
 						<div id="cover">
 							<h3>CIT 261</h3>
@@ -299,18 +277,9 @@
 				
 				</div>
 				<div id="navegation">
-					<ul class="iconList">
-						<li>Home</li>
-						<li>Transitions</li>
-						<li>Transforms</li>
-						<li>Animations</li>
-					</ul>
-					<ul class="namedList">
-						<li>Home</li>
-						<li>Transitions</li>
-						<li>Transforms</li>
-						<li>Animations</li>
-					</ul>
+					<a href="#transitions">Transitions</a>
+					<a href="#transforms">Transforms</a>
+					<a href="#animations">Animations</a>
 				</div>
 				<div id="bodyPage">
 					
