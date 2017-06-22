@@ -42,7 +42,7 @@ main a {
 			</ul>
 		</nav>
 		<main>
-	<h2>Drawing with JavaScript & Canvas</h2>
+	<h3>Drawing with JavaScript & Canvas</h3>
 	<canvas id="myFirstCanvas" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
@@ -62,14 +62,24 @@ main a {
 		<canvas id="canvasText" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
-	
+	<h3>Custom Text!</h3>
+	<p>Create your own text:</p>
+	<input type="text" id="textBox" onkeyup="loadText()" placeholder="Your text here">
+	<br>
+		<canvas id="canvasCustom" width="300" height="300">
+		“Sorry! Your browser doesn’t support Canvas.”
+	</canvas>
 	<h3>Drawing Images</h3>
 		<canvas id="canvas5" width="300" height="300">
 		“Sorry! Your browser doesn’t support Canvas.”
 	</canvas>
 	<img src="images/github.png" alt="GitHub Logo" id="logo">
 	<input type="radio" onclick="drawImage()" name="image" checked> Color <input type="radio" onclick="greyScale()" name="image"> Greyscale
-	<a onclick="saving(this, 'myCanvas.png')">Save Image</button>
+	<a onclick="saving(this, 'myCanvas.png')">Save Image</a>
+		
+	
+	
+	
 </main>
 <footer>
 			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
@@ -87,6 +97,7 @@ document.onload = gradient();
 document.onload = circle();
 document.onload = text();
 window.addEventListener("load", drawImage, false);
+
 function pattern() {
 	var canvas = document.getElementById('canvas2');
 	var context = canvas.getContext("2d");
@@ -162,16 +173,27 @@ function greyScale() {
 		imageData.data[i + 1] = d;
 		imageData.data[i + 2] = d;
 	}
+	
 	context.putImageData(imageData, 0, 0);
 
+}
+
+function loadText() {
+	var canvas = document.getElementById('canvasCustom');
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	var word = document.getElementById('textBox').value;
+	context.font = "24px Helvetica";
+	context.fillText(word, 10, 150);
 }
 
 function text() {
 	var canvas = document.getElementById('canvasText');
 	var context = canvas.getContext('2d');
-	context.font = "20px Helvetica";
-	context.fillText("Fernando - CIT 261", 10, 50)
+	context.font = "24px Helvetica";
+	context.fillText("Fernando - CIT 261", 10, 50);
 }
+
 </script>
 </body>
 </html>
