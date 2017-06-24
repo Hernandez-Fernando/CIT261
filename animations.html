@@ -47,31 +47,7 @@ button:hover {
   opacity: 1;
 }
 
-.square {
-	width: 350px;
-	height: 50px;
-	background-color: red;
-}
 
-.square:hover {
-	transition: 5s;
-	width: 550px;
-}
-.sAnimated {
-	transition: 3s;
-	height: 150px;
-}
-
-.round {
-	width: 75px;
-	height: 75px;
-	background-color: green;
-}
-
-.rounded {
-	transition: 3s;
-	border-radius: 50%;
-}
 
 #board {
 	display: grid;
@@ -109,14 +85,15 @@ button:hover {
 
 .card {
 	background-color: white;
+	transition: .5s;
 }
 .flipBack {
-	transition: 1.2s;
+	transition: .5s;
 	transform: rotateY(180deg);
 }
 
 .animated {
-	transition: 1.2s;
+
 	transform: rotateY(180deg);
 
 }
@@ -129,7 +106,7 @@ button:hover {
 
 
 .match {
-	animation: 1s;
+	animation: 0.5s;
 	animation-name: matched;
 	background-color: #D8D8D8;
 	
@@ -143,7 +120,7 @@ button:hover {
 }
 
 .nomatch {
-	animation: 1.2s;
+	animation: .5s;
 	animation-name: nomatched;
 	
 }
@@ -311,7 +288,7 @@ function revelCard(number) {
 		images[number].src = files[number];
 		clearInterval(showPercent);
 	  	}
-	  }, 6);
+	  }, 2);
 	 
 	  
 	  checked += 1;
@@ -339,7 +316,7 @@ switch (checked) {
 		checked -= 1;
 	}
 		break;
-		} }, 1200);
+		} }, 500);
 
 
  
@@ -350,8 +327,10 @@ function hideCards(number1, number2) {
 	cards[number1].classList.add('nomatch');
 	cards[number2].classList.add('nomatch');
    	var flip = window.setTimeout(function() {
-		cards[number1].classList.add('flipBack');
-		cards[number2].classList.add('flipBack');
+		//cards[number1].classList.add('flipBack');
+		//cards[number2].classList.add('flipBack');
+		cards[number1].classList.toggle('animated');
+		cards[number2].classList.toggle('animated');
 		
 	var currentPercent = 0;
 	var hidePercent = window.setInterval(function() {
@@ -367,8 +346,8 @@ function hideCards(number1, number2) {
 	}
   
   
-  }, 6);
- }, 1200) 
+  }, 2);
+ }, 400) 
   
   
 }
@@ -397,16 +376,16 @@ function evaluatingAnswer(firstChoice, secondChoice, firstNumber, secondNumber) 
 	else {
 		hideCards(firstNumber, secondNumber);
 		var defaultClasses = window.setTimeout(function() {
-			cards[firstNumber].classList.remove('animated');
-			cards[secondNumber].classList.remove('animated');	
+			//cards[firstNumber].classList.remove('animated');
+			//cards[secondNumber].classList.remove('animated');	
 			cards[firstNumber].classList.remove('nomatch');
 			cards[secondNumber].classList.remove('nomatch');
 			var lastBreak = window.setTimeout(function() {
 			cards[firstNumber].classList.remove('flipBack');
 			cards[secondNumber].classList.remove('flipBack');
-			}, 1000);
+			}, 400);
 		
-  }, 1000);
+  }, 500);
   
 		} 
 	return pick1 = "", checked = 0, score = score;

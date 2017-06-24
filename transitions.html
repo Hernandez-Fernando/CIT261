@@ -14,6 +14,45 @@
 		
 	}
 	
+	div {
+		background-color: orange;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 10px;
+		transition-property: width, height, border-radius;
+		transition-duration: 0.5s, 0.5s, 0.5s;
+		transition-timing-function: ease, ease, linear;	
+
+	}
+	
+	div h3 {
+		padding-top: 35%;
+	}
+	.normal {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.small {
+		width: 75px;
+		height: 75px;
+	}
+	
+	.big {
+		width: 150px;
+		height: 150px;
+	}
+	
+	label {
+		padding: 5px;
+		margin: 10px;
+	}
+	
+	.circle {
+		border-radius: 50%;
+	}
+	
 </style>
 
 
@@ -39,6 +78,25 @@
 	<img src="https://pbs.twimg.com/profile_images/629569022296616960/YKNeqWJk.jpg" alt="Landscape 2">
 	<img src="https://pbs.twimg.com/profile_images/640687635946565632/5pRp2WLy.jpg" alt="Landscape 3">
 	<img src="https://pbs.twimg.com/profile_images/699978214840598528/gRfl-b1X.jpg" alt="Landscape 4">
+</section>
+<section>
+	<p>Select the classes to apply</p>
+	<form>
+		<fieldset>
+			<legend>Size</legend>
+			<label><input type="radio" name="size" onclick="changeSize(0)" checked> Normal</label>
+			<label><input type="radio" name="size" onclick="changeSize(1)"> Big</label>
+			<label><input type="radio" name="size" onclick="changeSize(2)"> Small</label>
+		</fieldset>
+		<fieldset>
+			<legend>Shape</legend>
+			<label><input type="radio" name="shape" onclick="changeShape(0)" checked> Square</label>
+			<label><input type="radio" name="shape" onclick="changeShape(1)"> Circle</label>
+		</fieldset>
+	</form>
+<div id="shape" class="normal square">
+	<h3>Hello!</h3>
+</div>
 </section>
 </main>
 <footer>
@@ -77,6 +135,39 @@ im[3].onclick = function() {
 		this.style.width = '100px';
 	} else {
 		this.style.width = '137.5px';
+	}
+}
+
+function changeSize(choice) {
+	var element = document.getElementById('shape');
+	switch (choice) {
+		case 0:
+		element.classList.add('normal');
+		element.classList.remove('big');
+		element.classList.remove('small');
+		break;
+		
+		case 1:
+		element.classList.remove('normal');
+		element.classList.add('big');
+		element.classList.remove('small');
+		break;
+		
+		case 2:
+		element.classList.remove('normal');
+		element.classList.remove('big');
+		element.classList.add('small');
+		break;
+	}
+}
+
+function changeShape(choice) {
+	var element = document.getElementById('shape');
+	if (choice == 0) {
+		element.classList.remove('circle');
+	}
+	else {
+		element.classList.add('circle');
 	}
 }
 
