@@ -1,0 +1,581 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3 Animations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+       <link rel="stylesheet" href="styles/main.css">
+		
+	<style>
+	
+
+	#banner {
+		background-color: #2C3134;
+		width: 100%;
+		height: 170px;
+		padding: 0;
+		color: white;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		
+	}
+	
+	#container {
+		margin-top: 25px;
+		height: 150px;
+
+	}
+	
+	
+	.topic1 {
+		top: 70px;
+		left: 36%;
+		font-size: 45px;
+		position: absolute;
+		font-weight: bold;
+		opacity: 0;
+		transform: translateX(100px);
+		color: white;
+		animation: 2.5s ease-out slideIn;
+		
+	}
+	
+	@keyframes slideIn {
+		0% {transform: translateX(100px); opacity: 0;}
+		30% {transform: translateX(0px); opacity: 1;}
+		70% {transform: translateX(0px); opacity: 1;}
+		100% {transform: translateX(-100px); opacity: 0;}
+	}
+	
+		.topic2 {
+		top: 70px;
+		left: 36%;
+		font-size: 45px;
+		position: absolute;
+		font-weight: bold;
+		opacity: 0;
+		transform: translateX(100px);
+		color: white;
+		animation: 2.5s ease-out 2.5s slideIn;
+		
+	}
+	
+		.topic3 {
+		top: 70px;
+		left: 36%;
+		font-size: 45px;
+		position: absolute;
+		font-weight: bold;
+		opacity: 0;
+		transform: translateX(100px);
+		color: white;
+		animation: 2.5s ease-out 5.5s slideIn;
+		
+	}
+	
+	#banner h3 {
+		margin-top: 50px;
+		font-size: 0px;
+		opacity: 1;
+		animation: 2s 8s linear zoomIn forwards;
+
+	}
+
+	@keyframes zoomIn {
+		from {font-size: 0px;}
+		to {font-size: 46px;}
+	}
+	
+	#motto {
+		opacity: 0;
+		color: white;
+		animation: 2s 10s ease-in fadeIn forwards;
+	}
+	
+	@keyframes fadeIn {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	}
+
+	
+	#navegation {
+		padding: 0;
+		width: 100%;
+		margin: 0;
+		background-color: orange;
+		text-align: center;
+	}
+	
+	#navegation ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		padding: 0;
+	}
+	#navegation ul li {
+		display: inline-block;
+		transition: all .5s linear;
+	}
+	
+	#navegation ul li a {
+		color: white;
+		font-size: 20px;
+		padding: 5px;
+		margin-right: auto;
+		margin-left: auto;
+		text-decoration: none;
+
+	}
+	
+		#navegation ul li:hover {
+		color: white;
+		background-color: red;
+	}
+	
+	#transitions, #transforms, #animations {
+		width: 100%;
+		min-height: 400px;
+		bottom: 10px;
+	}
+	
+	
+	/* SUN */
+	
+	#tImage {
+		animation: 6s linear infinite spin;
+	}
+	
+	@keyframes spin {
+		from {transform: rotate(0deg)}
+		to {transform: rotate(360deg)}
+	}
+	
+	#square {
+		width: 100px;
+		height: 100px;
+		background-color: green;
+		transform: rotate(45deg);
+		margin: 20px;
+		transition: all 2s ease-in-out;
+	}
+	
+	#square:hover {
+		transform: rotate(360deg);
+	}
+	
+	/* Emoji */
+	
+	#background {
+		background-color: yellow;
+		position: relative;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		border: 2px solid black;
+	}
+	
+	.eyes {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: white;
+		float: left;
+		margin-top: 35px;
+		margin-left: 28px;
+		margin-right: 15px;
+		border: 2px solid black;
+	}
+	
+	.pupil {
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: black;
+		margin-top: 7px;
+		margin-left: 10px;
+		animation: 2s linear eyecross infinite;
+		transform-origin: 80% 80%;
+	}
+	
+	@keyframes eyecross {
+		0% {transform: rotate(0deg);}
+		50% {transform: rotate(360deg);}
+		100% {transform: rotate(-360deg);}
+	}
+	
+	
+	#mounth {
+		position: absolute;
+		margin-left: 60px;
+		margin-top: 120px;
+		background-color: black;
+		width: 75px;
+		height: 0px;
+		border-bottom-right-radius: 50%;
+		border-bottom-left-radius: 50%;
+		border: 2px solid black;
+		animation: 4s ease-out open infinite;
+	}
+	
+	#tongue {
+		position: absolute;
+		width: 40px;
+		height: 0px;
+		background-color: darkred;
+		margin-left: 77px;
+		margin-top: 140px;
+		border-bottom-right-radius: 40%;
+		border-bottom-left-radius: 40%;
+		animation: 4s linear down infinite;
+	}
+	
+	@keyframes open {
+		0%{height: 0px;}
+		25%{height: 50px;}
+		75% {height:50px;}
+		100% {height:0px;}
+	}
+	
+	@keyframes down {
+		0% {height: 0px;}
+		8% {height: 0px;}
+		25% {height: 45px;}
+		70% {height: 45px;}
+		85% {height: 0px;}
+		100% {height: 0px;}
+	}
+	
+	/* Images */
+	#slides {
+		width: 100%;
+		height: 250px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		justify-content: center;
+	}
+	
+	#slides img {
+		width: 200px;
+		opacity: .5;
+		transition-property: width, opacity;
+		transition-duration: 1.5s, 1s;
+		transition-timing-function: ease, linear;		
+	}
+	
+	#slides img:hover {
+		width: 300px;
+		opacity: 1;
+	}
+	
+	/* Transitions Lines */
+	#transitions p {
+		padding: 10px;
+		background-color: darkred;
+		color: white;
+		margin: 10px;
+		transition: all 1.5s ease;
+	}
+	
+	#transitions #backgroundButton:hover {
+		background-color: orange;
+	}
+	
+	#transitions #color:hover {
+		color: orange;
+	}
+	
+	#transitions #both:hover {
+		background-color: orange;
+		color: black;
+	}
+	
+	/*BREAKING */
+	#breaking {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 32px;
+		background-color: lightblue;
+	}
+	
+	#acent {
+		display: inline-block;
+		color: white;
+		margin-left: 10px;
+		background-color: darkgrey;
+		padding: 5px;
+		z-index: 5;
+		transform: skew(-20deg);
+	}
+	
+	#breaking ul {
+		margin-left: 90px;
+		margin-top: 0px;
+		padding: 5px;
+	  	animation: breaking 6s cubic-bezier(1, 0, .5, 0) alternate infinite;
+	  	list-style: none;
+
+
+	}
+	
+	@keyframes breaking {
+  0%   {margin-top: -48px;}
+  45%  {margin-top: -80px;}
+  85% {margin-top: -112px;}
+  100% {margin-top: -112px;}
+	}
+	
+	/* Folding, Sliding Gates */
+	.gate {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		
+	}
+	
+	#gImage {
+		width: 85px;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		
+	}
+	#g1, #g2, #g3, #g4 {
+		position: relative;
+		text-align: center;
+		padding-top: 75px;
+		width: 150px;
+		height: 200px;
+		background-color: #7100B7;
+		color: white;
+		border: 1px solid #C677F8;
+		display: inline-block;
+		margin: 10px;
+		overflow: hidden;
+	}
+	
+	#t1, #t2, #t3, #t4 {
+		position: absolute;
+		margin-top: -109px;
+		width: 148px;
+		height: 165px;
+		text-align: center;
+		padding-top: 45%;
+		color: black;
+		background-color: white;
+		transition: all .5s linear;
+	}
+	
+	#t2 {
+		transform: rotateX(-90deg);
+		transform-origin: top;
+	
+	}
+	
+	#t4 {
+		transform: rotateY(-90deg);
+		transform-origin: right;
+	
+	}
+	
+	#g2:hover #t2 {
+		transform: rotateX(0deg);
+	}
+	
+	#g1:hover #t1 {
+		transform: translateY(-130px);
+	}
+	
+	#g3:hover #t3 {
+		transform: translateX(-150px);
+	}
+	
+	#t3 {
+		margin-top: -160px;
+	}
+	
+	#g4:hover #t4 {
+		transform: rotateY(0deg);
+	}
+	
+	#backButton {
+    position: fixed;
+	width: 70px;
+	height: 70px;
+    bottom: 8%;
+    right: 30px;
+    z-index: 99;
+    background-color: #008CB7;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+	transition: all 1s;
+	text-align: center;
+}
+
+#backButton:hover {
+	transform: scale(1.2);
+	box-shadow: 2px 2px 4px #000;
+}
+
+#backButton p {
+	padding-top: 25%;
+	text-decoration: none;
+	color: white;
+	line-height: 100%;
+}
+
+#backButton p a {
+	text-decoration: none;
+	color: white;
+}
+	</style>
+</head>
+
+<body>
+	<header>
+			<a href="index.html"><img src="images/github.png" alt="GitHub Logo"></a>
+			<h1><a href="index.html">Fernando Hernandez</a></h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home  &gt;</a></li>
+				<li>Topic 11-13  &gt;</li>
+				<li>File 1  &gt;</li>
+				<li>tta.html</li>
+			</ul>
+		</nav>
+		<main>
+			<h2>CSS T-T-A Without Custom Libraries</h2>
+			
+			<section id="site">
+				<div id="banner">
+					<p class="topic1">Transitions</p>
+					<p class="topic2">Transforms</p>
+					<p class="topic3">Animations</p>
+					<div id="container">
+						<div id="cover">
+							<h3>CIT 261</h3>
+						</div>
+					<h4 id="motto">Mobile Application Development</h4>
+				</div>
+				
+				</div>
+				<div id="navegation">
+					<ul>
+						
+					<li><a href="#transitions">Transitions</a></li>
+					<li><a href="#transforms">Transforms</a></li>
+					<li><a href="#animations">Animations</a></li>
+				</ul>
+				</div>
+				<div id="bodyPage">
+					
+				<section id="transitions">
+					<h3>Transitions</h3>
+					<div id="slides">
+						<img src="images/clear.jpg">
+						<img src="images/cloudy.jpg">
+						<img src="images/snowing.jpg">
+					</div>
+					
+					<p id="backgroundButton">Background</p>
+					<p id="color">Font Color</p>
+					<p id="both">Both</p>
+				</section>
+				
+				
+				<section id="transforms">
+					<h3>Transforms</h3>
+					<img id="tImage" src="images/sun-small.png">
+					<div id="square"></div>
+					<div class="gate">
+					<div id="g1">
+						<h4>Keep Trying</h4>
+						<div id="t1">
+							<h3>Revel my Prize</h3>
+						</div>
+					</div>
+					
+					<div id="g2">
+						<h4>Hover Me...</h4>
+						<div id="t2">
+							<h3>Hello!</h3>
+						</div>
+					</div>
+					
+					<div id="g3">
+						<img id="gImage" src="images/tribute.jpg" alt="Tribute Album Artwork">
+						<div id="t3">
+							<h3>Show Me!</h3>
+						</div>
+					</div>
+					
+					<div id="g4">
+						<h4>Try Me</h4>
+						<div id="t4">
+							<h3>Hi!</h3>
+						</div>
+					</div>
+				</div>
+				</section>
+				
+				
+				<section id="animations">
+					<h3>Animations</h3>
+					
+					<div id="emoji">
+						<div id="background"></head>
+							<div id="face">
+								<div class="eyes">
+									<div class="pupil"></div>
+								</div>
+								<div class="eyes">
+									<div class="pupil"></div>
+								</div>
+								<div id="mounth"></div>
+								<div id="tongue"></div>
+							</div>
+					</div>
+				</section>
+				</div>
+				<div id="foot">
+					<div id="breaking"><div id="acent"><h5>CIT 261</h5> </div>
+					<ul class="bottom">
+						<li>CSS3 Transitions</li>
+						<li>CSS3 Transforms</li>
+						<li>CSS3 Animations</li>
+					</ul>
+					</div>
+					<div id="backButton"><p id="backTop"><a href="#site">Back Top</a></p></div>
+				</div>
+			</section>
+		</main>
+<footer>
+			<p id="copy">&#169; 2017 - Fernando Hernandez - Location: Arizona - <a href="http://www.byui.edu/online" target="_blank">BYU-Idaho</a></p>
+		</footer>
+		<!-- Scroll Down Transition using Library, no for grading -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script>
+$(document).ready(function(){
+ 
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+	  
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+		  
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>
