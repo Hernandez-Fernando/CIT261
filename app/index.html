@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html ng-app="scoreApp">
+<head>
+<meta charset="UTF-8">
+<title>Baseball Score Keeper</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Web Application for CIT-261 at BYU-I">
+<meta name="author" content="Fernando Hernandez">
+<link rel="stylesheet" href="styles/main.css">
+<link rel="icon" href="favicon.ico">
+<script src="scripts/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+</head>
+
+<body>
+<header>
+
+</header>
+<nav>
+<ul class="nav">
+	<li>Game</li>
+	<li>Game Configuration</li>
+	<li>Player List</li>
+	<li>Stadistics</li>
+	<li>About</li>
+	<li>Settings</li>
+</ul>
+
+	<a href="#/">Home</a>
+    <a href="#/players">Players</a>
+    <a href="#/game">Game</a>
+	<a href="#/stadistics">Stadistics</a>
+    <a href="#/settings">Settings</a>
+    <a href="#/about">About</a>
+</nav>
+<main id="app" ng-view>
+	<h2 ng-controller="HomeController">{{message}}</h2>
+</main>
+
+<footer>
+	
+</footer>
+</body>
+<!-- Fernando Hernandez -->
+</html>
