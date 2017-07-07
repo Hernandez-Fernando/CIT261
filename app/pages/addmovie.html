@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>New Movie</title>
+
+<style>
+label {
+	display: block;
+}
+
+
+</style>
+</head>
+<h2>Registrer New Movie</h2>
+
+<form>
+	<label>Movie ID: <input type="text" name="cid" pattern="[0-9]" min="5" readonly></label>
+	<label>Name: <input type="text" name="name" pattern="[A-Za-z]" min="5" required></label>
+	<label>Gener: <input type="text" name="lname" pattern="[A-Za-z]" min="5" required></label>
+	<label>Year: <input type="date" name="dob" required></label>
+	<label>Clasification: <input type="text" name="address" pattern="[A-Za-z0-9]" required></label>
+	<label>Format: <input type="radio" name="format" value="dvd"> DVD <input type="radio" name="format" value="br"> Blue-Ray</label>
+	<label>Copies: <input type="text" name="state" pattern="[A-Za-z]{2}" required></label>
+	<input type="submit" name="submit">
+	<button type="button" id="sam">Save and New</button>
+	<button type="button" id="cancelB">Cancel</button>
+</form>
+<body>
+</body>
+</html>

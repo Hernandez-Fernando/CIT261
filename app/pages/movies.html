@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Movies</title>
+<script src="../scripts/movies.js"></script>
+<style>
+table {
+    border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+}
+
+th, td {
+	height: 35px;
+}
+
+th {
+	background-color: #707070;
+	color: white;
+}
+table, th, td {
+    border: 1px solid black;
+}
+
+tr:nth-child(odd) {background-color: #D8EBFA;}
+
+tr:hover {background-color: #AFADEE}
+</style>
+
+</head>
+
+<body>
+	<h2>Movies Catalog</h2>
+	
+	<table id="moviesTable">
+			<tr>
+				<th>Movie ID</th>
+				<th>Name</th>
+				<th>Gener</th>
+				<th>Year</th>
+				<th>Clasification</th>
+				<th>Format</th>
+				<th>Copies</th>
+				<th>Avalible</th>
+			</tr>
+	</table>
+	<script>
+	
+	
+function fillMovies() {
+	var table = document.getElementById("moviesTable");
+	var rowNumber = 1;
+	var cellNumber = 0;
+	var row, cell, text;
+	
+    for (var i = 0; i < movies.length; i++) {
+			row = table.insertRow(rowNumber);
+			
+		    for (var c = 0; c < 8; c++) {
+				cell = row.insertCell(c);
+				
+				switch(c) {
+					case 0:
+						text = movies[i].id;
+						break;
+					case 1:
+						text = movies[i].name;
+						break;
+					case 2:
+						text = movies[i].gener;
+						break;
+					case 3:
+						text = movies[i].years;
+						break;
+					case 4:
+						text = movies[i].clasification;
+						break;
+					case 5:
+						text = movies[i].format;
+						break;
+					case 6:
+						text = movies[i].copies;
+						break;
+					case 7:
+						text = movies[i].avalible;
+						break;
+				}
+			    cell.innerHTML = text;
+			}
+		rowNumber += 1;
+	}
+
+}
+
+
+
+document.onload = fillMovies();
+</script>
+</body>
+</html>

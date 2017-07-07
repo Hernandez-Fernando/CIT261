@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add Customer</title>
+<script src="../scripts/movies.js"></script>
+<style>
+label {
+	display: block;
+}
+
+
+</style>
+</head>
+<body>
+<h2>Registrer New Customer</h2>
+
+
+	<label>Customer ID: <input type="text" id="cid" pattern="[0-9]"></label>
+	<label>Name: <input type="text" id="name" pattern="[A-Za-z]" min="5" required></label>
+	<label>Last Name: <input type="text" id="lname" pattern="[A-Za-z]" min="5" required></label>
+	<label>Day of Birth: <input type="date" id="dob" required></label>
+	<label>Phone Number: <input type="tel" id="phone" min="10" required></label>
+	<label>Address: <input type="text" id="address" pattern="[A-Za-z0-9]" required></label>
+	<label>City: <input type="text" id="city" pattern="[A-Za-z]" required></label>
+	<label>State: <input type="text" id="state" pattern="[A-Za-z]{2}" required></label>
+	<label>Zip Code: <input type="text" id="zcode" pattern="[0-9]{5}" required></label>
+	<button type="button" id="create" onclick="newCustomer()">Save</button>
+	<button type="button" id="sam">Save and New</button>
+	<button type="button" id="cancelB">Cancel</button>
+
+	<script>
+	function newCustomer() {
+		var temp = "";
+		
+		var id = document.getElementById('cid').value;
+		var name = document.getElementById('name').value;
+		var last = document.getElementById('lname').value;
+		var dob = document.getElementById('dob').value;
+		var phone = document.getElementById('phone').value;
+		var address = document.getElementById('address').value;
+		var city = document.getElementById('city').value;
+		var state = document.getElementById('state').value;
+		var zcode = document.getElementById('zcode').value;
+		
+		/*
+		var id = 103;
+		var name = "Added";
+		var last = "Using Form";
+		var dob = "July 7, 2017";
+		var phone = "0987654321";
+		var address = "Address Test";
+		var city = "City S";
+		var state = "SA";
+		var zcode = "00000";
+		*/
+		temp = new Customers(id, name, last, dob, phone, address, city, state, zcode);
+	
+		customers.push(temp);
+		localStorage.setItem("customers", JSON.stringify(customers));
+	}
+	
+	</script>
+
+</body>
+</html>
