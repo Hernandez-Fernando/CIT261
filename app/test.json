@@ -1,4 +1,4 @@
-"<div class=\"red\"><img class=\"banner\" src=\"images/test.png\" alt=\"Color Scheme\" \/>
+{"<div class=\"red\"><img class=\"banner\" src=\"images/test.png\" alt=\"Color Scheme\" \/>
 
-<h2 \/>This is a Test of JSON<\/h2>
-<h3 id=\"items\" \/>If you see this, the JSON file was loaded successfully<\/h3><\/div>"
+<h2>This is a Test of JSON<\/h2>
+<h3 id=\"items\">If you see this, the JSON file was loaded successfully<\/h3><\/div>"}
