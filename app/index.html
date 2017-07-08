@@ -147,15 +147,15 @@ var requestURL = 'https://hernandez-fernando.github.io/CIT261/app/test.json';
 var code;
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        var markup = this.responseText;
-		code = JSON.parse(markup);
+        var text = this.responseText;
+		code = JSON.parse(text);
     }
 };
 
 request.open('GET', requestURL, true);
 request.send();
 
-document.getElementById('test').innerHTML = code;
+document.getElementById('app').appendChild = code.html;
 }
 </script>
 </body>
