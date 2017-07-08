@@ -149,7 +149,7 @@ request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var text = this.responseText;
 		code = JSON.parse(text);
-		document.getElementById('app').innerHTML= code.ad_box.html;
+		document.getElementById('app').innerHTML= code.ad_box.test;
     }
 };
 
