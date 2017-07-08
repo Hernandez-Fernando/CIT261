@@ -132,6 +132,8 @@ nav ul li:hover {
 	<section id="top5">
 	<h2>Most Rented</h2>
 	</section>
+	
+	<div id="test"></div>
 </main>
 
 <footer>
@@ -153,7 +155,7 @@ request.onreadystatechange = function() {
 request.open('GET', requestURL, true);
 request.send();
 
-document.getElementById('app').innerHTML = code.html;
+document.getElementById('test').innerHTML = code;
 }
 </script>
 </body>
