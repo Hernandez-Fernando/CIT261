@@ -1,10 +1,17 @@
 {
-	"html":"<section>
-	
-	<img src=\"../images/profile.png\" alt=\"Profile Image\">
-	<h2>Sign Up<\/h2>
-	<label>Userame: <input type=\"text\" name=\"user\" pattern=\"[A-Za-z0-9]\" min=\"5\" required \/><\/label>
-	<label>Password: <input type=\"pass\" name=\"pass\" pattern=\"[A-Za-z0-9]\" min=\"5\" required \/><\/label>
-	<button type=\"button\" id=\"singup\">Start SetUp<\/button>
-	<\/section>"
+
+    "ad_box": {
+
+        "html": "<div class=\"ad_box\"><img class=\"banner\" src=\"some_ad.png\" alt=\"\" \/>
+
+<h3>&quot;Hot&quot; Items <\/h3> <br \/> <ul id=\"items\" \/><\/div>",
+
+        "item_id": 1234,
+
+        "click_action":"/logAction?id=1234&amp;type=click&amp;info=blah",
+
+        "icon":"http://my.images.com/icons/icon.png"
+
+    }
+
 }
