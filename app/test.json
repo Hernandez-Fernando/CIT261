@@ -2,15 +2,9 @@
 
     "ad_box": {
 
-        "html": "<div class=\"ad_box\"><img class=\"banner\" src=\"some_ad.png\" alt=\"\" \/>
+        "html":"<div class=\"ad_box\"><img class=\"banner\" src=\"some_ad.png\" alt=\"\" \/>
 
-<h3>&quot;Hot&quot; Items <\/h3> <br \/> <ul id=\"items\" \/><\/div>",
-
-        "item_id": 1234,
-
-        "click_action":"/logAction?id=1234&amp;type=click&amp;info=blah",
-
-        "icon":"http://my.images.com/icons/icon.png"
+		<h3>&quot;Hot&quot; Items <\/h3> <br \/> <ul id=\"items\" \/><\/div>"
 
     }
 
