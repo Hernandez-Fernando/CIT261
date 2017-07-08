@@ -146,12 +146,14 @@ var code;
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var markup = this.responseText;
-		codes = JSON.parse(markup);
+		code = JSON.parse(markup);
     }
 };
 
 request.open('GET', requestURL, true);
 request.send();
+
+document.getElementById('app').innerHTML = code;
 }
 </script>
 </body>
