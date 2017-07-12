@@ -40,7 +40,8 @@ request.onreadystatechange = function() {
 		
 		switch (i) {
 			case 0:
-			homeHTML = text;
+			//homeHTML = text;
+			document.getElementById('app').innerHTML= text;
 			break;
 		case 1:
 			return customersHTML = text;
