@@ -1,33 +1,5 @@
 //Main Commands
-function loadHTML(request) {
-	var requested = "";
-	
-	switch (request) {
-			case 0:
-			requested = homeHTML;
-			break;
-		case 1:
-			requested = customersHTML;
-			break;
-		case 2:
-			requested = customersNewHTML;
-			break;
-		case 3:
-			requested = moviesHTML;
-			break;
-		case 4:
-			requested = moviesNewHTML;
-			break;
-		case 5:
-			requested = settingsHTML;
-			break;
-		case 6:
-			requested = aboutHTML;
-			break;
-		}
-	
-	document.getElementById('app').innerHTML= requested;
-}
+
 
 // Restart App
 
