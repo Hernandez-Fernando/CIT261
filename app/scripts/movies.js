@@ -130,4 +130,5 @@ function newCustomer() {
 	
 		customers.push(temp);
 		localStorage.setItem("customers", JSON.stringify(customers));
+		loadCustomers();
 	}

@@ -196,7 +196,7 @@ var customersHTML = "";
 var customersNewHTML = "";
 
 //Request Customers
-function testJSON() {
+function loadCustomers() {
 var request = new XMLHttpRequest();
 
 var requestURL = 'customers.txt';
@@ -239,11 +239,7 @@ request.send();
 
 }
 
-function loadCustomers() {
-	testJSON();
-	
-	//fillCustomers();
-}
+
 
 </script>
 </body>
