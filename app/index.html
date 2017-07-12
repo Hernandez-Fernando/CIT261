@@ -38,11 +38,19 @@ height: 600px;
 margin: 0;}
 
 main { width: 75%;
-display: grid;
+	
+}
+
+#index {
+	display: grid;
 grid-template-columns: 1fr 1fr;
 grid-template-rows: 300px 300px;
 margin: 0;
 padding: 15px;
+}
+
+#customers {
+	
 }
 
 footer {
@@ -87,6 +95,28 @@ nav ul li:hover {
 	color: red;
 }
 
+/* Customers List */
+table {
+    border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+}
+
+th, td {
+	height: 35px;
+}
+
+th {
+	background-color: #707070;
+	color: white;
+}
+table, th, td {
+    border: 1px solid black;
+}
+
+tr:nth-child(odd) {background-color: #D8EBFA;}
+
+tr:hover {background-color: #AFADEE}
 
 </style>
 
@@ -113,6 +143,7 @@ nav ul li:hover {
 </aside>
 
 <main id="app">
+	<section id="index">
 	<section id="controls">
 	<h1>Controls</h1>
 	<p>New Rental</p>
@@ -134,6 +165,7 @@ nav ul li:hover {
 	</section>
 	
 	<div id="test"></div>
+</section>
 </main>
 
 <footer>
@@ -142,18 +174,18 @@ nav ul li:hover {
 <script>
 function testJSON() {
 	var request = new XMLHttpRequest();
-//var requestURL = 'https://hernandez-fernando.github.io/CIT261/app/test.json';
+var requestURL = 'https://hernandez-fernando.github.io/CIT261/app/customers.txt';
 
 var code;
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        var text = this.responseText;
-		code = JSON.parse(text);
-		document.getElementById('app').innerHTML= code;
+        var customersList = this.responseText;
+		//code = JSON.parse(text);
+		document.getElementById('app').innerHTML= text;
     }
 };
 
-request.open('GET', 'test.txt', true);
+request.open('GET', requestURL, true);
 request.send();
 
 
