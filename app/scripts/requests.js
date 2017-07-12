@@ -8,7 +8,7 @@ var tempRespond = "";
 for (var i = 0; i < 8; i++) {
 	var request = new XMLHttpRequest();
 	var requestURL = "";
-	
+	var text = "";
 	switch (i) {
 		case 0:
 			requestURL = 'pages/home.txt';
@@ -36,7 +36,7 @@ for (var i = 0; i < 8; i++) {
 	
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        var text = this.responseText;
+        text = this.responseText;
     } // End of " If " statement
 	
 	switch (i) {
