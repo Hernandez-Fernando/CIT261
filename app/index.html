@@ -178,8 +178,24 @@ tr:hover {background-color: #AFADEE}
 	<p>&copy; 2017 - Movie Rental Management v1.0 - Last Update: July 2017 - This is an open source app</p>
 </footer>
 <script>
-var customersHTML = "";
+window.onload = function() {
+	if (localStorage.getItem('movies') != undefined) {
+		movies = JSON.parse(localStorage.getItem('movies'));
+		customers = JSON.parse(localStorage.getItem('customers'));
+	}
+	else {
+		movies = [];
+		customers = [];
+	}
+}
+</script>
+	
 
+<script>
+var customersHTML = "";
+var customersNewHTML = "";
+
+//Request Customers
 function testJSON() {
 var request = new XMLHttpRequest();
 
@@ -192,6 +208,28 @@ request.onreadystatechange = function() {
 		//code = JSON.parse(text);
 		document.getElementById('app').innerHTML= text;
 		return customersHTML = text;
+    }
+};
+
+request.open('GET', requestURL, true);
+request.send();
+
+
+}
+
+//Request NewCustomers
+function loadNewCustomers() {
+var request = new XMLHttpRequest();
+
+var requestURL = 'app/newcustomers.txt';
+
+var code;
+request.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var text = this.responseText;
+		//code = JSON.parse(text);
+		document.getElementById('app').innerHTML= text;
+		return customersNewHTML = text;
     }
 };
 

@@ -1,6 +1,7 @@
 <section id="customersPage">
 	<h2>Customers</h2> 
 	<button type="button" onclick="fillCustomers()">Fill Test</button>
+	<button type="button" onclick="loadNewCustomer()">Add New Customer</button>
 	<table id="customersTable">
 			<tr>
 				<th>ID</th>
@@ -14,5 +15,57 @@
 				<th>Status</th>
 			</tr>
 	</table>
+	<script>
+		
+	function fillCustomers() {
+	var table = document.getElementById("customersTable");
+	var rowNumber = 1;
+	var cellNumber = 0;
+	var row, cell, text;
 	
+    for (var i = 0; i < customers.length; i++) {
+			row = table.insertRow(rowNumber);
+			
+		    for (var c = 0; c < 9; c++) {
+				cell = row.insertCell(c);
+				
+				switch(c) {
+					case 0:
+						text = customers[i].id;
+						break;
+					case 1:
+						text = customers[i].name;
+						break;
+					case 2:
+						text = customers[i].last;
+						break;
+					case 3:
+						text = customers[i].dob;
+						break;
+					case 4:
+						text = customers[i].phone;
+						break;
+					case 5:
+						text = customers[i].address;
+						break;
+					case 6:
+						text = customers[i].city;
+						break;
+					case 7:
+						text = customers[i].state;
+						break;
+					case 8:
+						text = customers[i].status;
+						break;
+				}
+			    cell.innerHTML = text;
+			}
+		rowNumber += 1;
+	}
+
+}
+
+document.onload = fillCustomers();
+	
+	</script>
 	</section>

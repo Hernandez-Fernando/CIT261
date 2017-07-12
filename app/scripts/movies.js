@@ -1,7 +1,9 @@
 //var movies = [];
-var movies = JSON.parse(localStorage.getItem('movies'));
-var moviesLast = movies.length;
+//var movies = JSON.parse(localStorage.getItem('movies'));
+//var moviesLast = movies.length;
 //var id = 100;
+
+var movies;
 
 function movie(id, name, gener, published, clasification, format, copies){
 	this.id = id;
@@ -14,15 +16,19 @@ function movie(id, name, gener, published, clasification, format, copies){
 	this.rented = 0;
 	this.avalible = copies;
 }
-
+/*
 movies[0] = {id:100, name:"In Time", gener:"Action", years:"2007", clasification:"PG-13", format:"DVD", copies:1, rented:0, avalible:2};
 movies[1] = {id:101, name:"National Treasure", gener:"Adventure", years:"2007", clasification:"G", format:"BR", copies:2, rented:0, avalible:2};
 movies[2] = {id:102, name:"Fury", gener:"Fiction", years:"2014", clasification:"R", format:"DVD", copies:3, rented:0, avalible:2};
-
+*/
 
 //Customers
 //var customers = [];
-var customers = JSON.parse(localStorage.getItem("customers"));
+
+
+//var customers = JSON.parse(localStorage.getItem("customers"));
+var customers;
+
 //var customersLast = customers.length;
 //var id = 100;
 
