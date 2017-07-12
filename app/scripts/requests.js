@@ -38,29 +38,28 @@ request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var text = this.responseText;
 		document.getElementById('app').innerHTML += text;
-		homeHTML = text;
+		
 	switch (i) {
 		case 0:
-			return homeHTML = text;
+			homeHTML = text;
 			break;
 		case 1:
-			return customersHTML = text;
+			customersHTML = text;
 			break;
 		case 2:
-			return customersNewHTML = text;
+			customersNewHTML = text;
 			break;
 		case 3:
-			return moviesHTML = text;
+			moviesHTML = text;
 			break;
 		case 4:
-			return moviesNewHTML = text;
+			moviesNewHTML = text;
 			break;
 		case 5:
-			return settingsHTML = text;
+			settingsHTML = text;
 			break;
 		case 6:
-			alert("If you see this alert, is because JS is looking inside this switch");
-			return aboutHTML = text;
+			aboutHTML = text;
 			break;
 		}
 		
