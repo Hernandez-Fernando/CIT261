@@ -98,3 +98,36 @@ function fillCustomers() {
 	}
 
 }
+
+
+// Create New Customer 
+
+function newCustomer() {
+		var temp = "";
+		
+		var id = document.getElementById('cid').value;
+		var name = document.getElementById('name').value;
+		var last = document.getElementById('lname').value;
+		var dob = document.getElementById('dob').value;
+		var phone = document.getElementById('phone').value;
+		var address = document.getElementById('address').value;
+		var city = document.getElementById('city').value;
+		var state = document.getElementById('state').value;
+		var zcode = document.getElementById('zcode').value;
+		
+		/*
+		var id = 103;
+		var name = "Added";
+		var last = "Using Form";
+		var dob = "July 7, 2017";
+		var phone = "0987654321";
+		var address = "Address Test";
+		var city = "City S";
+		var state = "SA";
+		var zcode = "00000";
+		*/
+		temp = new Customers(id, name, last, dob, phone, address, city, state, zcode);
+	
+		customers.push(temp);
+		localStorage.setItem("customers", JSON.stringify(customers));
+	}
