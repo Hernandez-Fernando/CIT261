@@ -1,4 +1,4 @@
-<section id="index">
+<section id="homeSection">
 		<section id="controls">
 		<h1>Controls</h1>
 		<p>New Rental</p>
