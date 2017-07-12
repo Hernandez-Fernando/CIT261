@@ -37,8 +37,8 @@ for (var i = 0; i < 8; i++) {
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var text = this.responseText;
-		document.getElementById('app').innerHTML += text;
-		
+    } // End of " If " statement
+	
 	switch (i) {
 		case 0:
 			homeHTML = text;
@@ -62,8 +62,6 @@ request.onreadystatechange = function() {
 			aboutHTML = text;
 			break;
 		}
-		
-    } // End of " If " statement
 }; //End of onready function
 
 request.open('GET', requestURL, true);
