@@ -1,12 +1,13 @@
-var movies = [];
+//var movies = [];
+var movies = JSON.parse(localStorage.getItem('movies'));
 var moviesLast = movies.length;
 //var id = 100;
 
-function movie(id, name, gener, year, clasification, format, copies){
+function movie(id, name, gener, published, clasification, format, copies){
 	this.id = id;
 	this.name = name;
 	this.gener = gener;
-	this.year = year;
+	this.publish = published;
 	this.clasification = clasification;
 	this.format = format;
 	this.copies = copies;

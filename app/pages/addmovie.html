@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>New Movie</title>
-
+<script src="../scripts/movies.js"></script>
 <style>
 label {
 	display: block;
@@ -12,20 +12,52 @@ label {
 
 </style>
 </head>
-<h2>Registrer New Movie</h2>
 
-<form>
-	<label>Movie ID: <input type="text" name="cid" pattern="[0-9]" min="5" readonly></label>
-	<label>Name: <input type="text" name="name" pattern="[A-Za-z]" min="5" required></label>
-	<label>Gener: <input type="text" name="lname" pattern="[A-Za-z]" min="5" required></label>
-	<label>Year: <input type="date" name="dob" required></label>
+<body>
+	<h2>Registrer New Movie</h2>
+
+	<label>Movie ID: <input type="text" id="mid" pattern="[0-9]" min="5" readonly></label>
+	<label>Name: <input type="text" id="name" pattern="[A-Za-z]" min="5" required></label>
+	<label>Gener: <input type="text" id="gener" pattern="[A-Za-z]" min="5" required></label>
+	<label>Year: <input type="text" id="clasification" required></label>
 	<label>Clasification: <input type="text" name="address" pattern="[A-Za-z0-9]" required></label>
 	<label>Format: <input type="radio" name="format" value="dvd"> DVD <input type="radio" name="format" value="br"> Blue-Ray</label>
-	<label>Copies: <input type="text" name="state" pattern="[A-Za-z]{2}" required></label>
-	<input type="submit" name="submit">
+	<label>Copies: <input type="text" id="copies" pattern="[A-Za-z]{2}" required></label>
+	<button type="button" id="saveM" onclick="newMovie()">Save</button>
 	<button type="button" id="sam">Save and New</button>
 	<button type="button" id="cancelB">Cancel</button>
-</form>
-<body>
+
+	
+	<script>
+	function newMovie() {
+		var temp = "";
+		/*
+		var id = document.getElementById('cid').value;
+		var name = document.getElementById('name').value;
+		var gener = document.getElementById('lname').value;
+		var yearP = document.getElementById('dob').value;
+		var clasification = document.getElementById('phone').value;
+		var choice = document.getElementById('address').value;
+		var format = document.getElementById('city').value;
+		var copies = document.getElementById('state').value;
+		*/
+		
+		
+		var id = 103;
+		var name = "Jack & Jill";
+		var gener = "Comedy";
+		var published = "2012";
+		var clasification = "PG-13";
+		var format = "DVD";
+		var copies = "3";
+		
+		
+		temp = new movie(id, name, gener, published, clasification, format, copies);
+	
+		movies.push(temp);
+		localStorage.setItem("movies", JSON.stringify(movies));
+	}
+	
+	</script>
 </body>
 </html>

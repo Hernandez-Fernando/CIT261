@@ -30,7 +30,7 @@ button {
 </head>
 
 <body>
-	<section>
+	<section id="signup">
 	
 	<img src="../images/profile.png" alt="Profile Image">
 	<h2>Sign Up</h2>
@@ -38,5 +38,28 @@ button {
 	<label>Password: <input type="pass" name="pass" pattern="[A-Za-z0-9]" min="5" required></label>
 	<button type="button" id="singup">Start SetUp</button>
 </section>
+
+<section id="login">
+	
+	<img src="../images/profile.png" alt="Profile Image">
+	<h2>Welcome</h2>
+	<label>Userame: <input type="text" name="user" pattern="[A-Za-z0-9]" min="5" required></label>
+	<label>Password: <input type="pass" name="pass" pattern="[A-Za-z0-9]" min="5" required></label>
+	<button type="button" id="login">Login</button>
+</section>
+
+<script>
+window.onload = checklocalStorage();
+
+function checklocalStorage() {
+	if (localStorage.username == undefined) {
+		document.getElementById('singup').style.display = 'block';
+	}
+	else {
+		document.getElementById('login').style.display = 'block';
+	}
+}
+
+</script>
 </body>
 </html>

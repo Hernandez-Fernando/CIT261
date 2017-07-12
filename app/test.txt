@@ -1,0 +1,15 @@
+'<h2>Registrer New Customer</h2>
+
+
+	<label>Customer ID: <input type="text" id="cid" pattern="[0-9]"></label>
+	<label>Name: <input type="text" id="name" pattern="[A-Za-z]" min="5" required></label>
+	<label>Last Name: <input type="text" id="lname" pattern="[A-Za-z]" min="5" required></label>
+	<label>Day of Birth: <input type="date" id="dob" required></label>
+	<label>Phone Number: <input type="tel" id="phone" min="10" required></label>
+	<label>Address: <input type="text" id="address" pattern="[A-Za-z0-9]" required></label>
+	<label>City: <input type="text" id="city" pattern="[A-Za-z]" required></label>
+	<label>State: <input type="text" id="state" pattern="[A-Za-z]{2}" required></label>
+	<label>Zip Code: <input type="text" id="zcode" pattern="[0-9]{5}" required></label>
+	<button type="button" id="create" onclick="newCustomer()">Save</button>
+	<button type="button" id="sam">Save and New</button>
+	<button type="button" id="cancelB">Cancel</button>'
