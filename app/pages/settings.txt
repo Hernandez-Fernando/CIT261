@@ -1,0 +1,8 @@
+<section id="settingsSection">
+	<h2>Settings</h2>
+	
+	<p>Hello, this page is under construction</p>
+	
+	<button type="button" onclick="clearApp()">Delate All Data</button>
+	<button type="button" onclick="#">Save</button>
+</section>

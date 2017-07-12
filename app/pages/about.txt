@@ -1,0 +1,4 @@
+<section id="aboutSection">
+	<h2>About</h2>
+	<p>This page is under construction. It will show some info about the app.</p>
+</section>

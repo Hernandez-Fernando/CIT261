@@ -1,0 +1,14 @@
+<section id="addMovieSection">
+	<h2>Registrer New Movie</h2>
+
+	<label>Movie ID: <input type="text" id="mid" pattern="[0-9]" min="5" readonly></label>
+	<label>Name: <input type="text" id="name" pattern="[A-Za-z]" min="5" required></label>
+	<label>Gener: <input type="text" id="gener" pattern="[A-Za-z]" required></label>
+	<label>Year: <input type="text" id="yearBox" required></label>
+	<label>Clasification: <input type="text" id="clasification" pattern="[A-Za-z0-9]" required></label>
+	<label>Format: <input type="radio" name="format" id="dvd"> DVD <input type="radio" name="format" id="br"> Blue-Ray</label>
+	<label>Copies: <input type="text" id="copies" pattern="[A-Za-z]{2}" required></label>
+	<button type="button" id="saveM" onclick="newMovie()">Save</button>
+	<button type="button" id="sam">Save and New</button>
+	<button type="button" id="cancelB">Cancel</button>
+</section>

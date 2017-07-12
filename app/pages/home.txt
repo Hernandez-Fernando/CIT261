@@ -1,0 +1,21 @@
+<section id="index">
+		<section id="controls">
+		<h1>Controls</h1>
+		<p>New Rental</p>
+		<p>Returns</p>
+		<p>Register Customer</p>
+		</section>
+		<section id="expired">
+		<h2 class="expired">Expired</h2>
+			
+		</section>
+	
+		<section id="lastes">
+		<h2>New Movies</h2>
+		
+		</section>
+		
+		<section id="top5">
+		<h2>Most Rented</h2>
+		</section>
+</section>

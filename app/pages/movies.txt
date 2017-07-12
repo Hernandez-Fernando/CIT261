@@ -1,0 +1,17 @@
+<section id="movieListSection">
+	<h2>Movies Catalog</h2>
+	<button type="button" onclick="fillMovies()">Fill Test</button>
+	<button type="button" onclick="loadHTML(4)">Add Movie</button>
+	<table id="moviesTable">
+			<tr>
+				<th>Movie ID</th>
+				<th>Name</th>
+				<th>Gener</th>
+				<th>Year</th>
+				<th>Clasification</th>
+				<th>Format</th>
+				<th>Copies</th>
+				<th>Avalible</th>
+			</tr>
+	</table>
+</section>

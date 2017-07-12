@@ -1,0 +1,19 @@
+<section id="customersPage">
+	<h2>Customers</h2> 
+	<button type="button" onclick="fillCustomers()">Fill Test</button>
+	<button type="button" onclick="loadHTML(2)">Add New Customer</button>
+	<table id="customersTable">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Last Name</th>
+				<th>DOB</th>
+				<th>Phone</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Status</th>
+			</tr>
+	</table>
+	
+	</section>

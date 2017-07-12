@@ -5,6 +5,7 @@
 <title>Movie Rental App</title>
 <meta name="viewport" description="width=device-width, initial-scale=1">
 <script src="scripts/movies.js"></script>
+<script src="scripts/requests.js"></script>
 <style>
 header {
 width: 100%;
@@ -97,6 +98,11 @@ nav ul li:hover {
 	background-color: #CC8E00;
 }
 
+nav ul li a {
+	color: white;
+	text-decoration: none;
+}
+
 .red {
 	color: red;
 }
@@ -135,43 +141,41 @@ tr:hover {background-color: #AFADEE}
 <aside>
 <nav>
 <ul>
-	<li>Home</li>
+	<li><a href="#" onclick="loadHTML(0)">Home</a></li>
 	<li>New Rental</li>
-	<li><a href="#" onclick="loadCustomers()">Customers</a></li>
-	<li>Movies</li>
+	<li><a href="#" onclick="loadHTML(1)">Customers</a></li>
+	<li><a href="#" onclick="loadHTML(3)">Movies</a></li>
 	<li>Reports</li>
-	<li>Settings</li>
-	<li>About</li>
+	<li><a href="#" onclick="loadHTML(5)">Settings</a></li>
+	<li><a href="#" onclick="loadHTML(6)">About</a></li>
 </ul>
 </nav>
-<button type="button" onclick="testJSON()">JSON</button>
 <p>Fernando Hernandez - BYU-Idaho</p>
 </aside>
 
 <main id="app">
+	<!-- Test of Loading HOME page
 	<section id="index">
-	<section id="controls">
-	<h1>Controls</h1>
-	<p>New Rental</p>
-	<p>Returns</p>
-	<p>Register Customer</p>
-	</section>
-	<section id="expired">
-	<h2 class="expired">Expired</h2>
+		<section id="controls">
+		<h1>Controls</h1>
+		<p>New Rental</p>
+		<p>Returns</p>
+		<p>Register Customer</p>
+		</section>
+		<section id="expired">
+		<h2 class="expired">Expired</h2>
+			
+		</section>
+	
+		<section id="lastes">
+		<h2>New Movies</h2>
 		
-	</section>
-
-	<section id="lastes">
-	<h2>New Movies</h2>
-	
-	</section>
-	
-	<section id="top5">
-	<h2>Most Rented</h2>
-	</section>
-	
-	<div id="test"></div>
-</section>
+		</section>
+		
+		<section id="top5">
+		<h2>Most Rented</h2>
+		</section>
+	</section> -->
 </main>
 
 <footer>
@@ -187,60 +191,9 @@ window.onload = function() {
 		movies = [];
 		customers = [];
 	}
-}
-</script>
 	
-
-<script>
-var customersHTML = "";
-var customersNewHTML = "";
-
-//Request Customers
-function loadCustomers() {
-var request = new XMLHttpRequest();
-
-var requestURL = 'customers.txt';
-
-var code;
-request.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var text = this.responseText;
-		//code = JSON.parse(text);
-		document.getElementById('app').innerHTML= text;
-		return customersHTML = text;
-    }
-};
-
-request.open('GET', requestURL, true);
-request.send();
-
-
+	loadRequest();
 }
-
-//Request NewCustomers
-function loadNewCustomer() {
-var request = new XMLHttpRequest();
-
-var requestURL = 'newCustomers.txt';
-
-var code;
-request.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var text = this.responseText;
-		//code = JSON.parse(text);
-		document.getElementById('app').innerHTML= text;
-		return customersNewHTML = text;
-    }
-};
-
-request.open('GET', requestURL, true);
-request.send();
-
-
-}
-
-
-
 </script>
 </body>
 </html>

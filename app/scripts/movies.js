@@ -1,7 +1,42 @@
-//var movies = [];
-//var movies = JSON.parse(localStorage.getItem('movies'));
-//var moviesLast = movies.length;
-//var id = 100;
+//Main Commands
+function loadHTML(request) {
+	var requested = "";
+	
+	switch (request) {
+			case 0:
+			requested = homeHTML;
+			break;
+		case 1:
+			requested = customersHTML;
+			break;
+		case 2:
+			requested = customersNewHTML;
+			break;
+		case 3:
+			requested = moviesHTML;
+			break;
+		case 4:
+			requested = moviesNewHTML;
+			break;
+		case 5:
+			requested = settingsHTML;
+			break;
+		case 6:
+			requested = aboutHTML;
+			break;
+		}
+	
+	document.getElementById('app').innerHTML= requested;
+}
+
+// Restart App
+
+function clearApp() {
+	localStorage.removeItem('movies');
+	localStorage.removeItem('customers');
+	localStorage.removeItem('settings');
+	localStorage.removeItem('credentials');
+}
 
 var movies;
 var customers;
@@ -130,5 +165,93 @@ function newCustomer() {
 	
 		customers.push(temp);
 		localStorage.setItem("customers", JSON.stringify(customers));
-		loadCustomers();
+		loadHTML(1);
 	}
+	
+// Create New Movie
+
+function newMovie() {
+		var temp = "";
+		
+		var id = document.getElementById('mid').value;
+		var name = document.getElementById('name').value;
+		var gener = document.getElementById('gener').value;
+		var yearP = document.getElementById('yearBox').value;
+		var clasification = document.getElementById('clasification').value;
+		var format = checkSelection();
+		var copies = document.getElementById('copies').value;
+
+		
+		/*
+		var id = 103;
+		var name = "Jack & Jill";
+		var gener = "Comedy";
+		var published = "2012";
+		var clasification = "PG-13";
+		var format = "DVD";
+		var copies = "3";
+		*/
+		
+		function checkSelection() {
+			var dvdCheck = document.getElementById('dvd');
+				if (dvdCheck.selected) {
+					return 'DVD';
+				}
+				else {
+					return 'BR';
+				}
+		}
+		
+		temp = new movie(id, name, gener, yearP, clasification, format, copies);
+	
+		movies.push(temp);
+		localStorage.setItem("movies", JSON.stringify(movies));
+		loadHTML(3);
+	}
+	
+// Fill Movie Table
+
+function fillMovies() {
+	var table = document.getElementById("moviesTable");
+	var rowNumber = 1;
+	var cellNumber = 0;
+	var row, cell, text;
+	
+    for (var i = 0; i < movies.length; i++) {
+			row = table.insertRow(rowNumber);
+			
+		    for (var c = 0; c < 8; c++) {
+				cell = row.insertCell(c);
+				
+				switch(c) {
+					case 0:
+						text = movies[i].id;
+						break;
+					case 1:
+						text = movies[i].name;
+						break;
+					case 2:
+						text = movies[i].gener;
+						break;
+					case 3:
+						text = movies[i].years;
+						break;
+					case 4:
+						text = movies[i].clasification;
+						break;
+					case 5:
+						text = movies[i].format;
+						break;
+					case 6:
+						text = movies[i].copies;
+						break;
+					case 7:
+						text = movies[i].avalible;
+						break;
+				}
+			    cell.innerHTML = text;
+			}
+		rowNumber += 1;
+	}
+
+}
