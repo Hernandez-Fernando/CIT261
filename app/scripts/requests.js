@@ -38,8 +38,9 @@ request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         var text = this.responseText;
 		document.getElementById('app').innerHTML += text;
-		switch (i) {
-			case 0:
+		homeHTML = text;
+	switch (i) {
+		case 0:
 			return homeHTML = text;
 			break;
 		case 1:
