@@ -1,4 +1,4 @@
-'<section id="customersPage">
+<section id="customersPage">
 	<h2>Customers</h2>
 	<table id="customersTable">
 			<tr>
@@ -14,4 +14,4 @@
 			</tr>
 	</table>
 	
-	</section>'
+	</section>

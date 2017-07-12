@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Movie Rental App</title>
 <meta name="viewport" description="width=device-width, initial-scale=1">
+<script src="scripts/movies.js"></script>
 <style>
 header {
 width: 100%;
@@ -131,7 +132,7 @@ tr:hover {background-color: #AFADEE}
 <ul>
 	<li>Home</li>
 	<li>New Rental</li>
-	<li>Customers</li>
+	<li><a href="#" onclick="loadCustomers()">Customers</a></li>
 	<li>Movies</li>
 	<li>Reports</li>
 	<li>Settings</li>
@@ -172,6 +173,8 @@ tr:hover {background-color: #AFADEE}
 	<p>&copy; 2017 - Movie Rental Management v1.0 - Last Update: July 2017 - This is an open source app</p>
 </footer>
 <script>
+var customersHTML = "";
+
 function testJSON() {
 	var request = new XMLHttpRequest();
 var requestURL = 'https://hernandez-fernando.github.io/CIT261/app/customers.txt';
@@ -179,9 +182,10 @@ var requestURL = 'https://hernandez-fernando.github.io/CIT261/app/customers.txt'
 var code;
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        var customersList = this.responseText;
+        var text = this.responseText;
 		//code = JSON.parse(text);
 		document.getElementById('app').innerHTML= text;
+		return customersHTML = text;
     }
 };
 
@@ -191,6 +195,11 @@ request.send();
 
 }
 
+function loadCustomers() {
+	testJSON();
+	
+	//fillCustomers();
+}
 
 </script>
 </body>
