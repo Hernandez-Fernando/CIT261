@@ -58,6 +58,7 @@ request.onreadystatechange = function() {
 			return settingsHTML = text;
 			break;
 		case 6:
+			alert("If you see this alert, is because JS is looking inside this switch");
 			return aboutHTML = text;
 			break;
 		}
