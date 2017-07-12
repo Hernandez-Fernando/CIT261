@@ -1,5 +1,5 @@
 <section id="customersPage">
-	<h2>Customers</h2>
+	<h2>Customers</h2> <button type="button" onclick="fillCustomers()">Fill Test</button>
 	<table id="customersTable">
 			<tr>
 				<th>ID</th>
