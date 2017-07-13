@@ -101,7 +101,7 @@ function loadHTML(request) {
 			requested = aboutHTML;
 			break;
 		}
-	
+	document.getElementById('respondMenu').classList.remove('navDown');
 	document.getElementById('app').innerHTML= requested;
 }
 

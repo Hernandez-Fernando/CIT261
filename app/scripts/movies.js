@@ -1,5 +1,9 @@
 //Main Commands
+function slideNav() {
 
+	var nav = document.getElementById('respondMenu');
+	nav.classList.toggle('navDown');
+}
 
 // Restart App
 
