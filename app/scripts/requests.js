@@ -1,7 +1,7 @@
 function showVariables() {
 	
-	if (text != "") {
-	document.getElementById('test').innerHTML = text;
+	if (customersHTML != "") {
+	document.getElementById('test').innerHTML = customersHTML;
 	} else {
 		document.getElementById('test').innerHTML = "No Data";
 	}
