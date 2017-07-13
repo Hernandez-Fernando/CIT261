@@ -53,31 +53,31 @@ for (var i = 0; i < 8; i++) {
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        text = this.responseText;
-	   localStorage.setItem("html", text);
+	   localStorage.setItem("temp", text);
 		//document.getElementById('app').innerHTML += text;
 		
 	} // End of " If " statement
 	switch (i) {
 		case 0:
-			homeHTML = localStorage.getItem('html');
+			homeHTML = localStorage.getItem('temp');
 			break;
 		case 1:
-			customersHTML = localStorage.getItem('html');
+			customersHTML = localStorage.getItem('temp');
 			break;
 		case 2:
-			return customersNewHTML = localStorage.getItem('html');
+			return customersNewHTML = localStorage.getItem('temp');
 			break;
 		case 3:
-			return moviesHTML = localStorage.getItem('html');
+			return moviesHTML = localStorage.getItem('temp');
 			break;
 		case 4:
-			moviesNewHTML = localStorage.getItem('html');
+			moviesNewHTML = localStorage.getItem('temp');
 			break;
 		case 5:
-			settingsHTML = localStorage.getItem('html');
+			settingsHTML = localStorage.getItem('temp');
 			break;
 		case 6:
-			aboutHTML = localStorage.getItem('html');
+			aboutHTML = localStorage.getItem('temp');
 			break;
 	}
 	
