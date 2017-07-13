@@ -52,15 +52,15 @@ for (var i = 0; i < 8; i++) {
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         text = this.responseText;
-		document.getElementById('app').innerHTML += text;
+		//document.getElementById('app').innerHTML += text;
     } // End of " If " statement
 	
 	switch (i) {
 		case 0:
-			return homeHTML = text;
+			homeHTML = text;
 			break;
 		case 1:
-			return customersHTML = text;
+			customersHTML = text;
 			break;
 		case 2:
 			return customersNewHTML = text;
