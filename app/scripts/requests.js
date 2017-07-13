@@ -1,9 +1,13 @@
-var customersHTML, customersNewHTML, moviesHTML, moviesNewHTML, settingsHTML, homeHTML, aboutHTML = "";
+var customersHTML = "";
+var customersNewHTML = ""; 
+var moviesHTML = "";
+var moviesNewHTML = "";
+var settingsHTML = "";
+var homeHTML = "";
+var aboutHTML = "";
 
 //Request Customers
 function loadRequest() {
-
-var tempRespond = "";
 
 for (var i = 0; i < 8; i++) {
 	var request = new XMLHttpRequest();
@@ -33,25 +37,24 @@ for (var i = 0; i < 8; i++) {
 			break;
 	} //End of Switch
 	
-	var responded = "";
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         text = this.responseText;
-        responded = text; //document.getElementById('app').innerHTML += text;
+		document.getElementById('app').innerHTML += text;
     } // End of " If " statement
 	
 	switch (i) {
 		case 0:
-			homeHTML = responded;
+			return homeHTML = text;
 			break;
 		case 1:
-			customersHTML = text;
+			return customersHTML = text;
 			break;
 		case 2:
-			customersNewHTML = text;
+			return customersNewHTML = text;
 			break;
 		case 3:
-			moviesHTML = text;
+			return moviesHTML = text;
 			break;
 		case 4:
 			moviesNewHTML = text;

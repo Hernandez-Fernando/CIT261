@@ -134,7 +134,7 @@ main {
 	grid-template-columns: 1fr;
 	height: 600px;
 	justify-content: center;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 	
 }
 

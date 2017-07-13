@@ -1,3 +1,8 @@
+function showVariables() {
+	document.getElementById('test').innerHTML = homeHTML;
+}
+
+
 //Main Commands
 function slideNav() {
 
