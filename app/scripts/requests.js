@@ -33,15 +33,16 @@ for (var i = 0; i < 8; i++) {
 			break;
 	} //End of Switch
 	
-	
+	var responded = "";
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         text = this.responseText;
+        responded = text; //document.getElementById('app').innerHTML += text;
     } // End of " If " statement
 	
 	switch (i) {
 		case 0:
-			homeHTML = text;
+			homeHTML = responded;
 			break;
 		case 1:
 			customersHTML = text;
