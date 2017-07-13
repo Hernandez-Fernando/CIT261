@@ -55,9 +55,7 @@ request.onreadystatechange = function() {
        text = this.responseText; 
 	   //localStorage.temp = this.responseText; 
 		//document.getElementById('app').innerHTML += text;
-		
-	} // End of " If " statement
-	switch (i) {
+		switch (i) {
 		case 0:
 			//homeHTML = localStorage.getItem('temp');
 			homeHTML = text;
@@ -80,7 +78,9 @@ request.onreadystatechange = function() {
 		case 6:
 			aboutHTML = text;
 			break;
-	}
+		}
+	} // End of " If " statement
+	
 	
 }; //End of onready function
 
