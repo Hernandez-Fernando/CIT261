@@ -1,10 +1,11 @@
 function showVariables() {
 	
-	if (customersHTML != "") {
+	/* if (customersHTML != "") {
 	document.getElementById('test').innerHTML = customersHTML;
 	} else {
 		document.getElementById('test').innerHTML = "No Data";
-	}
+	} */
+	document.getElementById('test').innerHTML = j;
 }
 //
 //Normal
@@ -18,13 +19,15 @@ var settingsHTML = "";
 var homeHTML = "";
 var aboutHTML = "";
 var text = "";
-
+var j = 0;
+var i = 0;
+var markup = [];
 //Request Customers
 function loadRequest() {
-
-for (var i = 0; i < 7; i++) {
-	var request = new XMLHttpRequest();
-	var requestURL = "";
+var request;
+var requestURL;
+for (i; i < 7; i++) {
+	request = new XMLHttpRequest();
 	
 	switch (i) {
 		case 0:
@@ -52,36 +55,13 @@ for (var i = 0; i < 7; i++) {
 	
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-       text = this.responseText;
-	  text = JSON.parse(text); 
-	   //localStorage.temp = this.responseText; 
-		//document.getElementById('app').innerHTML += text;
-		switch (i) {
-		case 0:
-			//homeHTML = localStorage.getItem('temp');
-			return homeHTML = text;
-			break;
-		case 1:
-			customersHTML = text;
-			break;
-		case 2:
-			return customersNewHTML = text;
-			break;
-		case 3:
-			return moviesHTML = text;
-			break;
-		case 4:
-			moviesNewHTML = text;
-			break;
-		case 5:
-			settingsHTML = text;
-			break;
-		case 6:
-			aboutHTML = text;
-			break;
-		}
+     text = this.responseText;
+     markup.push(text);
+ 
+
+		
 	} // End of " If " statement
-	
+	document.getElementById('test').innerHTML += markup.length + " - " + requestURL + '<br>';
 	
 }; //End of onready function
 
@@ -97,30 +77,8 @@ request.send();
 
 function loadHTML(request) {
 	var requested = "";
+	requested = markup[request];
 	
-	switch (request) {
-			case 0:
-			requested = homeHTML;
-			break;
-		case 1:
-			requested = customersHTML;
-			break;
-		case 2:
-			requested = customersNewHTML;
-			break;
-		case 3:
-			requested = moviesHTML;
-			break;
-		case 4:
-			requested = moviesNewHTML;
-			break;
-		case 5:
-			requested = settingsHTML;
-			break;
-		case 6:
-			requested = aboutHTML;
-			break;
-		}
 document.getElementById('respondMenu').classList.remove('navDown');
 	document.getElementById('app').innerHTML= requested;
 }

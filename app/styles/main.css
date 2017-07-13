@@ -38,7 +38,7 @@ aside {
 }
 .navUp {
 	height: 40px;
-	transition: all .7s linear;
+	transition: all .5s linear;
 }
 .navDown {
 	height: 340px;
