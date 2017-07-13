@@ -7,45 +7,7 @@
 <script src="scripts/movies.js"></script>
 <script src="scripts/requests.js"></script>
 <link rel="stylesheet" href="styles/main.css">
-<style>
-
-#homeSection {
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: 300px 300px;
-margin: 0;
-padding: 15px;
-}
-
-.red {
-	color: red;
-}
-
-/* Customers List */
-table {
-    border-collapse: collapse;
-	width: 100%;
-	text-align: center;
-}
-
-th, td {
-	height: 35px;
-}
-
-th {
-	background-color: #707070;
-	color: white;
-}
-table, th, td {
-    border: 1px solid black;
-}
-
-tr:nth-child(odd) {background-color: #D8EBFA;}
-
-tr:hover {background-color: #AFADEE}
-
-</style>
-
+<link rel="stylesheet" href="styles/pages.css">
 </head>
 <body>
 <header>
@@ -69,35 +31,13 @@ tr:hover {background-color: #AFADEE}
 </aside>
 
 <main id="app">
-	<!-- Test of Loading HOME page
-	<section id="index">
-		<section id="controls">
-		<h2>Controls</h2>
-		<p>New Rental</p>
-		<p>Returns</p>
-		<p>Register Customer</p>
-		</section>
-		<section id="expired">
-		<h2 class="expired">Expired</h2>
-			
-		</section>
 	
-		<section id="lastes">
-		<h2>New Movies</h2>
-		
-		</section>
-		
-		<section id="top5">
-		<h2>Most Rented</h2>
-		</section>
-	</section> -->
 </main>
 
 <footer>
 	<p>&copy; 2017 - Movie Rental Management v1.0 - Last Update: July 2017 - This is an open source app</p>
-	<button type="button" onclick="showVariables()">Test Variables</button>
 </footer>
-<div id="test"></div>
+
 <script>
 window.onload = function() {
 	if (localStorage.getItem('movies') != undefined) {
