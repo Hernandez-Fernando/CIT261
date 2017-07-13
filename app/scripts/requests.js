@@ -22,7 +22,7 @@ var text = "";
 //Request Customers
 function loadRequest() {
 
-for (var i = 0; i < 8; i++) {
+for (var i = 0; i < 7; i++) {
 	var request = new XMLHttpRequest();
 	var requestURL = "";
 	
