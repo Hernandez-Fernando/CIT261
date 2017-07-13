@@ -51,8 +51,8 @@ for (var i = 0; i < 8; i++) {
 	
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-       // text = this.responseText;
-		
+       text = this.responseText;
+		/*
     switch (i) {
 		case 0:
 			homeHTML = this.responseText;
@@ -75,7 +75,7 @@ request.onreadystatechange = function() {
 		case 6:
 			aboutHTML = this.responseText;
 			break;
-		}
+		}*/
 		//document.getElementById('app').innerHTML += text;
 		
 	} // End of " If " statement
