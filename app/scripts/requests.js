@@ -54,30 +54,31 @@ request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        text = this.responseText; 
 	   //localStorage.temp = this.responseText; 
-		document.getElementById('app').innerHTML += text;
+		//document.getElementById('app').innerHTML += text;
 		
 	} // End of " If " statement
 	switch (i) {
 		case 0:
-			homeHTML = localStorage.getItem('temp');
+			//homeHTML = localStorage.getItem('temp');
+			homeHTML = text;
 			break;
 		case 1:
-			customersHTML = localStorage.getItem('temp');
+			customersHTML = text;
 			break;
 		case 2:
-			return customersNewHTML = localStorage.getItem('temp');
+			return customersNewHTML = text;
 			break;
 		case 3:
-			return moviesHTML = localStorage.getItem('temp');
+			return moviesHTML = text;
 			break;
 		case 4:
-			moviesNewHTML = localStorage.getItem('temp');
+			moviesNewHTML = text;
 			break;
 		case 5:
-			settingsHTML = localStorage.getItem('temp');
+			settingsHTML = text;
 			break;
 		case 6:
-			aboutHTML = localStorage.getItem('temp');
+			aboutHTML = text;
 			break;
 	}
 	
