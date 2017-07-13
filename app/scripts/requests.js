@@ -52,13 +52,14 @@ for (var i = 0; i < 7; i++) {
 	
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-       text = this.responseText; 
+       text = this.responseText;
+	  text = JSON.parse(text); 
 	   //localStorage.temp = this.responseText; 
 		//document.getElementById('app').innerHTML += text;
 		switch (i) {
 		case 0:
 			//homeHTML = localStorage.getItem('temp');
-			homeHTML = text;
+			return homeHTML = text;
 			break;
 		case 1:
 			customersHTML = text;
