@@ -49,29 +49,30 @@ tr:hover {background-color: #AFADEE}
 </head>
 <body>
 <header>
-	<h1>Movie Rental Management System</h1>
+	<h1 class="appName">Movie Rental Management System</h1>
 	<h2 id="compName">Company Name</h2>
 </header>
-<aside>
+<aside id="respondMenu" class="navUp">
 <nav>
 <ul>
+	<li class="icon"><a href="#" class="icon" onclick="slideNav()">&#9776; Show Menu</a></li>
 	<li><a href="#" onclick="loadHTML(0)">Home</a></li>
-	<li>New Rental</li>
+	<li><a href="#" onclick="#">New Rental</a></li>
 	<li><a href="#" onclick="loadHTML(1)">Customers</a></li>
 	<li><a href="#" onclick="loadHTML(3)">Movies</a></li>
-	<li>Reports</li>
+	<li><a href="#" onclick="#">Reports</a></li>
 	<li><a href="#" onclick="loadHTML(5)">Settings</a></li>
 	<li><a href="#" onclick="loadHTML(6)">About</a></li>
 </ul>
 </nav>
-<p>Fernando Hernandez - BYU-Idaho</p>
+<p class="hide_show">Fernando Hernandez - BYU-Idaho</p>
 </aside>
 
 <main id="app">
-	<!-- Test of Loading HOME page
+	<!-- Test of Loading HOME page -->
 	<section id="index">
 		<section id="controls">
-		<h1>Controls</h1>
+		<h2>Controls</h2>
 		<p>New Rental</p>
 		<p>Returns</p>
 		<p>Register Customer</p>
@@ -89,7 +90,7 @@ tr:hover {background-color: #AFADEE}
 		<section id="top5">
 		<h2>Most Rented</h2>
 		</section>
-	</section> -->
+	</section>
 </main>
 
 <footer>
@@ -107,6 +108,14 @@ window.onload = function() {
 	}
 	
 	loadRequest();
+}
+
+var slidedown = false;
+
+function slideNav() {
+
+	var nav = document.getElementById('respondMenu');
+	nav.classList.toggle('navDown');
 }
 </script>
 </body>
