@@ -1,7 +1,7 @@
 function showVariables() {
 	
-	if (customersHTML != "") {
-	document.getElementById('test').innerHTML = customersHTML;
+	if (text != "") {
+	document.getElementById('test').innerHTML = text;
 	} else {
 		document.getElementById('test').innerHTML = "No Data";
 	}
@@ -17,14 +17,14 @@ var moviesNewHTML = "";
 var settingsHTML = "";
 var homeHTML = "";
 var aboutHTML = "";
-
+var text = "";
 //Request Customers
 function loadRequest() {
 
 for (var i = 0; i < 8; i++) {
 	var request = new XMLHttpRequest();
 	var requestURL = "";
-	var text = "";
+	
 	switch (i) {
 		case 0:
 			requestURL = 'pages/home.txt';
