@@ -18,6 +18,7 @@ var settingsHTML = "";
 var homeHTML = "";
 var aboutHTML = "";
 var text = "";
+
 //Request Customers
 function loadRequest() {
 
@@ -78,6 +79,7 @@ request.onreadystatechange = function() {
 		case 6:
 			aboutHTML = localStorage.getItem('text');
 			break;
+	}
 	
 }; //End of onready function
 
@@ -117,7 +119,7 @@ function loadHTML(request) {
 			requested = aboutHTML;
 			break;
 		}
-	document.getElementById('respondMenu').classList.remove('navDown');
+document.getElementById('respondMenu').classList.remove('navDown');
 	document.getElementById('app').innerHTML= requested;
 }
 
