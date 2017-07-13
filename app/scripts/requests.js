@@ -6,7 +6,7 @@ function showVariables() {
 		document.getElementById('test').innerHTML = "No Data";
 	}
 }
-
+//
 //Normal
 
 
