@@ -1,3 +1,15 @@
+function showVariables() {
+	
+	if (customersHTML != "") {
+	document.getElementById('test').innerHTML = customersHTML;
+	} else {
+		document.getElementById('test').innerHTML = "No Data";
+	}
+}
+
+//Normal
+
+
 var customersHTML = "";
 var customersNewHTML = ""; 
 var moviesHTML = "";
