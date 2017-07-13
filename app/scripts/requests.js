@@ -51,33 +51,36 @@ for (var i = 0; i < 8; i++) {
 	
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        text = this.responseText;
-		//document.getElementById('app').innerHTML += text;
-    } // End of " If " statement
-	
-	switch (i) {
+       // text = this.responseText;
+		
+    switch (i) {
 		case 0:
-			homeHTML = text;
+			homeHTML = this.responseText;
 			break;
 		case 1:
-			customersHTML = text;
+			customersHTML = this.responseText;
 			break;
 		case 2:
-			return customersNewHTML = text;
+			return customersNewHTML = this.responseText;
 			break;
 		case 3:
-			return moviesHTML = text;
+			return moviesHTML = this.responseText;
 			break;
 		case 4:
-			moviesNewHTML = text;
+			moviesNewHTML = this.responseText;
 			break;
 		case 5:
-			settingsHTML = text;
+			settingsHTML = this.responseText;
 			break;
 		case 6:
-			aboutHTML = text;
+			aboutHTML = this.responseText;
 			break;
 		}
+		//document.getElementById('app').innerHTML += text;
+		
+	} // End of " If " statement
+	
+	
 }; //End of onready function
 
 request.open('GET', requestURL, true);
