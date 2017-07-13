@@ -52,34 +52,32 @@ for (var i = 0; i < 8; i++) {
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        text = this.responseText;
-		/*
-    switch (i) {
-		case 0:
-			homeHTML = this.responseText;
-			break;
-		case 1:
-			customersHTML = this.responseText;
-			break;
-		case 2:
-			return customersNewHTML = this.responseText;
-			break;
-		case 3:
-			return moviesHTML = this.responseText;
-			break;
-		case 4:
-			moviesNewHTML = this.responseText;
-			break;
-		case 5:
-			settingsHTML = this.responseText;
-			break;
-		case 6:
-			aboutHTML = this.responseText;
-			break;
-		}*/
+	   localStorage.setItem('text');
 		//document.getElementById('app').innerHTML += text;
 		
 	} // End of " If " statement
-	
+	switch (i) {
+		case 0:
+			homeHTML = localStorage.getItem('text');
+			break;
+		case 1:
+			customersHTML = localStorage.getItem('text');
+			break;
+		case 2:
+			return customersNewHTML = localStorage.getItem('text');
+			break;
+		case 3:
+			return moviesHTML = localStorage.getItem('text');
+			break;
+		case 4:
+			moviesNewHTML = localStorage.getItem('text');
+			break;
+		case 5:
+			settingsHTML = localStorage.getItem('text');
+			break;
+		case 6:
+			aboutHTML = localStorage.getItem('text');
+			break;
 	
 }; //End of onready function
 
