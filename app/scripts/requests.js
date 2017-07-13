@@ -53,7 +53,7 @@ for (var i = 0; i < 8; i++) {
 request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        text = this.responseText;
-	   localStorage.setItem('text');
+	   localStorage.setItem(text);
 		//document.getElementById('app').innerHTML += text;
 		
 	} // End of " If " statement
