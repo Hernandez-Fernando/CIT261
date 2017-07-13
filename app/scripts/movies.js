@@ -1,5 +1,10 @@
 function showVariables() {
+	
+	if (homeHTML != "") {
 	document.getElementById('test').innerHTML = homeHTML;
+	} else {
+		document.getElementById('test').innerHTML = "No Data";
+	}
 }
 
 
