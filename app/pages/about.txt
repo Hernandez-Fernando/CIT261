@@ -1,4 +1,7 @@
 <section id="aboutSection">
 	<h2>About</h2>
-	<p>This page is under construction. It will show some info about the app.</p>
+	<h3>Movie Rental Management System</h3>
+	<p><strong>v. 1.0</strong></p>
+	<p>App Designed and Developed by Fernando Hernandez for CIT 261 at BYU-Idaho.</p>
+	<h2>Intro Video</h2>
 </section>

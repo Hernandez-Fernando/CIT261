@@ -1,8 +1,19 @@
 <section id="settingsSection">
 	<h2>Settings</h2>
+	<label>Company Name: <input type="text" id="nameBox"></label>
+	<label>Rent Price: <input type="text" id="rentBox"> USD</label>
+	<label>Period: <input type="text" id="periodBox"> day(s)</label>
+	<label>Late Fee: <input type="text" id="lateBox"> USD per period.</label>
+	<a onclick="saveSettings()">Save Changes</a>
 	
-	<p>Hello, this page is under construction</p>
+	<h3>User Password</h3>
+	<label>Company Name: <input type="text" id="newPassBox"></label>
+	<a onclick="updatePass()">Update Pass</a>
 	
-	<button type="button" onclick="clearApp()">Delate All Data</button>
-	<button type="button" onclick="#">Save</button>
+	<h3>Management Data</h3>
+	<label>Delete Customers</label><a onclick="">Delete</a>
+	<label>Delete Movies</label><a onclick="">Delete</a>
+	<label>Delete Rented</label><a onclick="">Delete</a>
+	<a onclick="clearApp()">Delate All Data</a>
+	
 </section>

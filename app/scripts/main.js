@@ -5,8 +5,8 @@ var movies = [];
 var customers = [];
 var rented = [];
 var setting = {name:"Defaul Name", rent:0, period:0, late:0, movieLast:100, customersLast:100};
-var moviesLast = movies.length + 99;
-var customersLast = customers.length + 99;
+var moviesLast = 0;
+var customersLast = 0;
 
 
 function login() {
@@ -51,7 +51,7 @@ function loadData() {
 	movies = JSON.parse(localStorage.getItem('movies'));
 	customers = JSON.parse(localStorage.getItem('customers'));
 	rented = JSON.parse(localStorage.getItem('rented'));
-	setting = JSON.parse(localStorage.getItem('setting'));
+	settings = JSON.parse(localStorage.getItem('settings'));
 	
 }
 
@@ -73,11 +73,6 @@ function clearApp() {
 	localStorage.removeItem('rented');
 }
 
-
-
-
-
-
 //Customers Related
 
 function showCustomers(){
@@ -88,6 +83,7 @@ function showCustomers(){
 
 function loadNewCustomerForm() {
 	loadHTML(2);
+	customersLast = customers.length + 99;
 	document.getElementById('cid').value = customersLast + 1;
 }
 
@@ -187,6 +183,7 @@ function showMovies() {
 
 function loadNewMovieForm() {
 	loadHTML(4);
+	moviesLast = movies.length + 99;
 	document.getElementById('mid').value = moviesLast + 1;
 }
 
@@ -279,4 +276,32 @@ function fillMovies() {
 		rowNumber += 1;
 	}
 
+}
+
+// Settings
+function showSettings() {
+loadHTML(5);
+loadSettingsValues();
+}
+
+function loadSettingsValues() {
+document.getElementById('nameBox').value = setting.name;
+document.getElementById('rentBox').value = setting.rent;
+document.getElementById('periodBox').value = setting.period;
+document.getElementById('lateBox').value = setting.late;
+}
+
+function saveSettings() {
+setting.name = document.getElementById('nameBox').value;
+setting.rent = document.getElementById('rentBox').value;
+setting.period = document.getElementById('periodBox').value;
+setting.late = document.getElementById('lateBox').value;
+localStorage.setItem("setting", JSON.stringify(setting));
+loadSettingsValues();
+}
+
+function updatePass() {
+	users.user.password = document.getElementById('newPassBox').value;
+	localStorage.setItem("users", JSON.stringify(users));
+	document.getElementById('newPassBox').value = "";
 }
