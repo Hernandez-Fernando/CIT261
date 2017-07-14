@@ -308,4 +308,16 @@ input {
 	font-size: .8em;
 }
 
+/* } */
+
+main a {
+	display: block;
+	margin-top: 10px;
+	padding: 8px;
+	color: white;
+	font-size: 1.2em;
+	text-decoration: none;
+	background-color: #CC6600;
+	cursor: pointer;
+	align-items: center;
 }
