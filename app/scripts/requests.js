@@ -12,6 +12,7 @@ homerequest.onreadystatechange = function() {
         text = this.responseText;
         markupHTML[0] = text;
 		document.getElementById('app').innerHTML = text;
+		document.getElementById('compName').innerHTML = settings.company;
     } 
 };
 

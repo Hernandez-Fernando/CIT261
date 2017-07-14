@@ -3,7 +3,7 @@ var users = {admin:{username:"admin", password:"cit261"},
 user:{username:"zzzzz", password:"99999"}};
 var movies = [];
 var customers = [];
-var settings = {company:"", rent:0, period:0, late:0, movieLast:100, customersLast:100};
+var settings = {company:"Defaul Name", rent:0, period:0, late:0, movieLast:100, customersLast:100};
 var moviesLast = movies.length + 99;
 var customersLast = customers.length + 99;
 
@@ -36,12 +36,11 @@ function setUp() {
 		users.user.username = document.getElementById('userUp').value;
 		users.user.password = document.getElementById('passUp').value;
 		
-		movies = [];
-		customers = [];
-		rented = [];
-		settings = {};
-		
 		localStorage.setItem("users", JSON.stringify(users));
+		localStorage.setItem("movies", JSON.stringify(movies));
+		localStorage.setItem("customers", JSON.stringify(customers));
+		localStorage.setItem("rented", JSON.stringify(rented));
+		localStorage.setItem("settings", JSON.stringify(settings));
 		document.getElementById('signSection').style.display = 'none';
 		loadRequest();
 		
@@ -52,6 +51,7 @@ function loadData() {
 	customers = JSON.parse(localStorage.getItem('customers'));
 	rented = JSON.parse(localStorage.getItem('rented'));
 	settings = JSON.parse(localStorage.getItem('settings'));
+	
 }
 
 
