@@ -11,8 +11,8 @@
 	<label>City: <input type="text" id="city" pattern="[A-Za-z]" required></label>
 	<label>State: <input type="text" id="state" pattern="[A-Za-z]{2}" required></label>
 	<label>Zip Code: <input type="text" id="zcode" pattern="[0-9]{5}" required></label>
-	<button type="button" id="create" onclick="newCustomer()">Save</button>
-	<button type="button" id="sam">Save and New</button>
-	<button type="button" id="cancelB">Cancel</button>
+	<a onclick="newCustomer()">Save</a>
+	<a id="sam">Save and New</a>
+	<a id="cancelB">Cancel</a>
 
 	</section>

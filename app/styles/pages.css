@@ -46,3 +46,14 @@ table, th, td {
 tr:nth-child(odd) {background-color: #D8EBFA;}
 
 tr:hover {background-color: #AFADEE}
+
+/* New Forms */
+#addCustomerSection label, #addMovieSection label{
+	display: block;
+	font-size: 1.3em;
+	padding: 5px;
+}
+
+#addCustomerSection input, #addMovieSection input{
+	font-size: .8em;
+}
