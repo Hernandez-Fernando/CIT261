@@ -11,9 +11,9 @@
 	<a onclick="updatePass()">Update Pass</a>
 	
 	<h3>Management Data</h3>
-	<label>Delete Customers</label><a onclick="">Delete</a>
-	<label>Delete Movies</label><a onclick="">Delete</a>
-	<label>Delete Rented</label><a onclick="">Delete</a>
+	<a onclick="">Delete Customers</a>
+	<a onclick="">Delete Movies</a>
+	<a onclick="">Delete Rented</a>
 	<a onclick="clearApp()">Delate All Data</a>
 	
 </section>

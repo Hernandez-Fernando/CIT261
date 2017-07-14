@@ -67,3 +67,12 @@ main label {
 main input {
 	font-size: .8em;
 }
+
+#aboutSection {
+	text-align: center;
+}
+
+.left {
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
