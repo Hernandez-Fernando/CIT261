@@ -57,3 +57,13 @@ tr:hover {background-color: #AFADEE}
 #addCustomerSection input, #addMovieSection input{
 	font-size: .8em;
 }
+
+main label {
+	display: block;
+	font-size: 1.3em;
+	padding: 5px;
+}
+
+main input {
+	font-size: .8em;
+}

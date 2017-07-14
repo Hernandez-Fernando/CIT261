@@ -296,6 +296,7 @@ setting.name = document.getElementById('nameBox').value;
 setting.rent = document.getElementById('rentBox').value;
 setting.period = document.getElementById('periodBox').value;
 setting.late = document.getElementById('lateBox').value;
+document.getElementById('compName').innerHTML = setting.name;
 localStorage.setItem("setting", JSON.stringify(setting));
 loadSettingsValues();
 }
