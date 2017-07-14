@@ -1,4 +1,4 @@
-var markupHTML = new Array(7);
+var markupHTML = new Array(11);
 
 //Request Files
 function loadRequest() {
@@ -102,6 +102,70 @@ aboutrequest.onreadystatechange = function() {
 
 aboutrequest.open('GET', aboutURL, true);
 aboutrequest.send();
+
+}
+
+// Renting Page Request
+var rentrequest = new XMLHttpRequest();
+var rentURL = 'pages/rental.txt';
+
+rentrequest.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        text = this.responseText;
+        markupHTML[7] = text;
+    } 
+};
+
+rentrequest.open('GET', rentURL, true);
+rentrequest.send();
+
+}
+
+// Returns Page Request
+var returnsrequest = new XMLHttpRequest();
+var returnsURL = 'pages/returns.txt';
+
+returnsrequest.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        text = this.responseText;
+        markupHTML[8] = text;
+    } 
+};
+
+returnsrequest.open('GET', returnsURL, true);
+returnsrequest.send();
+
+}
+
+// Rented Page Request
+var rentedrequest = new XMLHttpRequest();
+var rentedURL = 'pages/rented.txt';
+
+rentedrequest.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        text = this.responseText;
+        markupHTML[9] = text;
+    } 
+};
+
+rentedrequest.open('GET', rentedURL, true);
+rentedrequest.send();
+
+}
+
+// Reports Page Request
+var reportsrequest = new XMLHttpRequest();
+var reportsURL = 'pages/reports.txt';
+
+reportsrequest.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        text = this.responseText;
+        markupHTML[10] = text;
+    } 
+};
+
+reportsrequest.open('GET', reportsURL, true);
+reportsrequest.send();
 
 }
 

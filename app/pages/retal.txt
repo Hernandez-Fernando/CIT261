@@ -1,0 +1,31 @@
+<section id="rentalSection">
+<h2>New Rental</h2>
+
+<h3>Customer Info</h3>
+<label>Customer ID <input type="text" id="idRental" onkeyup="loadCustomerID()"></label>
+<label>Name <input type="text" id="fullNameBox" readonly></label>
+<label>Phone Number <input type="text" id="phoneRental" readonly></label>
+<label>Address <textarea cols="30" rows="4"></textarea></label>
+
+<h3>Renting Movies</h3>
+<table id="moviesTable">
+			<tr>
+				<th>Movie ID</th>
+				<th>Name</th>
+				<th>Year</th>
+				<th>Clasification</th>
+				<th>Format</th>
+			</tr>
+			<tr>
+				<td><input type="text" name="movieIdBox" onkeyup="searchMovie()"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+</table>
+
+<label>Total: <input type="text" id="totalBox" readonly"></label>
+<a onclick="payRents()">Pay Now</a>
+
+</section>
