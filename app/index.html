@@ -6,8 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="scripts/main.js"></script>
 <script src="scripts/requests.js"></script>
+<script src="scripts/admin.js"></script>
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/pages.css">
+
 </head>
 <body>
 <header>
@@ -17,14 +19,14 @@
 <aside id="respondMenu" class="navUp">
 <nav>
 <ul>
-	<li class="icon"><a href="#" class="icon" onclick="slideNav()">&#9776; Show Menu</a></li>
-	<li><a href="#" onclick="loadHTML(0)">Home</a></li>
-	<li><a href="#" onclick="#">New Rental</a></li>
-	<li><a href="#" onclick="loadHTML(1)">Customers</a></li>
-	<li><a href="#" onclick="loadHTML(3)">Movies</a></li>
-	<li><a href="#" onclick="#">Reports</a></li>
-	<li><a href="#" onclick="loadHTML(5)">Settings</a></li>
-	<li><a href="#" onclick="loadHTML(6)">About</a></li>
+	<li class="icon"><a class="icon" onclick="slideNav()">&#9776; Show Menu</a></li>
+	<li><a onclick="loadHTML(0)">Home</a></li>
+	<li><a onclick="#">New Rental</a></li>
+	<li><a id="customersLink" onclick="showCustomers()">Customers</a></li>
+	<li><a id="moviesLink" onclick="loadHTML(3)">Movies</a></li>
+	<li><a onclick="#">Reports</a></li>
+	<li><a onclick="loadHTML(5)">Settings</a></li>
+	<li><a onclick="loadHTML(6)">About</a></li>
 </ul>
 </nav>
 <p class="hide_show">Fernando Hernandez - BYU-Idaho</p>
