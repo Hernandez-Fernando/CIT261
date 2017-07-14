@@ -4,7 +4,7 @@ user:{username:"zzzzz", password:"99999"}};
 var movies = [];
 var customers = [];
 var rented = [];
-var setting = {company:"Defaul Name", rent:0, period:0, late:0, movieLast:100, customersLast:100};
+var setting = {name:"Defaul Name", rent:0, period:0, late:0, movieLast:100, customersLast:100};
 var moviesLast = movies.length + 99;
 var customersLast = customers.length + 99;
 
@@ -41,7 +41,7 @@ function setUp() {
 		localStorage.setItem("movies", JSON.stringify(movies));
 		localStorage.setItem("customers", JSON.stringify(customers));
 		localStorage.setItem("rented", JSON.stringify(rented));
-		localStorage.setItem("setting", JSON.stringify(settings));
+		localStorage.setItem("setting", JSON.stringify(setting));
 		document.getElementById('signSection').style.display = 'none';
 		loadRequest();
 		
@@ -51,7 +51,7 @@ function loadData() {
 	movies = JSON.parse(localStorage.getItem('movies'));
 	customers = JSON.parse(localStorage.getItem('customers'));
 	rented = JSON.parse(localStorage.getItem('rented'));
-	settings = JSON.parse(localStorage.getItem('settings'));
+	setting = JSON.parse(localStorage.getItem('setting'));
 	
 }
 
@@ -68,7 +68,7 @@ function slideNav() {
 function clearApp() {
 	localStorage.removeItem('movies');
 	localStorage.removeItem('customers');
-	localStorage.removeItem('settings');
+	localStorage.removeItem('setting');
 	localStorage.removeItem('users');
 	localStorage.removeItem('rented');
 }
@@ -174,8 +174,8 @@ function newCustomer() {
 	
 		customers.push(temp);
 		localStorage.setItem("customers", JSON.stringify(customers));
-		settings.customersLast = id;
-		localStorage.setItem("settings", JSON.stringify(settings));
+		setting.customersLast = id;
+		localStorage.setItem("setting", JSON.stringify(setting));
 		showCustomers();
 	}
 	
@@ -229,8 +229,8 @@ function newMovie() {
 	
 		movies.push(temp);
 		localStorage.setItem("movies", JSON.stringify(movies));
-		settings.movieLast = id;
-		localStorage.setItem("settings", JSON.stringify(settings));
+		setting.movieLast = id;
+		localStorage.setItem("setting", JSON.stringify(setting));
 		showMovies();
 	}
 	
