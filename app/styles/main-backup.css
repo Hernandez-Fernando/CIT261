@@ -247,7 +247,7 @@ footer p {
 }
 
 /* Login Form */
-#loginSection, #signSection {
+#loginSection {
 position:  absolute;
 display: grid;
 grid-template-columns: 1fr;
@@ -259,7 +259,7 @@ height: 100%;
 background: rgba(255, 255, 255, 0.8);
 }
 
-#loginForm, #signForm {
+#loginForm {
 	text-align: center;
 	margin: auto;
 	background-color: white;
@@ -267,7 +267,7 @@ background: rgba(255, 255, 255, 0.8);
 	
 }
 
-#loginForm img, #signForm img {
+#loginForm img {
 	display: block;
 	align-self: stretch;
 	justify-self: stretch;
@@ -277,7 +277,7 @@ background: rgba(255, 255, 255, 0.8);
 	width: 75px;
 	}
 	
-#loginForm label, #signForm label {
+#loginForm label {
 	display: block;
 	font-size: 1.3em;
 	padding: 5px;
@@ -288,7 +288,7 @@ input {
 }
 
 
-#loginForm a, #signForm a {
+#loginForm a {
 	display: block;
 	width: 100px;
 	margin-left: auto;
@@ -302,10 +302,4 @@ input {
 	cursor: pointer;
 	align-items: center;
 }
-
-#errorM {
-	color: red;
-	font-size: .8em;
-}
-
 }

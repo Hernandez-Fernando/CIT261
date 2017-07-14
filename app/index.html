@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Movie Rental App</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="scripts/movies.js"></script>
+<script src="scripts/main.js"></script>
 <script src="scripts/requests.js"></script>
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/pages.css">
@@ -37,19 +37,40 @@
 <footer>
 	<p>&copy; 2017 - Movie Rental Management v1.0 - Last Update: July 2017 - This is an open source app</p>
 </footer>
-
+<section id="loginSection">
+	<div id="loginForm">
+	<img src="images/profile.png" alt="Profile Image">
+	<h2>Welcome</h2>
+	<p id="errorM"></p>
+	<label>Userame: <input type="text" id="userBox" pattern="[A-Za-z0-9]" min="5" required></label>
+	<label>Password: <input type="password" id="passBox" pattern="[A-Za-z0-9]" min="5" required></label>
+	<a id="login" onclick="login()">Login</a>
+	</div>
+</section>
+<section id="signSection">
+	<div id="signForm">
+	<img src="images/profile.png" alt="Profile Image">
+	<h2>Set Up</h2>
+	<p>This is the firs time you use this app on this device, set up your configuration to get started.</p>
+	<h3>Create a Username & Password</h3>
+	<label>Userame: <input type="text" id="userUp" pattern="[A-Za-z0-9]" min="5" required></label>
+	<label>Password: <input type="password" id="passUp" pattern="[A-Za-z0-9]" min="5" required></label>
+	<label><input type="checkbox" onchange="document.getElementById('passUp').type = this.checked ? 'text' : 'password'"> Show password</label>
+	<a id="getStarted" onclick="setUp()">Get Started</a>
+	</div>
+</section>
 <script>
 window.onload = function() {
-	if (localStorage.getItem('movies') != undefined) {
-		movies = JSON.parse(localStorage.getItem('movies'));
-		customers = JSON.parse(localStorage.getItem('customers'));
+	if (localStorage.getItem('users') != undefined) {
+		document.getElementById('signSection').style.display = 'none';
+		users = JSON.parse(localStorage.getItem('users'));
 	}
 	else {
-		movies = [];
-		customers = [];
+		document.getElementById('loginSection').style.display = 'none';
+		
 	}
 	
-	loadRequest();
+	
 }
 
 
