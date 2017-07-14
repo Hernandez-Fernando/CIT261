@@ -13,7 +13,7 @@ homerequest.onreadystatechange = function() {
         markupHTML[0] = text;
 		document.getElementById('app').innerHTML = text;
 		document.getElementById('compName').innerHTML = setting.name;
-    } 
+    }
 };
 
 homerequest.open('GET', homeURL, true);
