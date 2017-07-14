@@ -1,7 +1,6 @@
 <section id="customersPage">
 	<h2>Customers</h2> 
-	<button type="button" onclick="fillCustomers()">Fill Test</button>
-	<button type="button" onclick="loadHTML(2)">Add New Customer</button>
+	<a onclick="showNewCustomerForm()">Add Customer</a>
 	<table id="customersTable">
 			<tr>
 				<th>ID</th>

@@ -1,7 +1,6 @@
 <section id="movieListSection">
 	<h2>Movies Catalog</h2>
-	<button type="button" onclick="fillMovies()">Fill Test</button>
-	<button type="button" onclick="loadHTML(4)">Add Movie</button>
+	<a onclick="showNewMovieForm()">Add Movie</a>
 	<table id="moviesTable">
 			<tr>
 				<th>Movie ID</th>

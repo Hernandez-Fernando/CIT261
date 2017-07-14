@@ -4,6 +4,8 @@ user:{username:"zzzzz", password:"99999"}};
 var movies = [];
 var customers = [];
 var settings = {company:"", rent:0, period:0, late:0, movieLast:100, customersLast:100};
+var moviesLast = movies.length + 99;
+var customersLast = customers.length + 99;
 
 
 function login() {
@@ -76,13 +78,16 @@ function clearApp() {
 
 
 //Customers Related
-//var customersLink = document.getElementById('customersLink');
-//customersLink.addEventListener('click', showCustomers, true);
 
 function showCustomers(){
 	loadHTML(1);
 	fillCustomers();
 	
+}
+
+function loadNewCustomerForm() {
+	loadHTML(2);
+	document.getElementById('cid').value = customersLast + 1;
 }
 
 function Customers(id, name, last, dob, phone, address, city, state, zcode) {
@@ -153,8 +158,8 @@ function fillCustomers() {
 
 function newCustomer() {
 		var temp = "";
-		document.getElementById('cid').value = settings.customersLast;
-		var id = document.getElementById('cid').value;
+		
+		var id = Math.parseInt(document.getElementById('cid').value);
 		var name = document.getElementById('name').value;
 		var last = document.getElementById('lname').value;
 		var dob = document.getElementById('dob').value;
@@ -164,25 +169,26 @@ function newCustomer() {
 		var state = document.getElementById('state').value;
 		var zcode = document.getElementById('zcode').value;
 		
-		/*
-		var id = 103;
-		var name = "Added";
-		var last = "Using Form";
-		var dob = "July 7, 2017";
-		var phone = "0987654321";
-		var address = "Address Test";
-		var city = "City S";
-		var state = "SA";
-		var zcode = "00000";
-		*/
 		temp = new Customers(id, name, last, dob, phone, address, city, state, zcode);
 	
 		customers.push(temp);
 		localStorage.setItem("customers", JSON.stringify(customers));
-		loadHTML(1);
+		settings.customersLast = id;
+		localStorage.setItem("settings", JSON.stringify(settings));
+		showCustomers();
 	}
 	
 //Movies Related
+function showMovies() {
+	loadHTML(3);
+	fillMovies();
+}
+
+function loadNewMovieForm() {
+	loadHTML(4);
+	document.getElementById('mid').value = moviesLast + 1;
+}
+
 function movie(id, name, gener, published, clasification, format, copies){
 	this.id = id;
 	this.name = name;
@@ -200,7 +206,7 @@ function movie(id, name, gener, published, clasification, format, copies){
 function newMovie() {
 		var temp = "";
 		
-		var id = document.getElementById('mid').value;
+		var id = Math.parseInt(document.getElementById('mid').value);
 		var name = document.getElementById('name').value;
 		var gener = document.getElementById('gener').value;
 		var yearP = document.getElementById('yearBox').value;
@@ -208,17 +214,6 @@ function newMovie() {
 		var format = checkSelection();
 		var copies = document.getElementById('copies').value;
 
-		
-		/*
-		var id = 103;
-		var name = "Jack & Jill";
-		var gener = "Comedy";
-		var published = "2012";
-		var clasification = "PG-13";
-		var format = "DVD";
-		var copies = "3";
-		*/
-		
 		function checkSelection() {
 			var dvdCheck = document.getElementById('dvd');
 				if (dvdCheck.selected) {
@@ -233,7 +228,9 @@ function newMovie() {
 	
 		movies.push(temp);
 		localStorage.setItem("movies", JSON.stringify(movies));
-		loadHTML(3);
+		settings.movieLast = id;
+		localStorage.setItem("settings", JSON.stringify(settings));
+		showMovies();
 	}
 	
 // Fill Movie Table
