@@ -3,7 +3,8 @@ var users = {admin:{username:"admin", password:"cit261"},
 user:{username:"zzzzz", password:"99999"}};
 var movies = [];
 var customers = [];
-var settings = {company:"Defaul Name", rent:0, period:0, late:0, movieLast:100, customersLast:100};
+var rented = [];
+var setting = {company:"Defaul Name", rent:0, period:0, late:0, movieLast:100, customersLast:100};
 var moviesLast = movies.length + 99;
 var customersLast = customers.length + 99;
 
@@ -40,7 +41,7 @@ function setUp() {
 		localStorage.setItem("movies", JSON.stringify(movies));
 		localStorage.setItem("customers", JSON.stringify(customers));
 		localStorage.setItem("rented", JSON.stringify(rented));
-		localStorage.setItem("settings", JSON.stringify(settings));
+		localStorage.setItem("setting", JSON.stringify(settings));
 		document.getElementById('signSection').style.display = 'none';
 		loadRequest();
 		
