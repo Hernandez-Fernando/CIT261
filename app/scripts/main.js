@@ -159,7 +159,7 @@ function fillCustomers() {
 function newCustomer() {
 		var temp = "";
 		
-		var id = Math.parseInt(document.getElementById('cid').value);
+		var id = parseInt(document.getElementById('cid').value);
 		var name = document.getElementById('name').value;
 		var last = document.getElementById('lname').value;
 		var dob = document.getElementById('dob').value;
@@ -206,7 +206,7 @@ function movie(id, name, gener, published, clasification, format, copies){
 function newMovie() {
 		var temp = "";
 		
-		var id = Math.parseInt(document.getElementById('mid').value);
+		var id = parseInt(document.getElementById('mid').value);
 		var name = document.getElementById('name').value;
 		var gener = document.getElementById('gener').value;
 		var yearP = document.getElementById('yearBox').value;
