@@ -6,13 +6,11 @@ var customers = [];
 var rented = [];
 var setting = {};
 var expired = [];
-var rent = 0;
-var period = 0;
-var late = 0;
+var rent, period, late;
 var today = new Date();
-
+//today.setDate(today.getDa());
 var returnDate = new Date();
-returnDate.setDate(returnDate.getDate() + period);
+
 
 
 
@@ -62,8 +60,10 @@ function loadData() {
 	rent = parseFloat(setting.rent);
 	period = parseFloat(setting.period);
 	late = parseFloat(setting.late);
+	returnDate.setDate(returnDate.getDate() + period);
 	loadExpired();
-	//fillExpiredMain();
+	rentedStatus();
+	
 }
 
 
@@ -537,6 +537,9 @@ function loadSettingsValues() {
 	document.getElementById('rentBox').value = setting.rent;
 	document.getElementById('periodBox').value = setting.period;
 	document.getElementById('lateBox').value = setting.late;
+	rent = parseInt(setting.rent);
+	period = parseInt(setting.period);
+	late = parseInt(setting.late);
 }
 
 function saveSettings() {
@@ -595,10 +598,6 @@ function showRenterInfo(cid) {
 				var cphone = customers[i].phone;
 				tempRenter = new CustomerRental(id, fullName, cphone);
 				document.getElementById('tomorrow').innerHTML = returnDate;
-			}
-			else {
-				alert('Customer ' + customers[i].id + ", " + fullName + " is Suspended or Canceled. The Customer has expired rentals.");
-				document.getElementById('idRental').value = "";
 			}
 	
 		}
@@ -669,7 +668,7 @@ function showMovieReturn(mid) {
 	}
 
 }
-
+/*
 //Pay and Record Rents
 function payRents() {
 	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
@@ -708,4 +707,27 @@ function recordRents() {
 		rented.push(tempRent);
 	}
 	
+}
+*/
+
+/* Evaluate Rented Status */
+
+function rentedStatus() {
+	for (var i = 0; i < rented.length; i++) {
+		if (today > rented[i].returnD) {
+			rented[i].status = "Expired";
+		}
+		else {
+			document.getElementById('test').innerHTML += rented[i].status;
+		}
+	}
+}
+
+function testDate() {
+	document.getElementById('test').innerHTML = today;
+	document.getElementById('test').innerHTML += '<br>' + returnDate;
+	period += 1;
+	document.getElementById('test').innerHTML += '<br>' + period;
+	
+
 }

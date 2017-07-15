@@ -3,7 +3,9 @@
 function adminVersion() {
 //Settings
 setting = {name:"FH Video", rent:"3", period:"1", late:"2"};
-
+rent = parseInt(setting.rent);
+period = parseInt(setting.period);
+late = parseInt(setting.late);
 
 //Customers
 customers[0] = {id:100, name:"Fernando", last:"Hernandez", dob:"Sep 26, 1993", phone:"123-456-7890", address:"1234 N Example", city:"Sample", state:"ETC", zcode:"85201", status:"Active"};
@@ -14,7 +16,7 @@ customers[4] = {id:104, name:"Kj", last:"Line", dob:"Oct 4, 1977", phone:"231-65
 
 //Movies
 movies[0] = {id:100, name:"In Time", gener:"Action", publish:"2008", clasification:"PG-13", format:"DVD", copies:1, rented:0, avalible:0};
-movies[1] = {id:101, name:"National Treasure", gener:"Adventure", publish:"2007", clasification:"G", format:"BR", copies:2, rented:0, avalible:2};
+movies[1] = {id:101, name:"National Treasure", gener:"Adventure", publish:"2007", clasification:"G", format:"BR", copies:2, rented:0, avalible:1};
 movies[2] = {id:102, name:"Fury", gener:"Fiction", publish:"2014", clasification:"R", format:"DVD", copies:3, rented:0, avalible:2};
 movies[3] = {id:103, name:"Jill", gener:"Fiction", publish:"2011", clasification:"PG-13", format:"DVD", copies:3, rented:0, avalible:0};
 movies[4] = {id:104, name:"Desprecia Me", gener:"Animated", publish:"2010", clasification:"A", format:"BR", copies:3, rented:0, avalible:1};
@@ -31,4 +33,6 @@ rented[6] = {mid:104, mname:"Desprecia Me", cid:104, cname:"Kj Line", cphone:"23
 
 //Expired
 loadExpired();
+rentedStatus();
+testDate();
 }
