@@ -462,7 +462,7 @@ function fillRented() {
 				}
 			    cell.innerHTML = text;
 			}
-		rowNumber += 1;
+		rowNumber += 1; 
 	}
 
 }
