@@ -1,5 +1,32 @@
 <section id="reportsSection">
 <h2>Reports</h2>
-<p>Page Under Construction</p>
+	<div id="rentedReport">
 	<h3 onclick="showRented()">Rented Movies</h3>
+	<table id="rentedTable">
+			<tr>
+				<th>Movie ID</th>
+				<th>Name</th>
+				<th>C-ID</th>
+				<th>Full Name</th>
+				<th>Phone</th>
+				<th>Return Date</th>
+				<th>Status</th>
+			</tr>
+			</table>
+	
+	</div>
+	<div id="expiredReport">
+	<h3>Expired Returns</h3>
+	<table id="expiredTable">
+			<tr>
+				<th>Movie ID</th>
+				<th>Name</th>
+				<th>C-ID</th>
+				<th>Full Name</th>
+				<th>Phone</th>
+				<th>Status</th>
+			</tr>
+	</table>
+	
+	</div>
 </section>

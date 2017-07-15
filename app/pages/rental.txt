@@ -10,6 +10,7 @@
 <h3>Renting Movies</h3>
 <input type="text" id="movieIdBox">
 <a onclick="addRental()">Add Rental</a>
+<br>
 <table id="moviesTable">
 			<tr>
 				<th>Movie ID</th>
@@ -22,14 +23,9 @@
 <p>Return Date: <span id="tomorrow"></span></p>
 
 <label>Total: <input type="text" id="totalBox" readonly"></label>
+<label>Paid <input type="text" id="paymentAmount" onkeyup="change()"></label>
+<label>Change <input type="text" id="change" readonly></label>
+<br>
 <a onclick="payRents()">Pay Now</a>
-
-<div id="payment">
-<label>Total <input type="text" id="total" readonly"></label>
-<label>Paid <input type="text" id="paymentAmount"></label>
-<label>Change <input type="text" id="change"></label>
-<a onclick="pay()">Pay</a>
-<a onclick="cancel()">Cancel</a>
-</div>
 
 </section>

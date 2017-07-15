@@ -392,17 +392,15 @@ function payRents() {
 		alert('Customer or Movie info is empty, please check the values and try again.');
 	}
 	else {
-		document.getElementById('total').value = total;
-		var payment = document.getElementById('payment');
-		payment.classList.toggle('downPayment');
+		recordRents();
+		loadHTML(0);
 	}
 }
 
-function pay() {
+function change() {
 	var paid = parseFloat(document.getElementById('paymentAmount').value);
 	var change = total - paid;
 	document.getElementById('change').value = change;
-	recordRents();
 }
 
 function Rents(cid, cname, mid, mname, cphone) {
@@ -425,6 +423,11 @@ function recordRents() {
 //Reports
 function showRented() {
 	loadHTML(9);
+	fillRented();
+}
+
+function showReports() {
+	loadHTML(10);
 	fillRented();
 }
 
