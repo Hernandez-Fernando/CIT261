@@ -1,16 +1,14 @@
 <section id="reportsSection">
-<h2>Reports</h2>
+<h2 class="headings">Reports</h2>
 	<div id="rentedReport">
-	<h3 onclick="showRented()">Rented Movies</h3>
+	<h3 onclick="fillRented()">Rented Movies</h3>
 	<table id="rentedTable">
 			<tr>
 				<th>Movie ID</th>
 				<th>Name</th>
 				<th>C-ID</th>
 				<th>Full Name</th>
-				<th>Phone</th>
 				<th>Return Date</th>
-				<th>Status</th>
 			</tr>
 			</table>
 	
@@ -21,9 +19,9 @@
 			<tr>
 				<th>Movie ID</th>
 				<th>Name</th>
-				<th>C-ID</th>
+				<th>C-Id</th>
 				<th>Full Name</th>
-				<th>Phone</th>
+				<th>Phone Number</th>
 				<th>Status</th>
 			</tr>
 	</table>

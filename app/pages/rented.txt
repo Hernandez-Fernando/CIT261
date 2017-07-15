@@ -1,17 +1,28 @@
-<section id="rentedSection">
-<a onclick="loadHTML(10)">Back to Reports</a>
+<section id="returnsSection">
+<h2>Return Rental</h2>
+
+<h3>Customer Info</h3>
+<label>Customer ID <input type="text" id="idRental" onkeyup="loadRentalsID()"></label>
+<label>Name <input type="text" id="fullNameBox" readonly></label>
+<label>Phone Number <input type="text" id="phoneRental" readonly></label>
+<label>Address <textarea id="fullAddress" cols="30" rows="4" readonly></textarea></label>
+
+<h3>Rented Movies</h3>
 <br>
-<h2>Rented Movies</h2>
-		<table id="rentedTable">
+<table id="moviesTable">
 			<tr>
 				<th>Movie ID</th>
 				<th>Name</th>
-				<th>C-ID</th>
-				<th>Full Name</th>
-				<th>Phone</th>
-				<th>Return Date</th>
-				<th>Status</th>
+				<th>Clasification</th>
+				<th>Format</th>
 			</tr>
-		</table>
+			
+</table>
+
+<label>Late Fee: <input type="text" id="totalBox" readonly"></label>
+<label>Paid <input type="text" id="paymentAmount" onkeyup="change()"></label>
+<label>Change <input type="text" id="change" readonly></label>
+<br>
+<a onclick="payReturns()">Return</a>
 
 </section>

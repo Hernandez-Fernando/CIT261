@@ -1,18 +1,25 @@
 <section id="homeSection">
 		<section id="controls">
 		<h1>Controls</h1>
-		<p>New Rental</p>
-		<p>Returns</p>
-		<p>Register Customer</p>
+		<h3 onclick="loadHTML(7)">New Rental</h3>
+		<h3 onclick="loadHTML(8)">Returns</h3>
+		<a class="left" onclick="loadNewCustomerForm()">Registrer Customer</a>
 		</section>
-		<section id="expired">
-		<h2 class="expired">Expired</h2>
+		<section id="expiredReport">
+			<h3>Expired Returns</h3>
 			
+	
 		</section>
 	
 		<section id="lastes">
 		<h2>New Movies</h2>
-		
+			<table id="newsTable">
+				<tr>
+					<th>Movie ID</th>
+					<th>Name</th>
+					<th>Gener</th>
+				</tr>
+				</table>
 		</section>
 		
 		<section id="top5">

@@ -5,11 +5,14 @@ var movies = [];
 var customers = [];
 var rented = [];
 var setting = {};
+var expired = [];
 var rent = 0;
+var period = 0;
+var late = 0;
 var today = new Date();
 
 var returnDate = new Date();
-returnDate.setDate(returnDate.getDate() + 1);
+returnDate.setDate(returnDate.getDate() + period);
 
 
 
@@ -48,16 +51,19 @@ function setUp() {
 		localStorage.setItem("setting", JSON.stringify(setting));
 		document.getElementById('signSection').style.display = 'none';
 		loadRequest();
-		parseFloat(setting.rent)
-		
+		loadData();
 }
 
 function loadData() {
 	movies = JSON.parse(localStorage.getItem('movies'));
 	customers = JSON.parse(localStorage.getItem('customers'));
 	rented = JSON.parse(localStorage.getItem('rented'));
-	settings = JSON.parse(localStorage.getItem('settings'));
-	
+	setting = JSON.parse(localStorage.getItem('setting'));
+	rent = parseFloat(setting.rent);
+	period = parseFloat(setting.period);
+	late = parseFloat(setting.late);
+	loadExpired();
+	//fillExpiredMain();
 }
 
 
@@ -167,8 +173,6 @@ function newCustomer() {
 	
 		customers.push(temp);
 		localStorage.setItem("customers", JSON.stringify(customers));
-		setting.customersLast = id;
-		localStorage.setItem("setting", JSON.stringify(setting));
 		showCustomers();
 	}
 	
@@ -222,8 +226,6 @@ function newMovie() {
 	
 		movies.push(temp);
 		localStorage.setItem("movies", JSON.stringify(movies));
-		setting.movieLast = id;
-		localStorage.setItem("setting", JSON.stringify(setting));
 		showMovies();
 	}
 	
@@ -279,16 +281,7 @@ function fillMovies() {
 
 var tempRenter = {};
 var tempMovieList = [];
-var total = 0;
-
-
-/*function rental(mid, name, cid, cname, returnD, status) {
-	this.mid = mid;
-	this.name = name;
-	this.cid = cname;
-	this.returnD = returnD;
-	this.status = status;
-}*/
+var total;
 
 //Load Customer Info
 function loadCustomerID() {
@@ -302,18 +295,20 @@ function loadCustomerID() {
 function showCustomerInfo(cid) {
 	for (var i = 0; i < customers.length; i++) {
 		if (customers[i].id == cid) {
+			var id = customers[i].id;
 			var fullName = customers[i].name + " " + customers[i].last;
 			if (customers[i].status == "Active") {
 				document.getElementById('fullNameBox').value = fullName;
 				document.getElementById('phoneRental').value = customers[i].phone;
 				var fullAddress = customers[i].address + ", " + customers[i].city + ", " + customers[i].state + " " + customers[i].zcode;
 				document.getElementById('fullAddress').value = fullAddress;
-				//index = 1;
-				tempRenter = new CustomerRental(customers[i].id, fullName, customers[i].phone);
+				//var cid = customers[i].id;
+				var cphone = customers[i].phone;
+				tempRenter = new CustomerRental(id, fullName, cphone);
 				document.getElementById('tomorrow').innerHTML = returnDate;
 			}
 			else {
-				alert('Customer ' + customers[i].id + ", " + fullName + " is Suspended or Canceled. See Customer Profile.");
+				alert('Customer ' + customers[i].id + ", " + fullName + " is Suspended or Canceled. The Customer has expired rentals.");
 				document.getElementById('idRental').value = "";
 			}
 	
@@ -368,7 +363,7 @@ function showMovieInfo(mid) {
 					td.appendChild(textNode);
 					row.appendChild(td);	
 				}
-				total += rent;
+				total = total + rent;
 				document.getElementById('totalBox').value = total;
 				var listTemp = {};
 				listTemp.id = movies[i].id;
@@ -386,7 +381,6 @@ function showMovieInfo(mid) {
 }
 
 //Pay and Record Rents
-var tempRent = {};
 function payRents() {
 	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
 		alert('Customer or Movie info is empty, please check the values and try again.');
@@ -403,20 +397,25 @@ function change() {
 	document.getElementById('change').value = change;
 }
 
-function Rents(cid, cname, mid, mname, cphone) {
+function Rents(mid, mname, cid, cname, cphone, returnD) {
 	this.mid = mid;
 	this.mname = mname;
 	this.cid = cid;
 	this.cname = cname;
 	this.cphone = cphone;
-	this.returnD = returnDate;
+	this.returnD = returnD;
 	this.status = "On Time";
 }
 function recordRents() {
 	
 	for (var i = 0; i < tempMovieList.length; i++) {
-		tempRent = new Rents(tempMovieList[i].id, tempMovieList[i].name, tempRenter.id, tempRenter.name, tempRenter.phone);
-		rented.push[tempRent];
+		var mid = tempMovieList[i].id;
+		var mname = tempMovieList[i].name;
+		var cid = tempRenter.id;
+		var cname = tempRenter.name;
+		var cphone = tempRenter.phone;
+		var tempRent = new Rents(mid, mname, cid, cname, cphone, returnDate);
+		rented.push(tempRent);
 	}
 }
 
@@ -429,6 +428,7 @@ function showRented() {
 function showReports() {
 	loadHTML(10);
 	fillRented();
+	fillExpired();
 }
 
 function fillRented() {
@@ -440,7 +440,7 @@ function fillRented() {
     for (var i = 0; i < rented.length; i++) {
 			row = table.insertRow(rowNumber);
 			
-		    for (var c = 0; c < 7; c++) {
+		    for (var c = 0; c < 5; c++) {
 				cell = row.insertCell(c);
 				
 				switch(c) {
@@ -457,13 +457,7 @@ function fillRented() {
 						text = rented[i].cname;
 						break;
 					case 4:
-						text = rented[i].cphone;
-						break;
-					case 5:
 						text = rented[i].returnD;
-						break;
-					case 6:
-						text = rented[i].status;
 						break;
 				}
 			    cell.innerHTML = text;
@@ -473,6 +467,64 @@ function fillRented() {
 
 }
 
+//Look for Expired
+function loadExpired() {
+	
+	for (var i = 0; i < rented.length; i++) {
+		if (rented[i].status == "Expired") {
+			var tempEx = new Expired(rented[i].mid, rented[i].mname, rented[i].cid, rented[i].cname, rented[i].cphone, rented[i].status);
+			expired.push(tempEx);
+		}
+	}
+}
+
+function Expired(mid, mname, cid, cname, cphone, status) {
+	this.mid = mid;
+	this.mname = mname;
+	this.cid = cid;
+	this.cname = cname;
+	this.cphone = cphone;
+	this.status = status;
+}
+
+function fillExpired() {
+	var table = document.getElementById("expiredTable");
+	var rowNumber = 1;
+	var cellNumber = 0;
+	var row, cell, text;
+	
+    for (var i = 0; i < expired.length; i++) {
+			row = table.insertRow(rowNumber);
+			
+		    for (var c = 0; c < 6; c++) {
+				cell = row.insertCell(c);
+				
+				switch(c) {
+					case 0:
+						text = expired[i].mid;
+						break;
+					case 1:
+						text = expired[i].mname;
+						break;
+					case 2:
+						text = expired[i].cid;
+						break;
+					case 3:
+						text = expired[i].cname;
+						break;
+					case 4:
+						text = expired[i].cphone;
+						break;
+					case 5:
+						text = expired[i].status;
+						break;
+				}
+			    cell.innerHTML = text;
+			}
+		rowNumber += 1;
+	}
+
+}
 
 // Settings
 function showSettings() {
@@ -511,4 +563,149 @@ function clearApp() {
 	localStorage.removeItem('setting');
 	localStorage.removeItem('users');
 	localStorage.removeItem('rented');
+}
+
+//Returns Codes
+var tempRenter = {};
+var tempMovieReturn = [];
+var returnTemp = [];
+
+//Load Customer Info
+function loadRentalsID() {
+	var box = document.getElementById('idRental');
+	if (box.value.length == 3) {
+		showRenterInfo(box.value);
+	}
+	
+}
+
+function showRenterInfo(cid) {
+	for (var i = 0; i < customers.length; i++) {
+		if (customers[i].id == cid) {
+			var id = cid;
+			var fullName = customers[i].name + " " + customers[i].last;
+			document.getElementById('fullNameBox').value = fullName;
+			document.getElementById('phoneRental').value = customers[i].phone;
+			var fullAddress = customers[i].address + ", " + customers[i].city + ", " + customers[i].state + " " + customers[i].zcode;
+			document.getElementById('fullAddress').value = fullAddress;
+			searchRental(id);
+			if (customers[i].status == "Active") {
+				
+				//var cid = customers[i].id;
+				var cphone = customers[i].phone;
+				tempRenter = new CustomerRental(id, fullName, cphone);
+				document.getElementById('tomorrow').innerHTML = returnDate;
+			}
+			else {
+				alert('Customer ' + customers[i].id + ", " + fullName + " is Suspended or Canceled. The Customer has expired rentals.");
+				document.getElementById('idRental').value = "";
+			}
+	
+		}
+
+	}
+
+}
+
+
+function CustomerRental(cid, fullName, phone) {
+	this.cid = cid;
+	this.name = fullName;
+	this.phone = phone;
+}
+
+//Load Movies Info
+function searchRental(cid) {
+	for (var i = 0; i < rented.length; i++) {
+		if (rented[i].cid == cid) {
+			var mid = rented[i].mid;
+			showMovieReturn(mid);
+		}
+	}
+}
+
+
+var index = 0;
+function showMovieReturn(mid) {
+	for (var i = 0; i < movies.length; i++) {
+		if (movies[i].id == mid) {
+			if (movies[i].avalible < movies[i].copies) {
+				var table = document.getElementById('moviesTable');
+				var row = document.createElement('tr');
+				table.appendChild(row);
+				for (var j = 0; j < 4; j++) {
+					var td = document.createElement('td');
+					var textNode = "";
+					switch (j) {
+						case 0:
+							textNode = document.createTextNode(movies[i].id);
+							break;
+						case 1:
+							textNode = document.createTextNode(movies[i].name);
+							break;
+						case 2:
+							textNode = document.createTextNode(movies[i].clasification);
+							break;
+						case 3:
+							textNode = document.createTextNode(movies[i].format);
+							break;
+						}
+					td.appendChild(textNode);
+					row.appendChild(td);	
+				}
+				//total += rent;
+				//document.getElementById('totalBox').value = total;
+				var listTemp = {};
+				returnTemp.id = movies[i].id;
+				listTemp.name = movies[i].name;
+				tempMovieReturn.push(listTemp);
+				//index += 1;
+			}
+			else {
+				alert("Movie " + movies[i].name + " is not avalible.");
+			}
+			break;
+		}
+	}
+
+}
+
+//Pay and Record Rents
+function payRents() {
+	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
+		alert('Customer or Movie info is empty, please check the values and try again.');
+	}
+	else {
+		recordRents();
+		loadHTML(0);
+	}
+}
+
+function change() {
+	var paid = parseFloat(document.getElementById('paymentAmount').value);
+	var change = total - paid;
+	document.getElementById('change').value = change;
+}
+
+function Rents(mid, mname, cid, cname, cphone, returnD) {
+	this.mid = mid;
+	this.mname = mname;
+	this.cid = cid;
+	this.cname = cname;
+	this.cphone = cphone;
+	this.returnD = returnD;
+	this.status = "On Time";
+}
+function recordRents() {
+	
+	for (var i = 0; i < tempMovieList.length; i++) {
+		var mid = tempMovieList[i].id;
+		var mname = tempMovieList[i].name;
+		var cid = tempRenter.id;
+		var cname = tempRenter.name;
+		var cphone = tempRenter.phone;
+		var tempRent = new Rents(mid, mname, cid, cname, cphone, returnDate);
+		rented.push(tempRent);
+	}
+	
 }

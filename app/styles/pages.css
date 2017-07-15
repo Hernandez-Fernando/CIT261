@@ -82,3 +82,17 @@ main input {
 }
 
 /* Reports Section */
+.headings {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+/* Rentals */
+#rentalSection {
+	font-size: 1.3em;
+}
+
+#tomorrow {
+	font-style: bold;
+	color: red;
+}
