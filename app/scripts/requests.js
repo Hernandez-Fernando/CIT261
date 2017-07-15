@@ -103,7 +103,6 @@ aboutrequest.onreadystatechange = function() {
 aboutrequest.open('GET', aboutURL, true);
 aboutrequest.send();
 
-}
 
 // Renting Page Request
 var rentrequest = new XMLHttpRequest();
@@ -119,8 +118,6 @@ rentrequest.onreadystatechange = function() {
 rentrequest.open('GET', rentURL, true);
 rentrequest.send();
 
-}
-
 // Returns Page Request
 var returnsrequest = new XMLHttpRequest();
 var returnsURL = 'pages/returns.txt';
@@ -135,8 +132,6 @@ returnsrequest.onreadystatechange = function() {
 returnsrequest.open('GET', returnsURL, true);
 returnsrequest.send();
 
-}
-
 // Rented Page Request
 var rentedrequest = new XMLHttpRequest();
 var rentedURL = 'pages/rented.txt';
@@ -150,8 +145,6 @@ rentedrequest.onreadystatechange = function() {
 
 rentedrequest.open('GET', rentedURL, true);
 rentedrequest.send();
-
-}
 
 // Reports Page Request
 var reportsrequest = new XMLHttpRequest();
