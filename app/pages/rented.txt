@@ -1,5 +1,16 @@
 <section id="rentedSection">
+<a onclick="loadHTML(10)">Back to Reports</a>
 <h2>Rented Movies</h2>
-<p>Page Under Construction</p>
+		<table id="rentedTable">
+			<tr>
+				<th>Movie ID</th>
+				<th>Name</th>
+				<th>C-ID</th>
+				<th>Full Name</th>
+				<th>Phone</th>
+				<th>Return Date</th>
+				<th>Status</th>
+			</tr>
+		</table>
 
 </section>

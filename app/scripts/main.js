@@ -4,8 +4,8 @@ user:{username:"zzzzz", password:"99999"}};
 var movies = [];
 var customers = [];
 var rented = [];
-var setting = {name:"Defaul Name", rent:0, period:0, late:0};
-var rent = parseFloat(setting.rent);
+var setting = {};
+var rent = 0;
 var today = new Date();
 
 var returnDate = new Date();
@@ -36,7 +36,7 @@ function login() {
 function setUp() {
 		users = {admin:{username:"admin", password:"cit261"},
 		user:{username:"", password:""}};
-		
+		var setting = {name:"Defaul Name", rent:0, period:0, late:0};
 		//Create User and Password
 		users.user.username = document.getElementById('userUp').value;
 		users.user.password = document.getElementById('passUp').value;
@@ -48,6 +48,7 @@ function setUp() {
 		localStorage.setItem("setting", JSON.stringify(setting));
 		document.getElementById('signSection').style.display = 'none';
 		loadRequest();
+		parseFloat(setting.rent)
 		
 }
 
@@ -276,18 +277,18 @@ function fillMovies() {
 //Rental Movies
 
 
-var tempCustomer;
+var tempRenter = {};
 var tempMovieList = [];
 var total = 0;
 
 
-function rental(mid, name, cid, cname, returnD, status) {
+/*function rental(mid, name, cid, cname, returnD, status) {
 	this.mid = mid;
 	this.name = name;
 	this.cid = cname;
 	this.returnD = returnD;
 	this.status = status;
-}
+}*/
 
 //Load Customer Info
 function loadCustomerID() {
@@ -308,11 +309,12 @@ function showCustomerInfo(cid) {
 				var fullAddress = customers[i].address + ", " + customers[i].city + ", " + customers[i].state + " " + customers[i].zcode;
 				document.getElementById('fullAddress').value = fullAddress;
 				//index = 1;
-				tempCustomer = new CustomerRental(fullName, customers[i].phone);
+				tempRenter = new CustomerRental(customers[i].id, fullName, customers[i].phone);
 				document.getElementById('tomorrow').innerHTML = returnDate;
 			}
 			else {
-				alert('Customer ' + customers[i].id + ", " + fullName + " is Suspended or Canceled. Review Customer Profile.");
+				alert('Customer ' + customers[i].id + ", " + fullName + " is Suspended or Canceled. See Customer Profile.");
+				document.getElementById('idRental').value = "";
 			}
 	
 		}
@@ -321,20 +323,11 @@ function showCustomerInfo(cid) {
 
 }
 
-function CustomerRental(fullName, phone) {
+function CustomerRental(id, fullName, phone) {
+	this.id = id;
 	this.name = fullName;
 	this.phone = phone;
 }
-
-function payNow() {
-	document.getElementById('total').value = total;
-	var payment = document.getElementById('payment');
-	payment.classList.toggle('downPayment');
-}
-
-}
-
-
 
 //Load Movies Info
 function addRental() {
@@ -347,15 +340,14 @@ function addRental() {
 }
 
 
-var index = 1;
+var index = 0;
 function showMovieInfo(mid) {
 	for (var i = 0; i < movies.length; i++) {
 		if (movies[i].id == mid) {
-			var table = document.getElementById('moviesTable');
-			var row = document.createElement('tr');
-			table.appendChild(row);
-			
 			if (movies[i].avalible > 0) {
+				var table = document.getElementById('moviesTable');
+				var row = document.createElement('tr');
+				table.appendChild(row);
 				for (var j = 0; j < 4; j++) {
 					var td = document.createElement('td');
 					var textNode = "";
@@ -378,6 +370,11 @@ function showMovieInfo(mid) {
 				}
 				total += rent;
 				document.getElementById('totalBox').value = total;
+				var listTemp = {};
+				listTemp.id = movies[i].id;
+				listTemp.name = movies[i].name;
+				tempMovieList.push(listTemp);
+				index += 1;
 			}
 			else {
 				alert("Movie " + movies[i].name + " is not avalible.");
@@ -388,10 +385,91 @@ function showMovieInfo(mid) {
 
 }
 
-function CustomerRental(fullName, phone) {
-	this.name = fullName;
-	this.phone = phone;
+//Pay and Record Rents
+var tempRent = {};
+function payRents() {
+	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
+		alert('Customer or Movie info is empty, please check the values and try again.');
+	}
+	else {
+		document.getElementById('total').value = total;
+		var payment = document.getElementById('payment');
+		payment.classList.toggle('downPayment');
+	}
 }
+
+function pay() {
+	var paid = parseFloat(document.getElementById('paymentAmount').value);
+	var change = total - paid;
+	document.getElementById('change').value = change;
+	recordRents();
+}
+
+function Rents(cid, cname, mid, mname, cphone) {
+	this.mid = mid;
+	this.mname = mname;
+	this.cid = cid;
+	this.cname = cname;
+	this.cphone = cphone;
+	this.returnD = returnDate;
+	this.status = "On Time";
+}
+function recordRents() {
+	
+	for (var i = 0; i < tempMovieList.length; i++) {
+		tempRent = new Rents(tempMovieList[i].id, tempMovieList[i].name, tempRenter.id, tempRenter.name, tempRenter.phone);
+		rented.push[tempRent];
+	}
+}
+
+//Reports
+function showRented() {
+	loadHTML(9);
+	fillRented();
+}
+
+function fillRented() {
+	var table = document.getElementById("rentedTable");
+	var rowNumber = 1;
+	var cellNumber = 0;
+	var row, cell, text;
+	
+    for (var i = 0; i < rented.length; i++) {
+			row = table.insertRow(rowNumber);
+			
+		    for (var c = 0; c < 7; c++) {
+				cell = row.insertCell(c);
+				
+				switch(c) {
+					case 0:
+						text = rented[i].mid;
+						break;
+					case 1:
+						text = rented[i].mname;
+						break;
+					case 2:
+						text = rented[i].cid;
+						break;
+					case 3:
+						text = rented[i].cname;
+						break;
+					case 4:
+						text = rented[i].cphone;
+						break;
+					case 5:
+						text = rented[i].returnD;
+						break;
+					case 6:
+						text = rented[i].status;
+						break;
+				}
+			    cell.innerHTML = text;
+			}
+		rowNumber += 1;
+	}
+
+}
+
 
 // Settings
 function showSettings() {

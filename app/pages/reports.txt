@@ -1,5 +1,5 @@
 <section id="reportsSection">
 <h2>Reports</h2>
 <p>Page Under Construction</p>
-
+	<h3 onclick="showRented()">Rented Movies</h3>
 </section>
