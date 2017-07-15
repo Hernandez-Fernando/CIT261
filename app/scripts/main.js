@@ -319,7 +319,7 @@ function showCustomerInfo(cid) {
 }
 
 function CustomerRental(id, fullName, phone) {
-	this.id = id;
+	this.cid = id;
 	this.name = fullName;
 	this.phone = phone;
 }
@@ -411,7 +411,7 @@ function recordRents() {
 	for (var i = 0; i < tempMovieList.length; i++) {
 		var mid = tempMovieList[i].id;
 		var mname = tempMovieList[i].name;
-		var cid = tempRenter.id;
+		var cid = tempRenter.cid;
 		var cname = tempRenter.name;
 		var cphone = tempRenter.phone;
 		var tempRent = new Rents(mid, mname, cid, cname, cphone, returnDate);
