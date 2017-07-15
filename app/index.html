@@ -53,12 +53,15 @@
 	<div id="signForm">
 	<img src="images/profile.png" alt="Profile Image">
 	<h2>Set Up</h2>
-	<p>This is the firs time you use this app on this device, set up your configuration to get started.</p>
+	<p>This is the firts time you use this app on this device, set your user and password to get started.</p>
 	<h3>Create a Username & Password</h3>
 	<label>Userame: <input type="text" id="userUp" pattern="[A-Za-z0-9]" min="5" required></label>
 	<label>Password: <input type="password" id="passUp" pattern="[A-Za-z0-9]" min="5" required></label>
 	<label><input type="checkbox" onchange="document.getElementById('passUp').type = this.checked ? 'text' : 'password'"> Show password</label>
 	<a id="getStarted" onclick="setUp()">Get Started</a>
+	
+	<p onclick="switchAcconts()">Admin Version</p>
+	<a onclick="#">Intro Video</a>
 	</div>
 </section>
 <script>
@@ -71,8 +74,11 @@ window.onload = function() {
 		document.getElementById('loginSection').style.display = 'none';
 		
 	}
-	
-	
+}
+
+function switchAcconts() {
+	document.getElementById('loginSection').style.display = 'block';
+	document.getElementById('signSection').style.display = 'none';
 }
 
 

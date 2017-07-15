@@ -2,7 +2,7 @@
 <h2>Registrer New Customer</h2>
 
 
-	<label>Customer ID: <input type="text" id="cid" pattern="[0-9]"></label>
+	<label>Customer ID: <input type="text" id="cid" pattern="[0-9]" readonly></label>
 	<label>Name: <input type="text" id="name" pattern="[A-Za-z]" min="5" required></label>
 	<label>Last Name: <input type="text" id="lname" pattern="[A-Za-z]" min="5" required></label>
 	<label>Day of Birth: <input type="date" id="dob" required></label>

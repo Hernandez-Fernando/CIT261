@@ -76,3 +76,15 @@ main input {
 	margin-bottom: 10px;
 	margin-right: 10px;
 }
+
+#payment {
+	width: 40%;
+	height: 40%;
+	position: abosolute;
+	transform: translateY(-100);
+	transition: all .5s linear;
+}
+
+.downPayment {
+	transform: translateY(0);
+}

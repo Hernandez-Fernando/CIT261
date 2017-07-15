@@ -40,7 +40,7 @@ var phoneNumber = document.getElementById('prefixBox').value;
 var prefix = phoneNumber.substring(0, 3);
 for (var i = 0; i < areaCodes.length; i++) {
 	if (areaCodes[i].code == prefix) {
-		document.getElementById('locationBox').value = areaCodes[i].state;
+		document.getElementById('fullNameBox').value = customers[i].name + " " + customers[i].last;
 		index = 1;
 		break;
 	}

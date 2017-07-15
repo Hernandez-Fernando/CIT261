@@ -4,9 +4,13 @@ user:{username:"zzzzz", password:"99999"}};
 var movies = [];
 var customers = [];
 var rented = [];
-var setting = {name:"Defaul Name", rent:0, period:0, late:0, movieLast:100, customersLast:100};
-var moviesLast = 0;
-var customersLast = 0;
+var setting = {name:"Defaul Name", rent:0, period:0, late:0};
+var rent = parseFloat(setting.rent);
+var today = new Date();
+
+var returnDate = new Date();
+returnDate.setDate(returnDate.getDate() + 1);
+
 
 
 function login() {
@@ -63,15 +67,7 @@ function slideNav() {
 	nav.classList.toggle('navDown');
 }
 
-// Restart App
 
-function clearApp() {
-	localStorage.removeItem('movies');
-	localStorage.removeItem('customers');
-	localStorage.removeItem('setting');
-	localStorage.removeItem('users');
-	localStorage.removeItem('rented');
-}
 
 //Customers Related
 
@@ -83,8 +79,7 @@ function showCustomers(){
 
 function loadNewCustomerForm() {
 	loadHTML(2);
-	customersLast = customers.length + 99;
-	document.getElementById('cid').value = customersLast + 1;
+	document.getElementById('cid').value = customers.length + 100;
 }
 
 function Customers(id, name, last, dob, phone, address, city, state, zcode) {
@@ -95,7 +90,8 @@ function Customers(id, name, last, dob, phone, address, city, state, zcode) {
 	this.phone = phone;
 	this.address = address;
 	this.city = city;
-	this.state = zcode;
+	this.state = state;
+	this.zcode = zcode;
 	this.status = "Active";
 }
 
@@ -183,8 +179,7 @@ function showMovies() {
 
 function loadNewMovieForm() {
 	loadHTML(4);
-	moviesLast = movies.length + 99;
-	document.getElementById('mid').value = moviesLast + 1;
+	document.getElementById('mid').value = movies.length + 100;
 }
 
 function movie(id, name, gener, published, clasification, format, copies){
@@ -256,7 +251,7 @@ function fillMovies() {
 						text = movies[i].gener;
 						break;
 					case 3:
-						text = movies[i].years;
+						text = movies[i].publish;
 						break;
 					case 4:
 						text = movies[i].clasification;
@@ -278,31 +273,161 @@ function fillMovies() {
 
 }
 
+//Rental Movies
+
+
+var tempCustomer;
+var tempMovieList = [];
+var total = 0;
+
+
+function rental(mid, name, cid, cname, returnD, status) {
+	this.mid = mid;
+	this.name = name;
+	this.cid = cname;
+	this.returnD = returnD;
+	this.status = status;
+}
+
+//Load Customer Info
+function loadCustomerID() {
+	var box = document.getElementById('idRental');
+	if (box.value.length == 3) {
+		showCustomerInfo(box.value);
+	}
+	
+}
+
+function showCustomerInfo(cid) {
+	for (var i = 0; i < customers.length; i++) {
+		if (customers[i].id == cid) {
+			var fullName = customers[i].name + " " + customers[i].last;
+			if (customers[i].status == "Active") {
+				document.getElementById('fullNameBox').value = fullName;
+				document.getElementById('phoneRental').value = customers[i].phone;
+				var fullAddress = customers[i].address + ", " + customers[i].city + ", " + customers[i].state + " " + customers[i].zcode;
+				document.getElementById('fullAddress').value = fullAddress;
+				//index = 1;
+				tempCustomer = new CustomerRental(fullName, customers[i].phone);
+				document.getElementById('tomorrow').innerHTML = returnDate;
+			}
+			else {
+				alert('Customer ' + customers[i].id + ", " + fullName + " is Suspended or Canceled. Review Customer Profile.");
+			}
+	
+		}
+
+	}
+
+}
+
+function CustomerRental(fullName, phone) {
+	this.name = fullName;
+	this.phone = phone;
+}
+
+function payNow() {
+	document.getElementById('total').value = total;
+	var payment = document.getElementById('payment');
+	payment.classList.toggle('downPayment');
+}
+
+}
+
+
+
+//Load Movies Info
+function addRental() {
+	var idBox = document.getElementById('movieIdBox');
+	if (idBox.value.length == 3) {
+		showMovieInfo(idBox.value);
+		document.getElementById('movieIdBox').value = "";
+	}
+	
+}
+
+
+var index = 1;
+function showMovieInfo(mid) {
+	for (var i = 0; i < movies.length; i++) {
+		if (movies[i].id == mid) {
+			var table = document.getElementById('moviesTable');
+			var row = document.createElement('tr');
+			table.appendChild(row);
+			
+			if (movies[i].avalible > 0) {
+				for (var j = 0; j < 4; j++) {
+					var td = document.createElement('td');
+					var textNode = "";
+					switch (j) {
+						case 0:
+							textNode = document.createTextNode(movies[i].id);
+							break;
+						case 1:
+							textNode = document.createTextNode(movies[i].name);
+							break;
+						case 2:
+							textNode = document.createTextNode(movies[i].clasification);
+							break;
+						case 3:
+							textNode = document.createTextNode(movies[i].format);
+							break;
+						}
+					td.appendChild(textNode);
+					row.appendChild(td);	
+				}
+				total += rent;
+				document.getElementById('totalBox').value = total;
+			}
+			else {
+				alert("Movie " + movies[i].name + " is not avalible.");
+			}
+			break;
+		}
+	}
+
+}
+
+function CustomerRental(fullName, phone) {
+	this.name = fullName;
+	this.phone = phone;
+}
+
 // Settings
 function showSettings() {
-loadHTML(5);
-loadSettingsValues();
+	loadHTML(5);
+	loadSettingsValues();
 }
 
 function loadSettingsValues() {
-document.getElementById('nameBox').value = setting.name;
-document.getElementById('rentBox').value = setting.rent;
-document.getElementById('periodBox').value = setting.period;
-document.getElementById('lateBox').value = setting.late;
+	document.getElementById('nameBox').value = setting.name;
+	document.getElementById('rentBox').value = setting.rent;
+	document.getElementById('periodBox').value = setting.period;
+	document.getElementById('lateBox').value = setting.late;
 }
 
 function saveSettings() {
-setting.name = document.getElementById('nameBox').value;
-setting.rent = document.getElementById('rentBox').value;
-setting.period = document.getElementById('periodBox').value;
-setting.late = document.getElementById('lateBox').value;
-document.getElementById('compName').innerHTML = setting.name;
-localStorage.setItem("setting", JSON.stringify(setting));
-loadSettingsValues();
+	setting.name = document.getElementById('nameBox').value;
+	setting.rent = document.getElementById('rentBox').value;
+	setting.period = document.getElementById('periodBox').value;
+	setting.late = document.getElementById('lateBox').value;
+	document.getElementById('compName').innerHTML = setting.name;
+	localStorage.setItem("setting", JSON.stringify(setting));
+	loadSettingsValues();
 }
 
 function updatePass() {
 	users.user.password = document.getElementById('newPassBox').value;
 	localStorage.setItem("users", JSON.stringify(users));
 	document.getElementById('newPassBox').value = "";
+}
+
+// Restart App
+
+function clearApp() {
+	localStorage.removeItem('movies');
+	localStorage.removeItem('customers');
+	localStorage.removeItem('setting');
+	localStorage.removeItem('users');
+	localStorage.removeItem('rented');
 }
