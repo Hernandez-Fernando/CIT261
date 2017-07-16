@@ -386,13 +386,16 @@ function payRents() {
 	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
 		alert('Customer or Movie info is empty, please check the values and try again.');
 	}
-	else if (paid > total) {
+	else {
+		if (paid > total) {
 		recordRents();
 		loadHTML(0);
 	}
-	else {
-		alert('Total No Paid in Full, review Payment');
+		else {
+			alert('Total No Paid in Full, review Payment');
+		}
 	}
+	
 }
 
 var paid = 0;
@@ -685,7 +688,6 @@ function recordReturns() {
 	for (var i = 0; i < rented.length; i++) {
 		index = i;
 			for (var j = 0; j < returnList.length; j++) {
-				document.getElementById('test').innerHTML += rented[index].mid;
 				if (rented[index].mid == returnList[j]) {
 					if (rented[index].cid == renterID) {
 						rented.splice(index, 1);
