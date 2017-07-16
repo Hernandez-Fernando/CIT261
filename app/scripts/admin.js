@@ -34,5 +34,4 @@ rented[6] = {mid:104, mname:"Desprecia Me", cid:104, cname:"Kj Line", cphone:"23
 //Expired
 loadExpired();
 rentedStatus();
-testDate();
 }
