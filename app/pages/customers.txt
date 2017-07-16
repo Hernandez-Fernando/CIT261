@@ -1,5 +1,5 @@
 <section id="customersPage">
-	<h2>Customers</h2> 
+	<h2 class="left">Customers</h2> 
 	<a class="left" onclick="loadNewCustomerForm()">Add Customer</a>
 	<table id="customersTable">
 			<tr>
