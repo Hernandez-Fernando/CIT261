@@ -629,7 +629,7 @@ var index = 0;
 function showMovieReturn(mid) {
 	for (var i = 0; i < movies.length; i++) {
 		if (movies[i].id == mid) {
-			if (movies[i].avalible < movies[i].copies) {
+			//if (movies[i].avalible < movies[i].copies) {
 				var table = document.getElementById('moviesTable');
 				var row = document.createElement('tr');
 				table.appendChild(row);
@@ -658,9 +658,9 @@ function showMovieReturn(mid) {
 				
 				//index += 1;
 			}
-			else {
+			/*else {
 				alert("Movie " + movies[i].name + " is not avalible.");
-			}
+			}*/
 			break;
 		}
 	}
@@ -738,5 +738,5 @@ function saveAndNew() {
 //Save and New Movie
 function saveAndNewMovie() {
 	newMovie();
-	showNewCustomerForm();
+	loadNewMovieForm()
 }

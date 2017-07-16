@@ -4,7 +4,7 @@
 		<a onclick="loadHTML(7)">New Rental</a>
 		<a onclick="loadHTML(8)">Returns</a>
 		<a class="left" onclick="loadNewCustomerForm()">Registrer Customer</a>
-		<a class="left" onclick="loadNewMovierForm()">Add New Movie</a>
+		<a class="left" onclick="loadNewMovieForm()">Add New Movie</a>
 		</section>
 		<section id="instructionsSection">
 		<h3>Intructions</h3>
