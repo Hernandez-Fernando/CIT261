@@ -1,28 +1,18 @@
 <section id="homeSection">
 		<section id="controls">
 		<h1>Controls</h1>
-		<h3 onclick="loadHTML(7)">New Rental</h3>
-		<h3 onclick="loadHTML(8)">Returns</h3>
+		<a onclick="loadHTML(7)">New Rental</a>
+		<a onclick="loadHTML(8)">Returns</a>
 		<a class="left" onclick="loadNewCustomerForm()">Registrer Customer</a>
 		</section>
-		<section id="expiredReport">
-			<h3>Expired Returns</h3>
-			
+		<section id="instructionsSection">
+		<h3>Intructions</h3>
+			<p>Welcome, may this is your first time using my app. Go to settings to change your company name, rent price, your rent period (how many days your customers can keep the movie without extra charge), and the late return fee. You also can change your password on this tap.</p>
+			<p>Add Your customers in by clicking the buttons to the left, or use the customers tab. You will add your movies in the same way. <strong>Note:</strong> All the data will be storaged localy, meaning that it won't be avalible in other device or even in a different browser in the same device.</p>
+			<p>You can add New rentals or Returns using the controls on the left side. Find a report with the rented movies under the report tab.</p>
+			<p>If you need to clear the app, use the the "Delete Data" on the Settings Page.</p>
+			<h3>Pre-Built Version</h3>
+			<p>You always can use the 'Pre-Built' Version, but remember your data could be remplaced with the version data.</p>
 	
-		</section>
-	
-		<section id="lastes">
-		<h2>New Movies</h2>
-			<table id="newsTable">
-				<tr>
-					<th>Movie ID</th>
-					<th>Name</th>
-					<th>Gener</th>
-				</tr>
-				</table>
-		</section>
-		
-		<section id="top5">
-		<h2>Most Rented</h2>
 		</section>
 </section>

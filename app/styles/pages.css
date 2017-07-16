@@ -22,7 +22,7 @@
 #homeSection {
 display: grid;
 grid-template-columns: 1fr 1fr;
-grid-template-rows: 300px 300px;
+grid-template-rows: 600px;
 margin: 0;
 padding: 15px;
 }

@@ -682,7 +682,7 @@ function payReturns() {
 function change() {
 	if (total != 0) {
 	var paid = parseFloat(document.getElementById('paymentAmount').value);
-	var due = paid- total;
+	var due = paid - total;
 	document.getElementById('change').value = due;
 	}
 
