@@ -10,6 +10,7 @@ var rent, period, late;
 var today = new Date();
 //today.setDate(today.getDa());
 var returnDate = new Date();
+var total = 0;
 
 
 
@@ -281,7 +282,7 @@ function fillMovies() {
 
 var tempRenter = {};
 var tempMovieList = [];
-var total;
+
 
 //Load Customer Info
 function loadCustomerID() {
@@ -385,16 +386,21 @@ function payRents() {
 	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
 		alert('Customer or Movie info is empty, please check the values and try again.');
 	}
-	else {
+	else if (paid > total) {
 		recordRents();
 		loadHTML(0);
 	}
+	else {
+		alert('Total No Paid in Full, review Payment');
+	}
 }
 
+var paid = 0;
+var back = 0;
 function change() {
-	var paid = parseFloat(document.getElementById('paymentAmount').value);
-	var change = total - paid;
-	document.getElementById('change').value = change;
+	paid = parseFloat(document.getElementById('paymentAmount').value);
+	back = paid - total;
+	document.getElementById('change').value = back;
 }
 
 function Rents(mid, mname, cid, cname, cphone, returnD) {
@@ -571,7 +577,8 @@ function clearApp() {
 //Returns Codes
 var tempRenter = {};
 var tempMovieReturn = [];
-var returnTemp = [];
+var returnList = [];
+var renterID;
 
 //Load Customer Info
 function loadRentalsID() {
@@ -592,25 +599,12 @@ function showRenterInfo(cid) {
 			var fullAddress = customers[i].address + ", " + customers[i].city + ", " + customers[i].state + " " + customers[i].zcode;
 			document.getElementById('fullAddress').value = fullAddress;
 			searchRental(id);
-			if (customers[i].status == "Active") {
-				
-				//var cid = customers[i].id;
-				var cphone = customers[i].phone;
-				tempRenter = new CustomerRental(id, fullName, cphone);
-				document.getElementById('tomorrow').innerHTML = returnDate;
-			}
+			renterID = id;
 	
 		}
 
 	}
 
-}
-
-
-function CustomerRental(cid, fullName, phone) {
-	this.cid = cid;
-	this.name = fullName;
-	this.phone = phone;
 }
 
 //Load Movies Info
@@ -619,6 +613,7 @@ function searchRental(cid) {
 		if (rented[i].cid == cid) {
 			var mid = rented[i].mid;
 			showMovieReturn(mid);
+			returnList.push(mid);
 		}
 	}
 }
@@ -652,12 +647,9 @@ function showMovieReturn(mid) {
 					td.appendChild(textNode);
 					row.appendChild(td);	
 				}
-				//total += rent;
+				//total = (late * lateDays);
 				//document.getElementById('totalBox').value = total;
-				var listTemp = {};
-				returnTemp.id = movies[i].id;
-				listTemp.name = movies[i].name;
-				tempMovieReturn.push(listTemp);
+				
 				//index += 1;
 			}
 			else {
@@ -668,47 +660,45 @@ function showMovieReturn(mid) {
 	}
 
 }
-/*
+
 //Pay and Record Rents
-function payRents() {
-	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
-		alert('Customer or Movie info is empty, please check the values and try again.');
+function payReturns() {
+	if (document.getElementById('idRental').value == "" || returnList.length == 0) {
+		alert('Customer info is empty or no rentals were found it.');
 	}
 	else {
-		recordRents();
+		recordReturns();
 		loadHTML(0);
 	}
 }
 
 function change() {
+	if (total != 0) {
 	var paid = parseFloat(document.getElementById('paymentAmount').value);
-	var change = total - paid;
-	document.getElementById('change').value = change;
-}
+	var due = paid- total;
+	document.getElementById('change').value = due;
+	}
 
-function Rents(mid, mname, cid, cname, cphone, returnD) {
-	this.mid = mid;
-	this.mname = mname;
-	this.cid = cid;
-	this.cname = cname;
-	this.cphone = cphone;
-	this.returnD = returnD;
-	this.status = "On Time";
 }
-function recordRents() {
-	
-	for (var i = 0; i < tempMovieList.length; i++) {
-		var mid = tempMovieList[i].id;
-		var mname = tempMovieList[i].name;
-		var cid = tempRenter.id;
-		var cname = tempRenter.name;
-		var cphone = tempRenter.phone;
-		var tempRent = new Rents(mid, mname, cid, cname, cphone, returnDate);
-		rented.push(tempRent);
+var index = 0;
+function recordReturns() {
+	for (var i = 0; i < rented.length; i++) {
+		index = i;
+			for (var j = 0; j < returnList.length; j++) {
+				document.getElementById('test').innerHTML += rented[index].mid;
+				if (rented[index].mid == returnList[j]) {
+					if (rented[index].cid == renterID) {
+						rented.splice(index, 1);
+						i--;
+					}
+				} 
+			}
+			
 	}
 	
+	
 }
-*/
+
 
 /* Evaluate Rented Status */
 

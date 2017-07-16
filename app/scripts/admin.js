@@ -22,13 +22,13 @@ movies[3] = {id:103, name:"Jill", gener:"Fiction", publish:"2011", clasification
 movies[4] = {id:104, name:"Desprecia Me", gener:"Animated", publish:"2010", clasification:"A", format:"BR", copies:3, rented:0, avalible:1};
 
 //Rented
-rented[0] = {mid:100, mname:"In Time", cid:100, cname:"Fernando Hernandez", cphone:"123-456-7890", returnD:"Jul 14, 2017", status:"Expired"};
-rented[1] = {mid:102, mname:"Fury", cid:100, cname:"Fernando Hernandez", cphone:"123-456-7890", returnD:"Jul 14, 2017", status:"Expired"};
-rented[2] = {mid:103, mname:"Jill", cid:100, cname:"Fernando Hernandez", cphone:"123-456-7890", returnD:"Jul 14, 2017", status:"Expired"};
-rented[3] = {mid:103, mname:"Jill", cid:103, cname:"John Name", cphone:"231-456-7890", returnD:"Jul 16, 2017", status:"On Time"};
-rented[4] = {mid:104, mname:"Desprecia Me", cid:103, cname:"John Name", cphone:"231-456-7890", returnD:"Jul 16, 2017", status:"On Time"};
-rented[5] = {mid:103, mname:"Jill", cid:104, cname:"Kj Line", cphone:"231-656-7890", returnD:"Jul 15, 2017", status:"On Time"};
-rented[6] = {mid:104, mname:"Desprecia Me", cid:104, cname:"Kj Line", cphone:"231-656-7890", returnD:"Jul 15, 2017", status:"On Time"};
+rented[0] = {mid:100, mname:"In Time", cid:100, cname:"Fernando Hernandez", cphone:"123-456-7890", returnD:"2017-07-14", status:"Expired"};
+rented[1] = {mid:102, mname:"Fury", cid:100, cname:"Fernando Hernandez", cphone:"123-456-7890", returnD:"2017-07-14", status:"Expired"};
+rented[2] = {mid:103, mname:"Jill", cid:100, cname:"Fernando Hernandez", cphone:"123-456-7890", returnD:"2017-07-14", status:"Expired"};
+rented[3] = {mid:103, mname:"Jill", cid:103, cname:"John Name", cphone:"231-456-7890", returnD:"2017-07-16", status:"On Time"};
+rented[4] = {mid:104, mname:"Desprecia Me", cid:103, cname:"John Name", cphone:"231-456-7890", returnD:"2017-07-16", status:"On Time"};
+rented[5] = {mid:103, mname:"Jill", cid:104, cname:"Kj Line", cphone:"231-656-7890", returnD:"2017-07-20", status:"On Time"};
+rented[6] = {mid:104, mname:"Desprecia Me", cid:104, cname:"Kj Line", cphone:"231-656-7890", returnD:"2017-07-20", status:"On Time"};
 
 
 //Expired
