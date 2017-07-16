@@ -42,16 +42,19 @@
 <div id="test"></div>
 <section id="loginSection">
 	<div id="loginForm">
+		<p><strong>Movie Rental Management System</strong></p>
 	<img src="images/profile.png" alt="Profile Image">
 	<h2>Welcome</h2>
 	<p id="errorM"></p>
 	<label>Userame: <input type="text" id="userBox" pattern="[A-Za-z0-9]" min="5" required></label>
 	<label>Password: <input type="password" id="passBox" pattern="[A-Za-z0-9]" min="5" required></label>
 	<a id="login" onclick="login()">Login</a>
+	<p>Fernando Hernandez - BYU-Idaho</p>
 	</div>
 </section>
 <section id="signSection">
 	<div id="signForm">
+		<p><strong>Movie Rental Management System</strong></p>
 	<img src="images/profile.png" alt="Profile Image">
 	<h2>Set Up</h2>
 	<p>This is the firts time you use this app on this device, set your user and password to get started.</p>
@@ -61,10 +64,16 @@
 	<label><input type="checkbox" onchange="document.getElementById('passUp').type = this.checked ? 'text' : 'password'"> Show password</label>
 	<a id="getStarted" onclick="setUp()">Get Started</a>
 	
-	<p onclick="#">Intro Video</p>
+	<h3 onclick="videoToggle()" class="button">Intro Video</h3>
 	<a onclick="switchAcconts()">Pre-Built Version</a>
+	<br>
+	<p>Fernando Hernandez - BYU-Idaho</p>
 	</div>
 </section>
+<section id="videoSection" class="videoPop video_hide_show">
+	<a onclick="videoToggle()">X</a>
+	<video src="media/introvideo.mp4" width="600" height="300" controls></video>
+<section>
 <script>
 window.onload = function() {
 	if (localStorage.getItem('users') != undefined) {
@@ -80,6 +89,11 @@ window.onload = function() {
 function switchAcconts() {
 	document.getElementById('loginSection').style.display = 'block';
 	document.getElementById('signSection').style.display = 'none';
+}
+
+function videoToggle() {
+	var video = document.getElementById('videoSection');
+	video.classList.toggle('video_hide_show');
 }
 
 
