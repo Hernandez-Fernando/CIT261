@@ -62,7 +62,6 @@ function loadData() {
 	period = parseFloat(setting.period);
 	late = parseFloat(setting.late);
 	returnDate.setDate(returnDate.getDate() + period);
-	loadExpired();
 	rentedStatus();
 	
 }
@@ -382,14 +381,23 @@ function showMovieInfo(mid) {
 }
 
 //Pay and Record Rents
+var back = 0;
+
+function change() {
+	var paid = parseFloat(document.getElementById('paymentAmount').value);
+	back = paid - total;
+	document.getElementById('change').value = back;
+}
+
 function payRents() {
 	if (document.getElementById('idRental').value == "" || tempMovieList.length == 0) {
 		alert('Customer or Movie info is empty, please check the values and try again.');
 	}
 	else {
-		if (paid > total) {
+		if (back >= 0) {
 		recordRents();
 		loadHTML(0);
+		total = 0;
 	}
 		else {
 			alert('Total No Paid in Full, review Payment');
@@ -398,23 +406,6 @@ function payRents() {
 	
 }
 
-var paid = 0;
-var back = 0;
-function change() {
-	paid = parseFloat(document.getElementById('paymentAmount').value);
-	back = paid - total;
-	document.getElementById('change').value = back;
-}
-
-function Rents(mid, mname, cid, cname, cphone, returnD) {
-	this.mid = mid;
-	this.mname = mname;
-	this.cid = cid;
-	this.cname = cname;
-	this.cphone = cphone;
-	this.returnD = returnD;
-	this.status = "On Time";
-}
 function recordRents() {
 	
 	for (var i = 0; i < tempMovieList.length; i++) {
@@ -428,6 +419,16 @@ function recordRents() {
 	}
 }
 
+function Rents(mid, mname, cid, cname, cphone, returnD) {
+	this.mid = mid;
+	this.mname = mname;
+	this.cid = cid;
+	this.cname = cname;
+	this.cphone = cphone;
+	this.returnD = returnD;
+	this.status = "On Time";
+}
+
 //Reports
 function showRented() {
 	loadHTML(9);
@@ -435,6 +436,7 @@ function showRented() {
 }
 
 function showReports() {
+	loadExpired();
 	loadHTML(10);
 	fillRented();
 	fillExpired();
@@ -478,7 +480,7 @@ function fillRented() {
 
 //Look for Expired
 function loadExpired() {
-	
+	expired = [];
 	for (var i = 0; i < rented.length; i++) {
 		if (rented[i].status == "Expired") {
 			var tempEx = new Expired(rented[i].mid, rented[i].mname, rented[i].cid, rented[i].cname, rented[i].cphone, rented[i].status);
@@ -672,6 +674,7 @@ function payReturns() {
 	else {
 		recordReturns();
 		loadHTML(0);
+		total = 0;
 	}
 }
 
