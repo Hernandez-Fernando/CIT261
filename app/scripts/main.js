@@ -732,7 +732,7 @@ function testDate() {
 
 function saveAndNew() {
 	newCustomer();
-	showNewCustomerForm();
+	loadNewCustomerForm()
 }
 
 //Save and New Movie
