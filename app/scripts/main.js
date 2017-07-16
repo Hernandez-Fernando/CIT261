@@ -661,8 +661,8 @@ function showMovieReturn(mid) {
 			/*else {
 				alert("Movie " + movies[i].name + " is not avalible.");
 			}*/
-			break;
-		}
+			//break;
+		
 	}
 
 }
