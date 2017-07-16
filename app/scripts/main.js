@@ -398,6 +398,7 @@ function payRents() {
 		recordRents();
 		loadHTML(0);
 		total = 0;
+		localStorage.setItem("rented", JSON.stringify(rented));
 	}
 		else {
 			alert('Total No Paid in Full, review Payment');
