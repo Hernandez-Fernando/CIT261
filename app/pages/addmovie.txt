@@ -8,7 +8,8 @@
 	<label>Clasification: <input type="text" id="clasification" pattern="[A-Za-z0-9]" required></label>
 	<label>Format: <input type="radio" name="format" id="dvd"> DVD <input type="radio" name="format" id="br"> Blue-Ray</label>
 	<label>Copies: <input type="text" id="copies" pattern="[A-Za-z]{2}" required></label>
+	<br>
 	<a onclick="newMovie()">Save</a>
-	<a id="sam">Save and New</a>
-	<a id="cancelB">Cancel</a>
+	<a onclick="saveAndNewMovie()">Save and New</a>
+	<a onclick="showMovies()">Cancel</a>
 </section>

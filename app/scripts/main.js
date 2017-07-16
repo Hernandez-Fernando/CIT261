@@ -727,3 +727,16 @@ function testDate() {
 	
 
 }
+
+// Save and New Customer
+
+function saveAndNew() {
+	newCustomer();
+	showNewCustomerForm();
+}
+
+//Save and New Movie
+function saveAndNewMovie() {
+	newMovie();
+	showNewCustomerForm();
+}
