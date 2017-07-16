@@ -695,7 +695,8 @@ function recordReturns() {
 					}
 				} 
 			}
-			
+		loadHTML(0);
+		total = 0;	
 	}
 	
 	
