@@ -9,8 +9,8 @@
 <label>Address <textarea id="fullAddress" cols="30" rows="4" readonly></textarea></label>
 </div>
 <h3>Renting Movies</h3>
-<input type="text" id="movieIdBox">
-<a onclick="addRental()">Add Rental</a>
+<input class="left" type="text" id="movieIdBox">
+<a class="left" onclick="addRental()">Add Rental</a>
 <br>
 <table id="moviesTable">
 			<tr>

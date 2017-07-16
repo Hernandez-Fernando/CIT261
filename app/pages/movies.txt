@@ -1,5 +1,5 @@
 <section id="movieListSection">
-	<h2>Movies Catalog</h2>
+	<h2 class="left">Movies Catalog</h2>
 	<a class="left" onclick="loadNewMovieForm()">Add Movie</a>
 	<table id="moviesTable">
 			<tr>

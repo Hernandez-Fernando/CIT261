@@ -4,7 +4,7 @@
 	<label>Rent Price: <input type="text" id="rentBox"> USD</label>
 	<label>Period: <input type="text" id="periodBox"> day(s)</label>
 	<label>Late Fee: <input type="text" id="lateBox"> USD per period.</label>
-	<a onclick="saveSettings()">Save Changes</a>
+	<a class="left" onclick="saveSettings()">Save Changes</a>
 	
 	<h3>User Password</h3>
 	<label>Company Name: <input type="text" id="newPassBox"></label>
