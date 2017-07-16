@@ -62,7 +62,7 @@ function loadData() {
 	period = parseFloat(setting.period);
 	late = parseFloat(setting.late);
 	returnDate.setDate(returnDate.getDate() + period);
-	rentedStatus();
+	//rentedStatus();
 	
 }
 
@@ -697,8 +697,10 @@ function recordReturns() {
 			}
 		loadHTML(0);
 		total = 0;	
+		
 	}
-	
+	localStorage.setItem("rented", JSON.stringify(rented));
+	rented = JSON.parse(localStorage.getItem('rented'));
 	
 }
 
