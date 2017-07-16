@@ -703,7 +703,7 @@ function recordReturns() {
 
 
 /* Evaluate Rented Status */
-
+/*
 function rentedStatus() {
 	for (var i = 0; i < rented.length; i++) {
 		if (today > rented[i].returnD) {
@@ -722,7 +722,7 @@ function testDate() {
 	document.getElementById('test').innerHTML += '<br>' + period;
 	
 
-}
+} */
 
 // Save and New Customer
 
