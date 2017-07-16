@@ -697,10 +697,10 @@ function recordReturns() {
 			}
 		loadHTML(0);
 		total = 0;	
-		
+		localStorage.setItem("rented", JSON.stringify(rented));
+		rented = JSON.parse(localStorage.getItem('rented'));
 	}
-	localStorage.setItem("rented", JSON.stringify(rented));
-	rented = JSON.parse(localStorage.getItem('rented'));
+	
 	
 }
 

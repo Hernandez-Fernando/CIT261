@@ -7,7 +7,7 @@
 	<a class="left" onclick="saveSettings()">Save Changes</a>
 	
 	<h3>User Password</h3>
-	<label>Company Name: <input type="text" id="newPassBox"></label>
+	<label>New Password: <input type="text" id="newPassBox"></label>
 	<a onclick="updatePass()">Update Pass</a>
 	
 	<h3>Management Data</h3>
