@@ -658,11 +658,7 @@ function showMovieReturn(mid) {
 				
 				//index += 1;
 			}
-			/*else {
-				alert("Movie " + movies[i].name + " is not avalible.");
-			}*/
 			//break;
-		
 	}
 
 }
